@@ -1,12 +1,16 @@
-# AcadPulse 🎓
+# AcadPulse ⚡
 ### Student Ranking and Academic Performance Analyser
-**Advanced Data Structures Comprehensive Course Project**
+**Advanced Data Structures Comprehensive Project**
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel%20Production-success?logo=vercel)](https://acadpulse-analyser.vercel.app)
 [![Core Engine](https://img.shields.io/badge/Engine-Zero--Dependencies-00599C)](engine/)
 [![Syllabus Coverage](https://img.shields.io/badge/Syllabus%20Coverage-100%25%20(40%2F40)-success)](docs/SYLLABUS_COVERAGE.md)
 [![Flask](https://img.shields.io/badge/Flask-3.0.3-black?logo=flask)](backend/)
 [![Apple Glass UI](https://img.shields.io/badge/UI-Apple%20Glass%20%2B%20Cockpit-8b5cf6)](frontend/)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?logo=bootstrap)](frontend/)
+
+> 🌐 **Live Web Application**: [https://acadpulse-analyser.vercel.app](https://acadpulse-analyser.vercel.app)  
+> ⚡ **Architecture**: Native Core DSA Engine + Python Flask REST Middleware + Apple Glass Cyberpunk Cockpit UI
 
 ---
 
