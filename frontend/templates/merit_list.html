@@ -1,0 +1,383 @@
+{% extends "base.html" %}
+{% block title %}Merit Leaderboard & Gamecards | AcadPulse{% endblock %}
+
+{% block content %}
+<!-- Apple Glass Heading -->
+<div class="apple-glass-heading glass-hover p-4 mb-4 reveal-on-scroll">
+  <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+    <div>
+      <div class="d-flex align-items-center gap-2 mb-1">
+        <span class="badge px-3 py-1 font-monospace" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4);">
+          <i class="bi bi-trophy-fill me-1"></i> INSTITUTIONAL LEADERBOARD
+        </span>
+        <span class="small font-monospace text-muted">CORE SORTING ENGINE</span>
+      </div>
+      <h2 class="fw-bold mb-1 text-white">Merit List &amp; Candidate Gamecards</h2>
+      <p class="mb-0 small text-muted">Generate dynamic rankings, switch evaluation tracks, and inspect student gamecards in real-time.</p>
+    </div>
+    <div class="d-flex gap-2 align-items-center">
+      <!-- View Mode Switcher -->
+      <div class="btn-group p-1 rounded-pill" style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12);">
+        <button class="btn btn-sm text-white px-3 py-1 rounded-pill active" id="viewCardsBtn">
+          <i class="bi bi-grid-fill me-1 text-warning"></i> Gamecards
+        </button>
+        <button class="btn btn-sm text-muted px-3 py-1 rounded-pill" id="viewTableBtn">
+          <i class="bi bi-table me-1"></i> Data Table
+        </button>
+      </div>
+      <button class="btn btn-outline-light btn-sm" onclick="window.print()">
+        <i class="bi bi-printer me-1"></i> Print
+      </button>
+      <a href="/api/students/export-csv" class="btn btn-primary btn-sm">
+        <i class="bi bi-download me-1"></i> Export CSV
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Evaluation Track & Stack Formula Console -->
+<div class="card p-3 mb-4 glass-hover reveal-on-scroll delay-1">
+  <div class="row g-3">
+    <!-- Presets -->
+    <div class="col-lg-5 border-end border-secondary border-opacity-25">
+      <label class="form-label small fw-bold text-white mb-2"><i class="bi bi-sliders me-1 text-primary"></i>Evaluation Criteria Track</label>
+      <div class="d-flex flex-column gap-2">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="criteriaTrack" id="track1" value="(MSE * 0.3) + (ESE * 0.5) + (LAB * 0.2)" checked>
+          <label class="form-check-label small text-white" for="track1">
+            <strong>Track 1 (Institutional Standard)</strong>: 30% MSE + 50% ESE + 20% Lab
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="criteriaTrack" id="track2" value="(MSE * 0.2) + (ESE * 0.3) + (LAB * 0.25) + (PROJ * 0.25)">
+          <label class="form-check-label small text-white" for="track2">
+            <strong>Track 2 (Project &amp; Lab Heavy)</strong>: 20% MSE + 30% ESE + 25% Lab + 25% Proj
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="criteriaTrack" id="track3" value="(MSE * 0.4) + (ESE * 0.6)">
+          <label class="form-check-label small text-white" for="track3">
+            <strong>Track 3 (Theory Centric)</strong>: 40% MSE + 60% ESE
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formula Input -->
+    <div class="col-lg-4 border-end border-secondary border-opacity-25">
+      <label class="form-label small fw-bold text-white mb-2"><i class="bi bi-stack me-1 text-info"></i>Custom Infix Stack Formula</label>
+      <div class="input-group input-group-sm mb-2">
+        <input type="text" id="customFormula" class="form-control font-monospace" value="(MSE * 0.3) + (ESE * 0.5) + (LAB * 0.2)">
+        <button class="btn btn-primary" id="applyFormulaBtn">Apply</button>
+      </div>
+      <div class="small text-muted font-monospace">
+        <span>Postfix RPN:</span>
+        <span id="postfixPreview" class="complexity-tag ms-1">MSE 0.3 * ESE 0.5 * + LAB 0.2 * +</span>
+      </div>
+    </div>
+
+    <!-- Algorithm & Filter -->
+    <div class="col-lg-3">
+      <label class="form-label small fw-bold text-white mb-2"><i class="bi bi-cpu me-1 text-warning"></i>Sorting Engine</label>
+      <select id="algoSelect" class="form-select form-select-sm mb-2">
+        <option value="heapsort" selected>In-Place Heapsort (Unit 5)</option>
+        <option value="quicksort">Quick Sort Median-of-3 (Unit 1)</option>
+        <option value="mergesort">Merge Sort Divide &amp; Conquer (Unit 1)</option>
+      </select>
+      <select id="topKSelect" class="form-select form-select-sm">
+        <option value="ALL">Show All Cadets</option>
+        <option value="3">Top 3 Apex Podium</option>
+        <option value="6">Top 6 Scholars</option>
+        <option value="10">Top 10 Percentile</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- Telemetry Summary Ribbon -->
+<div class="row g-3 mb-4">
+  <div class="col-md-4 reveal-on-scroll delay-1">
+    <div class="stat-card p-3 glass-hover">
+      <div class="stat-label">Rank #1 Apex Scholar</div>
+      <div class="h4 fw-bold text-white mb-0 mt-1" id="goldMedalistName">–</div>
+      <div class="small text-muted font-monospace" id="goldMedalistScore">–</div>
+    </div>
+  </div>
+  <div class="col-md-4 reveal-on-scroll delay-2">
+    <div class="stat-card border-success p-3 glass-hover">
+      <div class="stat-label">Score Spread (High &mdash; Low)</div>
+      <div class="h4 fw-bold mb-0 mt-1" style="color: #34d399;" id="scoreRange">–</div>
+      <div class="small text-muted font-monospace">Percentile Range 100% &mdash; 0%</div>
+    </div>
+  </div>
+  <div class="col-md-4 reveal-on-scroll delay-3">
+    <div class="stat-card border-warning p-3 glass-hover">
+      <div class="stat-label">Big-O Execution Telemetry</div>
+      <div class="h4 fw-bold mb-0 mt-1" style="color: #fbbf24;" id="complexityLabel">O(N log N)</div>
+      <div class="small text-muted font-monospace" id="algoMetrics">High-Speed Engine</div>
+    </div>
+  </div>
+</div>
+
+<!-- VIEW 1: GAMECARD ROSTER VIEW (DEFAULT) -->
+<div id="gamecardRosterContainer" class="mb-4 reveal-on-scroll">
+  <div class="game-card-grid" id="fullGamecardGrid">
+    <div class="p-4 text-center text-muted col-12">Generating candidate gamecards with Core Engine...</div>
+  </div>
+</div>
+
+<!-- VIEW 2: SCROLLABLE COCKPIT DATA TABLE VIEW -->
+<div id="dataTableContainer" class="card p-0 d-none glass-hover mb-4 reveal-on-scroll">
+  <div class="card-header py-3 d-flex justify-content-between align-items-center">
+    <h6 class="fw-bold mb-0 text-white"><i class="bi bi-list-ol me-2 text-primary"></i>Ranked Cadets Ledger</h6>
+    <span class="badge px-3 py-1 font-monospace" style="background: rgba(139, 92, 246, 0.2); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.4);">
+      Cockpit Scroll Active
+    </span>
+  </div>
+  <div class="cockpit-scroll" style="max-height: 480px;">
+    <table class="table table-hover align-middle mb-0" id="meritTable">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>PRN</th>
+          <th>Cadet Name</th>
+          <th>Division</th>
+          <th>MSE (30)</th>
+          <th>ESE (50)</th>
+          <th>Lab (20)</th>
+          <th>Overall Score</th>
+          <th>SGPA</th>
+          <th>Percentile</th>
+          <th>Standing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="11" class="text-center py-4 text-muted">Computing merit rankings...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+let currentRankedList = [];
+
+async function generateMerit() {
+  const formula = document.getElementById('customFormula').value;
+  const algorithm = document.getElementById('algoSelect').value;
+
+  const res = await apiFetch('/api/ranking/generate', {
+    method: 'POST',
+    body: JSON.stringify({
+      subject: 'DS',
+      formula: formula,
+      algorithm: algorithm
+    })
+  });
+
+  if (res.status === 'success') {
+    const { ranked_students, algorithm: algoInfo } = res.data;
+    currentRankedList = ranked_students;
+    document.getElementById('complexityLabel').textContent = algoInfo.complexity;
+    document.getElementById('algoMetrics').textContent = `${algoInfo.name} • ${algoInfo.passes} passes`;
+
+    renderMeritViews();
+  }
+}
+
+function renderMeritViews() {
+  const topK = document.getElementById('topKSelect').value;
+  let list = currentRankedList;
+  if (topK !== 'ALL') {
+    list = list.slice(0, parseInt(topK));
+  }
+
+  if (list.length === 0) return;
+
+  const topper = currentRankedList[0];
+  const lowest = currentRankedList[currentRankedList.length - 1];
+  document.getElementById('goldMedalistName').textContent = topper.name;
+  document.getElementById('goldMedalistScore').textContent = `${topper.composite_score}% • SGPA ${topper.sgpa} • PRN ${topper.prn}`;
+  document.getElementById('scoreRange').textContent = `${topper.composite_score}% – ${lowest.composite_score}%`;
+
+  // 1. Render Gamecard Grid
+  const cardGrid = document.getElementById('fullGamecardGrid');
+  cardGrid.innerHTML = list.map((s, idx) => {
+    let tierClass = s.rank === 1 ? 'game-card-apex' : (s.rank === 2 ? 'game-card-diamond' : (s.rank === 3 ? 'game-card-epic' : ''));
+    let badgeClass = s.rank === 1 ? 'badge-gold' : (s.rank === 2 ? 'badge-silver' : (s.rank === 3 ? 'badge-bronze' : 'bg-secondary text-white'));
+    let fillClass = s.rank === 1 ? 'fill-gold' : (s.rank === 2 ? 'fill-cyan' : (s.composite_score < 40 ? 'fill-danger' : ''));
+    let delayMod = (idx % 4) + 1;
+    let delayClass = `delay-${delayMod}`;
+
+    return `
+      <div class="game-card ${tierClass} reveal-on-scroll ${delayClass}">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <div class="d-flex align-items-center gap-2">
+            <div class="game-avatar">${s.name.charAt(0)}</div>
+            <div>
+              <h6 class="fw-bold mb-0 text-white">${s.name}</h6>
+              <div class="font-monospace small text-muted">PRN: ${s.prn}</div>
+            </div>
+          </div>
+          <span class="badge ${badgeClass} font-monospace px-2 py-1">
+            #${s.rank}
+          </span>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center p-2 rounded mb-2" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+          <div>
+            <div class="small text-muted font-monospace">SCORE</div>
+            <div class="fs-5 fw-bold text-white">${s.composite_score}%</div>
+          </div>
+          <div class="text-center">
+            <div class="small text-muted font-monospace">PERCENTILE</div>
+            <div class="fw-bold text-info">${s.percentile}%</div>
+          </div>
+          <div class="text-end">
+            <div class="small text-muted font-monospace">SGPA</div>
+            <span class="badge px-2 py-1 fw-bold" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);">
+              ${s.sgpa}
+            </span>
+          </div>
+        </div>
+
+        <!-- Power Meters -->
+        <div class="mb-2">
+          <div class="d-flex justify-content-between small font-monospace mb-1" style="color: #94a3b8;">
+            <span>MSE (30)</span>
+            <span class="text-white">${s.mse}</span>
+          </div>
+          <div class="stat-meter-track">
+            <div class="stat-meter-fill ${fillClass}" style="width: ${(s.mse / 30) * 100}%"></div>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <div class="d-flex justify-content-between small font-monospace mb-1" style="color: #94a3b8;">
+            <span>ESE (50)</span>
+            <span class="text-white">${s.ese}</span>
+          </div>
+          <div class="stat-meter-track">
+            <div class="stat-meter-fill ${fillClass}" style="width: ${(s.ese / 50) * 100}%"></div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary border-opacity-25 mt-2">
+          <span class="badge bg-secondary bg-opacity-25 border border-secondary border-opacity-50 text-white font-monospace">Div ${s.division} &bull; ${s.batch || 'A1'}</span>
+          <span class="badge font-monospace ${s.badge_color === 'gold' ? 'badge-gold' : (s.badge_color === 'danger' ? 'bg-danger text-white' : 'bg-success bg-opacity-25 text-success border border-success')}">
+            ${s.badge}
+          </span>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  if (typeof initScrollReveal === 'function') {
+    initScrollReveal(cardGrid);
+  }
+
+  // Re-attach dynamic mouse specular reflection to the newly created gamecards
+  document.querySelectorAll('.game-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+      card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+    });
+  });
+
+  // 2. Render Data Table
+  const tbody = document.querySelector('#meritTable tbody');
+  tbody.innerHTML = list.map(s => {
+    let rankBadge = `<span class="badge bg-secondary font-monospace">#${s.rank}</span>`;
+    if (s.rank === 1) rankBadge = `<span class="badge badge-gold font-monospace"><i class="bi bi-award-fill"></i> #1</span>`;
+    else if (s.rank === 2) rankBadge = `<span class="badge badge-silver font-monospace">#2</span>`;
+    else if (s.rank === 3) rankBadge = `<span class="badge badge-bronze font-monospace">#3</span>`;
+
+    return `
+      <tr>
+        <td>${rankBadge}</td>
+        <td><code class="font-monospace text-info">${s.prn}</code></td>
+        <td>
+          <div class="d-flex align-items-center">
+            <span class="avatar-circle me-2">${s.name.charAt(0)}</span>
+            <span class="fw-bold text-white">${s.name}</span>
+          </div>
+        </td>
+        <td><span class="badge border border-secondary text-secondary">Div ${s.division}</span></td>
+        <td>${s.mse}</td>
+        <td>${s.ese}</td>
+        <td>${s.lab}</td>
+        <td><strong class="text-white">${s.composite_score}%</strong></td>
+        <td><span class="badge bg-success bg-opacity-25 text-success border border-success">${s.sgpa}</span></td>
+        <td><strong>${s.percentile}%</strong></td>
+        <td>
+          <span class="badge font-monospace ${s.badge_color === 'gold' ? 'badge-gold' : (s.badge_color === 'danger' ? 'bg-danger text-white' : 'bg-success bg-opacity-25 text-success border border-success')}">
+            ${s.badge}
+          </span>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+// Switch between Gamecards View and Table View
+const viewCardsBtn = document.getElementById('viewCardsBtn');
+const viewTableBtn = document.getElementById('viewTableBtn');
+const cardsContainer = document.getElementById('gamecardRosterContainer');
+const tableContainer = document.getElementById('dataTableContainer');
+
+viewCardsBtn.addEventListener('click', () => {
+  viewCardsBtn.classList.add('active', 'text-white');
+  viewCardsBtn.classList.remove('text-muted');
+  viewTableBtn.classList.remove('active', 'text-white');
+  viewTableBtn.classList.add('text-muted');
+
+  cardsContainer.classList.remove('d-none');
+  tableContainer.classList.add('d-none');
+});
+
+viewTableBtn.addEventListener('click', () => {
+  viewTableBtn.classList.add('active', 'text-white');
+  viewTableBtn.classList.remove('text-muted');
+  viewCardsBtn.classList.remove('active', 'text-white');
+  viewCardsBtn.classList.add('text-muted');
+
+  tableContainer.classList.remove('d-none');
+  cardsContainer.classList.add('d-none');
+});
+
+// Track Switcher
+document.querySelectorAll('input[name="criteriaTrack"]').forEach(radio => {
+  radio.addEventListener('change', (e) => {
+    document.getElementById('customFormula').value = e.target.value;
+    updatePostfixPreview(e.target.value);
+    generateMerit();
+  });
+});
+
+async function updatePostfixPreview(formula) {
+  const res = await apiFetch('/api/ranking/formula-eval', {
+    method: 'POST',
+    body: JSON.stringify({ formula, mse: 30, ese: 50, lab: 20, proj: 20 })
+  });
+  if (res.status === 'success' && res.postfix) {
+    document.getElementById('postfixPreview').textContent = res.postfix;
+  }
+}
+
+document.getElementById('applyFormulaBtn').addEventListener('click', () => {
+  const formula = document.getElementById('customFormula').value;
+  updatePostfixPreview(formula);
+  generateMerit();
+});
+
+document.getElementById('algoSelect').addEventListener('change', generateMerit);
+document.getElementById('topKSelect').addEventListener('change', renderMeritViews);
+
+document.addEventListener('DOMContentLoaded', () => {
+  generateMerit();
+  updatePostfixPreview(document.getElementById('customFormula').value);
+});
+</script>
+{% endblock %}

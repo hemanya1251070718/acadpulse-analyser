@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+{% block title %}Assessments Console | AcadPulse{% endblock %}
+
+{% block content %}
+<!-- Apple Glass Heading -->
+<div class="apple-glass-heading glass-hover p-4 mb-4 reveal-on-scroll">
+  <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+    <div>
+      <div class="d-flex align-items-center gap-2 mb-1">
+        <span class="badge px-3 py-1 font-monospace" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);">
+          <i class="bi bi-pencil-square me-1"></i> MARKS TELEMETRY
+        </span>
+        <span class="small font-monospace text-muted">CONTINUOUS ASSESSMENT GRADEBOOK</span>
+      </div>
+      <h2 class="fw-bold mb-1 text-white">Assessment Marks Entry Console</h2>
+      <p class="mb-0 small text-muted">Record and update continuous assessment marks across MSE (30), ESE (50), Lab (20), and Project (20).</p>
+    </div>
+    <div class="d-flex gap-2">
+      <button class="btn btn-primary btn-sm" id="batchSaveBtn">
+        <i class="bi bi-floppy2-fill me-1"></i> Commit All Marks
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Assessment Filter Card -->
+<div class="card p-3 mb-4 glass-hover reveal-on-scroll delay-1">
+  <div class="row g-3 align-items-center">
+    <div class="col-md-4">
+      <label class="form-label small fw-bold text-muted font-monospace mb-1">Target Course</label>
+      <select id="courseSelect" class="form-select form-select-sm font-monospace">
+        <option value="DS">CS201 - Data Structures</option>
+        <option value="COA">CS202 - Computer Organization &amp; Arch</option>
+        <option value="DM">CS203 - Discrete Mathematics</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label small fw-bold text-muted font-monospace mb-1">Filter Division</label>
+      <select id="divSelect" class="form-select form-select-sm font-monospace">
+        <option value="ALL">All Divisions</option>
+        <option value="A">Division A</option>
+        <option value="B">Division B</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <div class="small p-2 rounded text-muted font-monospace" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+        <i class="bi bi-info-circle-fill text-info me-1"></i>
+        Max Caps: <strong class="text-white">MSE(30)</strong>, <strong class="text-white">ESE(50)</strong>, <strong class="text-white">LAB(20)</strong>, <strong class="text-white">PROJ(20)</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scrollable Cockpit Marks Table -->
+<div class="card p-0 glass-hover reveal-on-scroll delay-2">
+  <div class="cockpit-scroll" style="max-height: 520px;">
+    <table class="table table-hover align-middle mb-0" id="marksTable">
+      <thead>
+        <tr>
+          <th>PRN</th>
+          <th>Roll No</th>
+          <th>Cadet Name</th>
+          <th style="width: 140px;">MSE (30)</th>
+          <th style="width: 140px;">ESE (50)</th>
+          <th style="width: 140px;">Lab (20)</th>
+          <th style="width: 140px;">Project (20)</th>
+          <th class="text-end">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="8" class="text-center py-4 text-muted">Loading cadet gradebook...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+let currentStudents = [];
+
+async function loadMarks() {
+  const res = await apiFetch('/api/students/list');
+  if (res.status === 'success') {
+    currentStudents = res.data;
+    renderMarksTable();
+  }
+}
+
+function renderMarksTable() {
+  const course = document.getElementById('courseSelect').value;
+  const div = document.getElementById('divSelect').value;
+  const tbody = document.querySelector('#marksTable tbody');
+
+  const filtered = currentStudents.filter(s => div === 'ALL' || s.division === div);
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="8" class="text-center py-4 text-muted">No cadets found.</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = filtered.map(s => {
+    const m = (s.marks && s.marks[course]) || { mse: 0, ese: 0, lab: 0, proj: 0 };
+    return `
+      <tr data-prn="${s.prn}">
+        <td><code class="font-monospace text-info">${s.prn}</code></td>
+        <td><strong class="text-white">${s.roll_no || '–'}</strong></td>
+        <td>
+          <div class="fw-bold text-white">${s.name}</div>
+          <div class="small text-muted font-monospace">Div ${s.division} &bull; ${s.batch || 'A1'}</div>
+        </td>
+        <td>
+          <input type="number" step="0.5" min="0" max="30" class="form-control form-control-sm font-monospace text-center marks-input"
+                 data-prn="${s.prn}" data-field="mse" value="${m.mse}">
+        </td>
+        <td>
+          <input type="number" step="0.5" min="0" max="50" class="form-control form-control-sm font-monospace text-center marks-input"
+                 data-prn="${s.prn}" data-field="ese" value="${m.ese}">
+        </td>
+        <td>
+          <input type="number" step="0.5" min="0" max="20" class="form-control form-control-sm font-monospace text-center marks-input"
+                 data-prn="${s.prn}" data-field="lab" value="${m.lab}">
+        </td>
+        <td>
+          <input type="number" step="0.5" min="0" max="20" class="form-control form-control-sm font-monospace text-center marks-input"
+                 data-prn="${s.prn}" data-field="proj" value="${m.proj}">
+        </td>
+        <td class="text-end">
+          <button class="btn btn-sm btn-outline-primary save-single-btn" data-prn="${s.prn}">
+            <i class="bi bi-check-lg"></i> Save
+          </button>
+        </td>
+      </tr>
+    `;
+  }).join('');
+
+  document.querySelectorAll('.save-single-btn').forEach(btn => {
+    btn.addEventListener('click', () => saveSingleStudent(btn.dataset.prn));
+  });
+}
+
+async function saveSingleStudent(prn) {
+  const course = document.getElementById('courseSelect').value;
+  const row = document.querySelector(`tr[data-prn="${prn}"]`);
+  const mse = parseFloat(row.querySelector('[data-field="mse"]').value) || 0;
+  const ese = parseFloat(row.querySelector('[data-field="ese"]').value) || 0;
+  const lab = parseFloat(row.querySelector('[data-field="lab"]').value) || 0;
+  const proj = parseFloat(row.querySelector('[data-field="proj"]').value) || 0;
+
+  const payload = {
+    marks: {
+      [course]: { mse, ese, lab, proj }
+    }
+  };
+
+  const res = await apiFetch(`/api/students/update/${prn}`, {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  });
+
+  if (res.status === 'success') {
+    showToast(`Marks for PRN ${prn} committed`, 'success');
+  } else {
+    showToast(res.message, 'danger');
+  }
+}
+
+document.getElementById('batchSaveBtn').addEventListener('click', async () => {
+  const rows = document.querySelectorAll('#marksTable tbody tr[data-prn]');
+  const course = document.getElementById('courseSelect').value;
+
+  for (const row of rows) {
+    const prn = row.dataset.prn;
+    const mse = parseFloat(row.querySelector('[data-field="mse"]').value) || 0;
+    const ese = parseFloat(row.querySelector('[data-field="ese"]').value) || 0;
+    const lab = parseFloat(row.querySelector('[data-field="lab"]').value) || 0;
+    const proj = parseFloat(row.querySelector('[data-field="proj"]').value) || 0;
+
+    await apiFetch(`/api/students/update/${prn}`, {
+      method: 'POST',
+      body: JSON.stringify({ marks: { [course]: { mse, ese, lab, proj } } })
+    });
+  }
+  showToast('All cadet marks committed successfully!', 'success');
+  loadMarks();
+});
+
+document.getElementById('courseSelect').addEventListener('change', renderMarksTable);
+document.getElementById('divSelect').addEventListener('change', renderMarksTable);
+
+document.addEventListener('DOMContentLoaded', loadMarks);
+</script>
+{% endblock %}

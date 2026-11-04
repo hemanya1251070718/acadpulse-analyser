@@ -1,0 +1,16 @@
+.git
+.gitignore
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache
+engine/tests/test_all_dsa.exe
+engine/engine_api.exe
+engine/acadpulse_engine.exe
+Dockerfile
+cloudbuild.yaml
+.env
+.venv
+venv/
+

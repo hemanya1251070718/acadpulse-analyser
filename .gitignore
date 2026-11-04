@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C++ Binaries
+*.exe
+*.o
+*.obj
+*.dll
+*.so
+*.dylib
+engine/*.exe
+engine/tests/*.exe
+
+# Vercel & Environment
+.vercel/
+.env*
+!.env.example
+
+# OS Generated
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Virtual Environment
+.venv/
+venv/
+ENV/

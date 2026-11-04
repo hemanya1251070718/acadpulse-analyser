@@ -1,0 +1,19 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/static/(.*)",
+      "destination": "/static/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/api/index.py?__path__=/$1"
+    }
+  ],
+  "functions": {
+    "api/index.py": {
+      "includeFiles": "{frontend/**,backend/**,data/**,static/**}"
+    }
+  }
+}

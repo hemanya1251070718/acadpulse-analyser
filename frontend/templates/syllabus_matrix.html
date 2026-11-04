@@ -1,0 +1,383 @@
+{% extends "base.html" %}
+{% block title %}100% Syllabus Coverage Matrix | AcadPulse{% endblock %}
+
+{% block content %}
+<!-- Apple Glass Heading -->
+<div class="apple-glass-heading glass-hover p-4 mb-4 reveal-on-scroll">
+  <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+    <div>
+      <div class="d-flex align-items-center gap-2 mb-1">
+        <span class="badge px-3 py-1 font-monospace" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);">
+          <i class="bi bi-patch-check-fill me-1"></i> 100% SYLLABUS VERIFIED
+        </span>
+        <span class="small font-monospace text-muted">FULL DATA STRUCTURES CURRICULUM</span>
+      </div>
+      <h2 class="fw-bold mb-1 text-white">Curriculum DSA Syllabus Coverage Matrix</h2>
+      <p class="mb-0 small text-muted">Every topic from Section 1 (Linear) and Section 2 (Non-Linear) implemented without STL.</p>
+    </div>
+    <div>
+      <span class="badge px-3 py-2 font-monospace fs-6" style="background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);">
+        <i class="bi bi-check-all me-1"></i> 40 / 40 Topics (100%)
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="card p-0 glass-hover mb-4 reveal-on-scroll delay-1">
+  <div class="cockpit-scroll" style="max-height: 580px;">
+    <table class="table table-hover align-middle mb-0">
+      <thead>
+        <tr>
+          <th>Unit</th>
+          <th>Syllabus Item</th>
+          <th>Core Source Module</th>
+          <th>Time Complexity</th>
+          <th>Space Complexity</th>
+          <th>AcadPulse Practical Role</th>
+        </tr>
+      </thead>
+      <tbody class="small font-monospace">
+        <!-- UNIT 1 -->
+        <tr>
+          <td><strong class="text-primary">Unit 1</strong></td>
+          <td class="text-white">Asymptotic Notations &amp; Complexity</td>
+          <td><code>core/metrics.hpp</code></td>
+          <td>O(1) op</td>
+          <td>O(1)</td>
+          <td class="text-muted">Live operation counter (comparisons, swaps, passes)</td>
+        </tr>
+        <tr>
+          <td><strong class="text-primary">Unit 1</strong></td>
+          <td class="text-white">Dynamic 1D Arrays &amp; Doubling</td>
+          <td><code>core/vec.hpp</code></td>
+          <td>Amortized O(1)</td>
+          <td>O(N)</td>
+          <td class="text-muted">Dynamic student record registry &amp; dynamic buffer</td>
+        </tr>
+        <tr>
+          <td><strong class="text-primary">Unit 1</strong></td>
+          <td class="text-white">2D Multidimensional Arrays (Row-Major)</td>
+          <td><code>core/array2d.hpp</code></td>
+          <td>O(1) access</td>
+          <td>O(R &times; C)</td>
+          <td class="text-muted">Gradebook matrix: Students &times; Assessment components</td>
+        </tr>
+        <tr>
+          <td><strong class="text-primary">Unit 1</strong></td>
+          <td class="text-white">3D Arrays (Temporal Tensors)</td>
+          <td><code>core/array3d.hpp</code></td>
+          <td>O(1) access</td>
+          <td>O(D &times; R &times; C)</td>
+          <td class="text-muted">Academic Tensor: Semester &times; Course &times; Assessment</td>
+        </tr>
+        <tr>
+          <td><strong class="text-primary">Unit 1</strong></td>
+          <td class="text-white">Sparse Matrix Simple Transpose</td>
+          <td><code>ds/sparse_matrix.hpp</code></td>
+          <td>O(Cols &times; Nonzeros)</td>
+          <td>O(Nonzeros)</td>
+          <td class="text-muted">Elective registration &amp; absenteeism matrix</td>
+        </tr>
+        <tr>
+          <td><strong class="text-primary">Unit 1</strong></td>
+          <td class="text-white">Sparse Matrix Fast Transpose</td>
+          <td><code>ds/sparse_matrix.hpp</code></td>
+          <td>O(Cols + Nonzeros)</td>
+          <td>O(Cols) aux</td>
+          <td class="text-muted">High-performance frequency-indexed matrix transpose</td>
+        </tr>
+        <tr>
+          <td><strong class="text-primary">Unit 1</strong></td>
+          <td class="text-white">Merge Sort (Pass Tracking)</td>
+          <td><code>algo/sorting.hpp</code></td>
+          <td>O(N log N)</td>
+          <td>O(N)</td>
+          <td class="text-muted">Stable merit ranking by GPA / composite marks</td>
+        </tr>
+        <tr>
+          <td><strong class="text-primary">Unit 1</strong></td>
+          <td class="text-white">Quick Sort (3 Pivot Strategies)</td>
+          <td><code>algo/sorting.hpp</code></td>
+          <td>O(N log N) avg</td>
+          <td>O(log N) stack</td>
+          <td class="text-muted">High-throughput student ranking with Median-of-3</td>
+        </tr>
+
+        <!-- UNIT 2 -->
+        <tr>
+          <td><strong class="text-success">Unit 2</strong></td>
+          <td class="text-white">Singly Linked Lists</td>
+          <td><code>ds/linked_lists.hpp</code></td>
+          <td>O(1) prepend</td>
+          <td>O(N)</td>
+          <td class="text-muted">Dynamic student linked list nodes</td>
+        </tr>
+        <tr>
+          <td><strong class="text-success">Unit 2</strong></td>
+          <td class="text-white">Fast and Slow Pointers</td>
+          <td><code>ds/linked_lists.hpp</code></td>
+          <td>O(N) single-pass</td>
+          <td>O(1)</td>
+          <td class="text-muted">Median score student detection</td>
+        </tr>
+        <tr>
+          <td><strong class="text-success">Unit 2</strong></td>
+          <td class="text-white">Doubly Linked Lists</td>
+          <td><code>ds/linked_lists.hpp</code></td>
+          <td>O(1) removal</td>
+          <td>O(N)</td>
+          <td class="text-muted">Bidirectional editable rank ledger</td>
+        </tr>
+        <tr>
+          <td><strong class="text-success">Unit 2</strong></td>
+          <td class="text-white">Circular Linked Lists</td>
+          <td><code>ds/linked_lists.hpp</code></td>
+          <td>O(1) advance</td>
+          <td>O(N)</td>
+          <td class="text-muted">Round-robin oral viva examiner scheduling</td>
+        </tr>
+        <tr>
+          <td><strong class="text-success">Unit 2</strong></td>
+          <td class="text-white">Floyd's Cycle Detection</td>
+          <td><code>ds/linked_lists.hpp</code></td>
+          <td>O(N)</td>
+          <td>O(1)</td>
+          <td class="text-muted">Prerequisite &amp; pointer circular lock prevention</td>
+        </tr>
+        <tr>
+          <td><strong class="text-success">Unit 2</strong></td>
+          <td class="text-white">Polynomial Addition via Lists</td>
+          <td><code>ds/linked_lists.hpp</code></td>
+          <td>O(N + M)</td>
+          <td>O(N + M)</td>
+          <td class="text-muted">Grade decay modeling &amp; credit curve accumulation</td>
+        </tr>
+        <tr>
+          <td><strong class="text-success">Unit 2</strong></td>
+          <td class="text-white">Hash Table (djb2 Hash Function)</td>
+          <td><code>ds/hash_table.hpp</code></td>
+          <td>O(1) avg</td>
+          <td>O(M)</td>
+          <td class="text-muted">O(1) Student lookup by PRN registration number</td>
+        </tr>
+        <tr>
+          <td><strong class="text-success">Unit 2</strong></td>
+          <td class="text-white">4 Collision Strategies &amp; Rehashing</td>
+          <td><code>ds/hash_table.hpp</code></td>
+          <td>O(1) avg</td>
+          <td>O(M)</td>
+          <td class="text-muted">Chaining, Linear, Quadratic &amp; Double Hashing</td>
+        </tr>
+
+        <!-- UNIT 3 -->
+        <tr>
+          <td><strong class="text-warning">Unit 3</strong></td>
+          <td class="text-white">Array &amp; Linked Stack ADT</td>
+          <td><code>ds/stack.hpp</code></td>
+          <td>O(1) push/pop</td>
+          <td>O(N)</td>
+          <td class="text-muted">Marks entry Undo/Redo historical stack</td>
+        </tr>
+        <tr>
+          <td><strong class="text-warning">Unit 3</strong></td>
+          <td class="text-white">Infix to Postfix Conversion</td>
+          <td><code>algo/expressions.hpp</code></td>
+          <td>O(N)</td>
+          <td>O(N)</td>
+          <td class="text-muted">Shunting yard parsing for custom grading formulas</td>
+        </tr>
+        <tr>
+          <td><strong class="text-warning">Unit 3</strong></td>
+          <td class="text-white">Postfix Expression Evaluation</td>
+          <td><code>algo/expressions.hpp</code></td>
+          <td>O(N)</td>
+          <td>O(N)</td>
+          <td class="text-muted">Dynamic evaluation of weighted composite formulas</td>
+        </tr>
+        <tr>
+          <td><strong class="text-warning">Unit 3</strong></td>
+          <td class="text-white">Circular Array &amp; Linked Queue</td>
+          <td><code>ds/queue.hpp</code></td>
+          <td>O(1) enq/deq</td>
+          <td>O(N)</td>
+          <td class="text-muted">FIFO grade re-evaluation grievance request queue</td>
+        </tr>
+        <tr>
+          <td><strong class="text-warning">Unit 3</strong></td>
+          <td class="text-white">DEPQ (Min-Max Heap)</td>
+          <td><code>ds/depq_minmax.hpp</code></td>
+          <td>O(1) min/max peek</td>
+          <td>O(N)</td>
+          <td class="text-muted">Simultaneous lookup of Toppers and At-Risk students</td>
+        </tr>
+        <tr>
+          <td><strong class="text-warning">Unit 3</strong></td>
+          <td class="text-white">CPU Job Scheduling (FCFS, RR)</td>
+          <td><code>algo/scheduler.hpp</code></td>
+          <td>O(N log N)</td>
+          <td>O(N)</td>
+          <td class="text-muted">Viva slot allocation &amp; exam evaluation batching</td>
+        </tr>
+        <tr>
+          <td><strong class="text-warning">Unit 3</strong></td>
+          <td class="text-white">Josephus Problem (Simulation &amp; Math)</td>
+          <td><code>algo/josephus.hpp</code></td>
+          <td>O(N)</td>
+          <td>O(1)</td>
+          <td class="text-muted">Scholarship lottery &amp; elimination rounds</td>
+        </tr>
+
+        <!-- UNIT 4 -->
+        <tr>
+          <td><strong class="text-info">Unit 4</strong></td>
+          <td class="text-white">Binary Tree ADT (Pointer &amp; Array)</td>
+          <td><code>ds/binary_tree.hpp</code></td>
+          <td>O(N) build</td>
+          <td>O(N)</td>
+          <td class="text-muted">Institutional Academic Hierarchy Tree</td>
+        </tr>
+        <tr>
+          <td><strong class="text-info">Unit 4</strong></td>
+          <td class="text-white">Recursive &amp; Iterative Traversals</td>
+          <td><code>ds/binary_tree.hpp</code></td>
+          <td>O(N)</td>
+          <td>O(H) stack</td>
+          <td class="text-muted">Preorder, Inorder, Postorder &amp; Level Order traversals</td>
+        </tr>
+        <tr>
+          <td><strong class="text-info">Unit 4</strong></td>
+          <td class="text-white">BST Search &amp; Insert</td>
+          <td><code>ds/bst.hpp</code></td>
+          <td>O(log N) avg</td>
+          <td>O(N)</td>
+          <td class="text-muted">SGPA indexed student lookup</td>
+        </tr>
+        <tr>
+          <td><strong class="text-info">Unit 4</strong></td>
+          <td class="text-white">BST 3-Case Deletion</td>
+          <td><code>ds/bst.hpp</code></td>
+          <td>O(log N) avg</td>
+          <td>O(N)</td>
+          <td class="text-muted">Leaf, single-child, two-child successor deletion</td>
+        </tr>
+        <tr>
+          <td><strong class="text-info">Unit 4</strong></td>
+          <td class="text-white">BST Range Query</td>
+          <td><code>ds/bst.hpp</code></td>
+          <td>O(log N + K)</td>
+          <td>O(K)</td>
+          <td class="text-muted">Retrieve all students with SGPA in [min, max]</td>
+        </tr>
+        <tr>
+          <td><strong class="text-info">Unit 4</strong></td>
+          <td class="text-white">Balanced BST Rebuild</td>
+          <td><code>ds/bst.hpp</code></td>
+          <td>O(N)</td>
+          <td>O(N)</td>
+          <td class="text-muted">Rebalances degenerated skewed search trees</td>
+        </tr>
+
+        <!-- UNIT 5 -->
+        <tr>
+          <td><strong class="text-danger">Unit 5</strong></td>
+          <td class="text-white">Binary Max &amp; Min Heap</td>
+          <td><code>ds/heaps_binary.hpp</code></td>
+          <td>O(log N) push/pop</td>
+          <td>O(N)</td>
+          <td class="text-muted">Priority ranking &amp; Top-K extraction</td>
+        </tr>
+        <tr>
+          <td><strong class="text-danger">Unit 5</strong></td>
+          <td class="text-white">In-Place Heapsort</td>
+          <td><code>ds/heaps_binary.hpp</code></td>
+          <td>O(N log N)</td>
+          <td>O(1) aux</td>
+          <td class="text-muted">Memory-efficient merit sorting</td>
+        </tr>
+        <tr>
+          <td><strong class="text-danger">Unit 5</strong></td>
+          <td class="text-white">Leftist Heap (O(log N) Merge)</td>
+          <td><code>ds/heap_leftist.hpp</code></td>
+          <td>O(log N) merge</td>
+          <td>O(N)</td>
+          <td class="text-muted">Merging division merit queues (Div A + Div B)</td>
+        </tr>
+        <tr>
+          <td><strong class="text-danger">Unit 5</strong></td>
+          <td class="text-white">Binomial Heap (Forest of Trees)</td>
+          <td><code>ds/heap_binomial.hpp</code></td>
+          <td>O(log N) union</td>
+          <td>O(N)</td>
+          <td class="text-muted">Cross-department merit collation</td>
+        </tr>
+        <tr>
+          <td><strong class="text-danger">Unit 5</strong></td>
+          <td class="text-white">Fibonacci Heap (Cascading Cuts)</td>
+          <td><code>ds/heap_fibonacci.hpp</code></td>
+          <td>Amortized O(1) dec-key</td>
+          <td>O(N)</td>
+          <td class="text-muted">Dynamic real-time grade updates &amp; Dijkstra</td>
+        </tr>
+
+        <!-- UNIT 6 -->
+        <tr>
+          <td><strong class="text-secondary">Unit 6</strong></td>
+          <td class="text-white">Graph ADT (Matrix &amp; List)</td>
+          <td><code>algo/graph.hpp</code></td>
+          <td>O(V&sup2;) vs O(V+E)</td>
+          <td>O(V&sup2;) / O(V+E)</td>
+          <td class="text-muted">Course prerequisite &amp; mentoring network topology</td>
+        </tr>
+        <tr>
+          <td><strong class="text-secondary">Unit 6</strong></td>
+          <td class="text-white">BFS &amp; DFS Traversals</td>
+          <td><code>algo/graph_traversal.hpp</code></td>
+          <td>O(V + E)</td>
+          <td>O(V)</td>
+          <td class="text-muted">Academic prerequisite traversal &amp; credit reachability</td>
+        </tr>
+        <tr>
+          <td><strong class="text-secondary">Unit 6</strong></td>
+          <td class="text-white">Cycle Detection (3-Color DFS)</td>
+          <td><code>algo/graph_traversal.hpp</code></td>
+          <td>O(V + E)</td>
+          <td>O(V)</td>
+          <td class="text-muted">Detect circular prerequisite deadlocks</td>
+        </tr>
+        <tr>
+          <td><strong class="text-secondary">Unit 6</strong></td>
+          <td class="text-white">Prim's Minimum Spanning Tree</td>
+          <td><code>algo/mst.hpp</code></td>
+          <td>O(V&sup2;) / O(E log V)</td>
+          <td>O(V)</td>
+          <td class="text-muted">Peer mentoring group communication backbone</td>
+        </tr>
+        <tr>
+          <td><strong class="text-secondary">Unit 6</strong></td>
+          <td class="text-white">Kruskal's MST (with DSU)</td>
+          <td><code>algo/mst.hpp</code></td>
+          <td>O(E log E)</td>
+          <td>O(V + E)</td>
+          <td class="text-muted">Disjoint Set Union peer mentoring network backbone</td>
+        </tr>
+        <tr>
+          <td><strong class="text-secondary">Unit 6</strong></td>
+          <td class="text-white">Dijkstra Shortest Path</td>
+          <td><code>algo/shortest_path.hpp</code></td>
+          <td>O(V&sup2;) / O((V+E) log V)</td>
+          <td>O(V)</td>
+          <td class="text-muted">Optimal remedial credit recovery pathways</td>
+        </tr>
+        <tr>
+          <td><strong class="text-secondary">Unit 6</strong></td>
+          <td class="text-white">Floyd-Warshall All-Pairs Shortest Path</td>
+          <td><code>algo/shortest_path.hpp</code></td>
+          <td>O(V&sup3;)</td>
+          <td>O(V&sup2;)</td>
+          <td class="text-muted">Complete curriculum prerequisite distance matrix</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

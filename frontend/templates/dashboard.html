@@ -1,0 +1,1041 @@
+{% extends "base.html" %}
+{% block title %}AcadPulse | Student Ranking &amp; Performance Cockpit{% endblock %}
+
+{% block content %}
+<!-- ==========================================================================
+     FRONT HERO COVER SCREEN (BIG ACADPULSE + LIVE THOR THUNDERBOLTS + CARTOONS)
+     ========================================================================== -->
+<section id="heroScreen" class="hero-cover-screen">
+  <!-- Live Procedural Lightning Canvas -->
+  <canvas id="thunderCanvas"></canvas>
+
+  <!-- Cartoon Animated Layer (Stickman Students, Bouncing Books, Graduation Caps) -->
+  <div class="cartoon-floating-layer">
+    <!-- Stickman Scholars -->
+    <div class="cartoon-item cartoon-stickman" style="top: 14%; left: 8%;">🧑‍🎓</div>
+    <div class="cartoon-item cartoon-stickman" style="top: 22%; right: 9%; animation-delay: -3s;">🧑‍🎓</div>
+    <div class="cartoon-item cartoon-stickman" style="bottom: 22%; left: 14%; animation-delay: -1.5s;">🧑‍🎓</div>
+
+    <!-- Bouncing Books -->
+    <div class="cartoon-item cartoon-book" style="top: 18%; left: 24%; animation-delay: -0.6s;">📚</div>
+    <div class="cartoon-item cartoon-book" style="bottom: 26%; right: 18%; animation-delay: -1.8s;">📖</div>
+    <div class="cartoon-item cartoon-book" style="top: 48%; right: 7%; animation-delay: -2.4s;">📚</div>
+
+    <!-- Floating Graduation Caps & Scrolls -->
+    <div class="cartoon-item cartoon-mortarboard" style="top: 10%; right: 26%; animation-delay: -1s;">🎓</div>
+    <div class="cartoon-item cartoon-mortarboard" style="bottom: 20%; right: 32%; animation-delay: -2.8s;">🎓</div>
+    <div class="cartoon-item cartoon-scroll" style="bottom: 18%; left: 28%; animation-delay: -3.2s;">📜</div>
+
+    <!-- Floating Badges & Code Symbols -->
+    <div class="cartoon-item cartoon-badge-pill" style="top: 32%; left: 6%; animation-delay: -2s;">
+      <i class="bi bi-code-slash text-info me-1"></i> { Algorithms }
+    </div>
+    <div class="cartoon-item cartoon-badge-pill" style="top: 34%; right: 6%; animation-delay: -4s;">
+      <i class="bi bi-award-fill text-warning me-1"></i> S-Tier Merit
+    </div>
+    <div class="cartoon-item cartoon-badge-pill" style="bottom: 30%; left: 6%; animation-delay: -1.2s;">
+      <i class="bi bi-graph-up text-success me-1"></i> O(log N) Heaps
+    </div>
+  </div>
+
+  <!-- Hero Center Stage -->
+  <div class="hero-center-stage">
+    <!-- Big Thor Thunder Emblem -->
+    <div class="hero-thunder-emblem">
+      <span class="hero-symbol-bolt">⚡</span>
+    </div>
+
+    <!-- Giant Title -->
+    <h1 class="hero-title-giant">AcadPulse</h1>
+
+    <!-- Subtitle -->
+    <p class="hero-tagline-glass">
+      High-performance institutional academic analytics, continuous multi-assessment tracking, dynamic merit rankings, and comprehensive algorithmic data structures.
+    </p>
+
+    <!-- Call to Action -->
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      <a href="#cockpitStart" class="hero-cta-btn">
+        <span>Enter Unified Cockpit</span>
+        <i class="bi bi-arrow-down-circle-fill ms-2 fs-5"></i>
+      </a>
+      <a href="/merit-list" class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold">
+        <i class="bi bi-trophy-fill text-warning me-2"></i> Merit Leaderboard
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll Down Cue -->
+  <a href="#cockpitStart" class="hero-scroll-cue">
+    <span>Scroll to Explore</span>
+    <i class="bi bi-chevron-down fs-5"></i>
+  </a>
+</section>
+
+<!-- ==========================================================================
+     UNIFIED DASHBOARD CONTAINER (ALL PROJECT MODULES IN ORDER DOWN-BY-DOWN)
+     ========================================================================== -->
+<div id="cockpitStart" class="container-fluid px-lg-4 py-5">
+
+  <!-- Apple Glass Heading with Liquid Hover Glint -->
+  <div class="apple-glass-heading glass-hover p-4 mb-4 reveal-on-scroll">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <div class="d-flex align-items-center mb-2 flex-wrap gap-2">
+          <span class="badge px-3 py-1 font-monospace" style="background: rgba(139, 92, 246, 0.25); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.5); box-shadow: 0 0 16px rgba(139, 92, 246, 0.35);">
+            <i class="bi bi-radar me-1 text-warning"></i> UNIFIED COCKPIT HUD
+          </span>
+          <span class="badge px-2 py-1 font-monospace" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);">
+            <i class="bi bi-shield-check me-1"></i> HIGH-PERFORMANCE ENGINE ONLINE
+          </span>
+        </div>
+        <h2 class="fw-bold mb-1 text-white" style="letter-spacing: -0.02em;">
+          Academic Performance &amp; Student Ranking Cockpit
+        </h2>
+        <p class="mb-0 small" style="color: #cbd5e1; max-width: 760px;">
+          Scroll down smoothly to inspect telemetry KPIs, merit leaderboards, student directories, assessment gradebooks, interactive algorithms, and curriculum graphs.
+        </p>
+      </div>
+      <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+        <a href="/merit-list" class="btn btn-primary fw-bold me-2 shadow-sm">
+          <i class="bi bi-trophy-fill me-1 text-warning"></i> Open Leaderboard Tab
+        </a>
+        <a href="/dsa-workbench" class="btn btn-outline-light fw-bold shadow-sm">
+          <i class="bi bi-cpu me-1"></i> Open Lab Tab
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cockpit Horizon Quick Nav Dock -->
+  <div class="d-flex justify-content-center mb-4 reveal-on-scroll delay-1">
+    <div class="cockpit-dock">
+      <a href="#mod-telemetry" class="cockpit-dock-btn active"><i class="bi bi-speedometer2 text-info me-1"></i> Telemetry</a>
+      <a href="#mod-leaderboard" class="cockpit-dock-btn"><i class="bi bi-trophy text-warning me-1"></i> Leaderboard</a>
+      <a href="#mod-students" class="cockpit-dock-btn"><i class="bi bi-people text-primary me-1"></i> Students</a>
+      <a href="#mod-assessments" class="cockpit-dock-btn"><i class="bi bi-pencil-square text-success me-1"></i> Assessments</a>
+      <a href="#mod-workbench" class="cockpit-dock-btn"><i class="bi bi-cpu text-info me-1"></i> Algorithms</a>
+      <a href="#mod-curriculum" class="cockpit-dock-btn"><i class="bi bi-diagram-3 text-warning me-1"></i> Curriculum</a>
+      <a href="#mod-syllabus" class="cockpit-dock-btn"><i class="bi bi-check2-circle text-success me-1"></i> Syllabus</a>
+    </div>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- TAB MODULE 1: TELEMETRY HUD & SCORE SPECTRUM                          -->
+  <!-- ====================================================================== -->
+  <div id="mod-telemetry" class="mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-3 reveal-on-scroll">
+      <div>
+        <h5 class="fw-bold mb-0 text-white"><i class="bi bi-speedometer2 text-info me-2"></i>1. Telemetry HUD &amp; Institutional Analytics</h5>
+        <span class="small text-muted">Continuous evaluation aggregates and distribution telemetry</span>
+      </div>
+      <span class="badge bg-secondary font-monospace">MODULE 1 / 7</span>
+    </div>
+
+    <!-- Telemetry Cards -->
+    <div class="row g-3 mb-4">
+      <div class="col-md-3 reveal-on-scroll delay-1">
+        <div class="stat-card p-3 glass-hover">
+          <div class="stat-label mb-1">Total Enrolled Cadets</div>
+          <div class="stat-value" id="statStudents">–</div>
+          <div class="small mt-2" style="color: #94a3b8;"><i class="bi bi-diagram-2 text-info me-1"></i> Dynamic Vector Buffer</div>
+        </div>
+      </div>
+      <div class="col-md-3 reveal-on-scroll delay-2">
+        <div class="stat-card border-success p-3 glass-hover">
+          <div class="stat-label mb-1">Class Average Power</div>
+          <div class="stat-value" style="color: #34d399;" id="statAvgScore">–</div>
+          <div class="small mt-2" style="color: #94a3b8;"><i class="bi bi-graph-up text-success me-1"></i> Weighted Composite Marks</div>
+        </div>
+      </div>
+      <div class="col-md-3 reveal-on-scroll delay-3">
+        <div class="stat-card border-warning p-3 glass-hover">
+          <div class="stat-label mb-1">Attendance Telemetry</div>
+          <div class="stat-value" style="color: #fbbf24;" id="statAttendance">–</div>
+          <div class="small mt-2" style="color: #94a3b8;"><i class="bi bi-clock-history text-warning me-1"></i> Session Aggregate Average</div>
+        </div>
+      </div>
+      <div class="col-md-3 reveal-on-scroll delay-4">
+        <div class="stat-card border-danger p-3 glass-hover">
+          <div class="stat-label mb-1">DEPQ At-Risk Interventions</div>
+          <div class="stat-value" style="color: #f87171;" id="statAtRisk">–</div>
+          <div class="small mt-2" style="color: #94a3b8;"><i class="bi bi-shield-slash text-danger me-1"></i> O(1) Min-Heap Alert</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="row g-3">
+      <div class="col-lg-7 reveal-on-scroll delay-1">
+        <div class="card h-100 p-3 glass-hover">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+              <h6 class="fw-bold mb-0 text-white"><i class="bi bi-bar-chart-line text-info me-2"></i>Score Spectrum Distribution</h6>
+              <span class="small text-muted font-monospace">Continuous Assessment Histogram (O(N) Scan)</span>
+            </div>
+            <span class="complexity-tag">O(N) Scan</span>
+          </div>
+          <div>
+            <canvas id="scoreDistChart" height="220"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 reveal-on-scroll delay-2">
+        <div class="card h-100 p-3 glass-hover">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+              <h6 class="fw-bold mb-0 text-white"><i class="bi bi-pie-chart text-primary me-2"></i>Division Cluster Telemetry</h6>
+              <span class="small text-muted font-monospace">Div A vs Div B Meld Distribution</span>
+            </div>
+            <span class="complexity-tag">Leftist Merge</span>
+          </div>
+          <div class="d-flex align-items-center justify-content-center" style="height: 220px;">
+            <canvas id="divisionPieChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- TAB MODULE 2: MERIT LEADERBOARD & APEX GAMECARDS                      -->
+  <!-- ====================================================================== -->
+  <div id="mod-leaderboard" class="mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2 reveal-on-scroll">
+      <div>
+        <h5 class="fw-bold mb-0 text-white"><i class="bi bi-trophy-fill text-warning me-2"></i>2. Institutional Merit Leaderboard &amp; Candidate Gamecards</h5>
+        <span class="small text-muted">Multi-criteria ranking evaluated via custom infix formulas &amp; in-place heapsort</span>
+      </div>
+      <div class="d-flex gap-2 align-items-center">
+        <a href="/merit-list" class="btn btn-outline-primary btn-sm">
+          <i class="bi bi-box-arrow-up-right me-1"></i> Dedicated Tab &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Criteria Track Console -->
+    <div class="card p-3 mb-4 glass-hover reveal-on-scroll delay-1">
+      <div class="row g-3">
+        <div class="col-lg-5 border-end border-secondary border-opacity-25">
+          <label class="form-label small fw-bold text-white mb-2"><i class="bi bi-sliders me-1 text-primary"></i>Evaluation Criteria Track</label>
+          <div class="d-flex flex-column gap-2">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="criteriaTrack" id="track1" value="(MSE * 0.3) + (ESE * 0.5) + (LAB * 0.2)" checked>
+              <label class="form-check-label small text-white" for="track1">
+                <strong>Track 1 (Institutional Standard)</strong>: 30% MSE + 50% ESE + 20% Lab
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="criteriaTrack" id="track2" value="(MSE * 0.2) + (ESE * 0.3) + (LAB * 0.25) + (PROJ * 0.25)">
+              <label class="form-check-label small text-white" for="track2">
+                <strong>Track 2 (Practical &amp; Project Heavy)</strong>: 20% MSE + 30% ESE + 25% Lab + 25% Proj
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="criteriaTrack" id="track3" value="(MSE * 0.4) + (ESE * 0.6)">
+              <label class="form-check-label small text-white" for="track3">
+                <strong>Track 3 (Theory Centric)</strong>: 40% MSE + 60% ESE
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 border-end border-secondary border-opacity-25">
+          <label class="form-label small fw-bold text-white mb-2"><i class="bi bi-stack me-1 text-info"></i>Custom Infix Stack Formula</label>
+          <div class="input-group input-group-sm mb-2">
+            <input type="text" id="dashCustomFormula" class="form-control font-monospace" value="(MSE * 0.3) + (ESE * 0.5) + (LAB * 0.2)">
+            <button class="btn btn-primary" id="dashApplyFormulaBtn">Apply</button>
+          </div>
+          <div class="small text-muted font-monospace">
+            <span>Postfix RPN:</span>
+            <span id="dashPostfixPreview" class="complexity-tag ms-1">MSE 0.3 * ESE 0.5 * + LAB 0.2 * +</span>
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <label class="form-label small fw-bold text-white mb-2"><i class="bi bi-cpu me-1 text-warning"></i>Sorting Engine</label>
+          <select id="dashAlgoSelect" class="form-select form-select-sm mb-2 font-monospace">
+            <option value="heapsort" selected>In-Place Heapsort (Unit 5)</option>
+            <option value="quicksort">Quick Sort Median-of-3 (Unit 1)</option>
+            <option value="mergesort">Merge Sort Divide &amp; Conquer (Unit 1)</option>
+          </select>
+          <select id="dashTopKSelect" class="form-select form-select-sm font-monospace">
+            <option value="3" selected>Top 3 Apex Podium</option>
+            <option value="6">Top 6 Scholars</option>
+            <option value="ALL">Show All Cadets</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Holographic Gamecard Grid -->
+    <div class="game-card-grid" id="toppersGamecardGrid">
+      <div class="p-4 text-center text-muted col-12">Loading holographic player cards from Core Engine...</div>
+    </div>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- TAB MODULE 3: CADET DIRECTORY & STUDENT REGISTRY                      -->
+  <!-- ====================================================================== -->
+  <div id="mod-students" class="mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2 reveal-on-scroll">
+      <div>
+        <h5 class="fw-bold mb-0 text-white"><i class="bi bi-people-fill text-primary me-2"></i>3. Cadet Academic Directory &amp; Roster</h5>
+        <span class="small text-muted">PRN Hash Table O(1) Lookups &amp; Dynamic Vector Ledger</span>
+      </div>
+      <div class="d-flex gap-2">
+        <a href="/api/students/export-csv" class="btn btn-outline-light btn-sm">
+          <i class="bi bi-download me-1"></i> Export CSV
+        </a>
+        <a href="/students" class="btn btn-outline-primary btn-sm">
+          <i class="bi bi-box-arrow-up-right me-1"></i> Dedicated Tab &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Search / Filter Card -->
+    <div class="card p-3 mb-4 glass-hover reveal-on-scroll delay-1">
+      <div class="row g-2 align-items-center">
+        <div class="col-md-6">
+          <div class="input-group input-group-sm">
+            <span class="input-group-text"><i class="bi bi-search"></i></span>
+            <input type="text" id="dashSearchInput" class="form-control" placeholder="Search cadet name, PRN, or roll number...">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <select id="dashDivisionFilter" class="form-select form-select-sm font-monospace">
+            <option value="ALL">All Divisions (A &amp; B)</option>
+            <option value="A">Division A</option>
+            <option value="B">Division B</option>
+          </select>
+        </div>
+        <div class="col-md-3 text-md-end text-muted small font-monospace">
+          Enrolled Cadets: <span id="dashRecordCount" class="fw-bold text-white">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrollable Cockpit Student Table -->
+    <div class="card p-0 glass-hover reveal-on-scroll delay-2">
+      <div class="cockpit-scroll" style="max-height: 400px;">
+        <table class="table table-hover align-middle mb-0" id="dashStudentsTable">
+          <thead>
+            <tr>
+              <th>PRN</th>
+              <th>Roll No</th>
+              <th>Cadet Name</th>
+              <th>Division / Batch</th>
+              <th>Institutional Email</th>
+              <th>Attendance</th>
+              <th class="text-end">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="7" class="text-center py-4 text-muted">Loading cadet directory...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- TAB MODULE 4: ASSESSMENT MARKS ENTRY CONSOLE                          -->
+  <!-- ====================================================================== -->
+  <div id="mod-assessments" class="mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2 reveal-on-scroll">
+      <div>
+        <h5 class="fw-bold mb-0 text-white"><i class="bi bi-pencil-square text-success me-2"></i>4. Assessment Marks Entry &amp; Gradebook Matrix</h5>
+        <span class="small text-muted">2D/3D Row-Major Row Tensors for Mid-Semester, End-Semester, Lab &amp; Project</span>
+      </div>
+      <div class="d-flex gap-2">
+        <a href="/assessments" class="btn btn-outline-primary btn-sm">
+          <i class="bi bi-box-arrow-up-right me-1"></i> Dedicated Tab &rarr;
+        </a>
+      </div>
+    </div>
+
+    <div class="card p-3 mb-4 glass-hover reveal-on-scroll delay-1">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-4">
+          <label class="form-label small fw-bold text-muted font-monospace mb-1">Target Course</label>
+          <select id="dashCourseSelect" class="form-select form-select-sm font-monospace">
+            <option value="DS">CS201 - Data Structures</option>
+            <option value="COA">CS202 - Computer Organization &amp; Arch</option>
+            <option value="DM">CS203 - Discrete Mathematics</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label small fw-bold text-muted font-monospace mb-1">Filter Division</label>
+          <select id="dashAssessmentDivSelect" class="form-select form-select-sm font-monospace">
+            <option value="ALL">All Divisions</option>
+            <option value="A">Division A</option>
+            <option value="B">Division B</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <div class="small p-2 rounded text-muted font-monospace" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+            <i class="bi bi-info-circle-fill text-info me-1"></i>
+            Caps: <strong class="text-white">MSE(30)</strong>, <strong class="text-white">ESE(50)</strong>, <strong class="text-white">LAB(20)</strong>, <strong class="text-white">PROJ(20)</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marks Ledger Table -->
+    <div class="card p-0 glass-hover reveal-on-scroll delay-2">
+      <div class="cockpit-scroll" style="max-height: 400px;">
+        <table class="table table-hover align-middle mb-0" id="dashMarksTable">
+          <thead>
+            <tr>
+              <th>PRN</th>
+              <th>Cadet Name</th>
+              <th>Division</th>
+              <th>MSE (/30)</th>
+              <th>ESE (/50)</th>
+              <th>Lab (/20)</th>
+              <th>Proj (/20)</th>
+              <th>Total Composite</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="8" class="text-center py-4 text-muted">Loading marks matrix...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- TAB MODULE 5: 6-UNIT ALGORITHMS WORKBENCH LAB                         -->
+  <!-- ====================================================================== -->
+  <div id="mod-workbench" class="mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2 reveal-on-scroll">
+      <div>
+        <h5 class="fw-bold mb-0 text-white"><i class="bi bi-cpu-fill text-primary me-2"></i>5. Interactive Algorithmic Operations Workbench</h5>
+        <span class="small text-muted">Live execution telemetry across all 6 Course Syllabus Units</span>
+      </div>
+      <a href="/dsa-workbench" class="btn btn-outline-primary btn-sm">
+        <i class="bi bi-box-arrow-up-right me-1"></i> Dedicated Tab &rarr;
+      </a>
+    </div>
+
+    <div class="row g-3">
+      <!-- Unit 1 -->
+      <div class="col-md-4 reveal-on-scroll delay-1">
+        <div class="cockpit-card p-4 h-100">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <div class="d-flex align-items-center gap-2">
+              <span class="avatar-circle" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);">U1</span>
+              <div>
+                <h6 class="fw-bold mb-0 text-white">Arrays &amp; Matrices</h6>
+                <span class="small text-muted font-monospace">Sparse Fast Transpose</span>
+              </div>
+            </div>
+            <span class="complexity-tag">O(C+NZ)</span>
+          </div>
+          <p class="small text-muted mb-3">
+            3-Tuple representation of student elective matrix. Fast transpose utilizes frequency counts and placement indices.
+          </p>
+          <div class="p-2 rounded mb-3 font-monospace small" style="background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.08); color: #38bdf8;">
+            Fast Transpose: 5 non-zeros in O(6 + 5) = 11 ops
+          </div>
+          <a href="/dsa-workbench" class="btn btn-sm btn-outline-primary w-100 font-monospace">
+            <i class="bi bi-play-fill me-1"></i> Run Benchmark Passes
+          </a>
+        </div>
+      </div>
+
+      <!-- Unit 2 -->
+      <div class="col-md-4 reveal-on-scroll delay-2">
+        <div class="cockpit-card p-4 h-100">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <div class="d-flex align-items-center gap-2">
+              <span class="avatar-circle" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">U2</span>
+              <div>
+                <h6 class="fw-bold mb-0 text-white">Lists &amp; Hashing</h6>
+                <span class="small text-muted font-monospace">Fast/Slow Pointers</span>
+              </div>
+            </div>
+            <span class="complexity-tag">O(N/2) Hops</span>
+          </div>
+          <p class="small text-muted mb-3">
+            Tortoise &amp; Hare two-pointer technique finds median ranking student in a single pass with zero aux space.
+          </p>
+          <div class="p-2 rounded mb-3 font-monospace small" style="background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.08); color: #c084fc;">
+            Hash Map: PRN &rarr; Student in O(1) via Quadratic Probing
+          </div>
+          <a href="/dsa-workbench" class="btn btn-sm btn-outline-primary w-100 font-monospace">
+            <i class="bi bi-play-fill me-1"></i> Trace Median &amp; Cycles
+          </a>
+        </div>
+      </div>
+
+      <!-- Unit 3 -->
+      <div class="col-md-4 reveal-on-scroll delay-3">
+        <div class="cockpit-card p-4 h-100">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <div class="d-flex align-items-center gap-2">
+              <span class="avatar-circle" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">U3</span>
+              <div>
+                <h6 class="fw-bold mb-0 text-white">Stacks &amp; Queues</h6>
+                <span class="small text-muted font-monospace">Infix Shunting-Yard</span>
+              </div>
+            </div>
+            <span class="complexity-tag">O(N) Stack</span>
+          </div>
+          <p class="small text-muted mb-3">
+            Custom evaluation formulas parsed via Dijkstra's Shunting-yard into Postfix RPN and evaluated in O(N).
+          </p>
+          <div class="p-2 rounded mb-3 font-monospace small" style="background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.08); color: #fbbf24;">
+            Formula: (MSE*0.3) + (ESE*0.5) + (LAB*0.2)
+          </div>
+          <a href="/merit-list" class="btn btn-sm btn-outline-primary w-100 font-monospace">
+            <i class="bi bi-play-fill me-1"></i> Apply Infix Formula
+          </a>
+        </div>
+      </div>
+
+      <!-- Unit 4 -->
+      <div class="col-md-4 reveal-on-scroll delay-1">
+        <div class="cockpit-card p-4 h-100">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <div class="d-flex align-items-center gap-2">
+              <span class="avatar-circle" style="background: linear-gradient(135deg, #10b981, #06b6d4);">U4</span>
+              <div>
+                <h6 class="fw-bold mb-0 text-white">Trees &amp; BST</h6>
+                <span class="small text-muted font-monospace">Binary Search Tree</span>
+              </div>
+            </div>
+            <span class="complexity-tag">O(log N)</span>
+          </div>
+          <p class="small text-muted mb-3">
+            Recursive and iterative tree traversals (In-order, Pre-order, Post-order). Fast student lookup indexed by PRN key.
+          </p>
+          <div class="p-2 rounded mb-3 font-monospace small" style="background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.08); color: #34d399;">
+            In-order traversal yields monotonic sorted PRN sequence
+          </div>
+          <a href="/dsa-workbench" class="btn btn-sm btn-outline-primary w-100 font-monospace">
+            <i class="bi bi-play-fill me-1"></i> Test Tree Traversals
+          </a>
+        </div>
+      </div>
+
+      <!-- Unit 5 -->
+      <div class="col-md-4 reveal-on-scroll delay-2">
+        <div class="cockpit-card p-4 h-100">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <div class="d-flex align-items-center gap-2">
+              <span class="avatar-circle" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);">U5</span>
+              <div>
+                <h6 class="fw-bold mb-0 text-white">Advanced Heaps</h6>
+                <span class="small text-muted font-monospace">Leftist, Binomial, Fib</span>
+              </div>
+            </div>
+            <span class="complexity-tag">O(log N) Meld</span>
+          </div>
+          <p class="small text-muted mb-3">
+            All 4 heaps implemented: Binary Max/Min Heap, Leftist Heap for division merging, Binomial &amp; Fibonacci Heaps.
+          </p>
+          <div class="p-2 rounded mb-3 font-monospace small" style="background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.08); color: #f472b6;">
+            Leftist Heap melds Div A &amp; Div B rosters in O(log N)
+          </div>
+          <a href="/dsa-workbench" class="btn btn-sm btn-outline-primary w-100 font-monospace">
+            <i class="bi bi-play-fill me-1"></i> Meld Division Heaps
+          </a>
+        </div>
+      </div>
+
+      <!-- Unit 6 -->
+      <div class="col-md-4 reveal-on-scroll delay-3">
+        <div class="cockpit-card p-4 h-100">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <div class="d-flex align-items-center gap-2">
+              <span class="avatar-circle" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">U6</span>
+              <div>
+                <h6 class="fw-bold mb-0 text-white">Graphs &amp; MST</h6>
+                <span class="small text-muted font-monospace">Prims &amp; Kruskal</span>
+              </div>
+            </div>
+            <span class="complexity-tag">O(E log V)</span>
+          </div>
+          <p class="small text-muted mb-3">
+            Adjacency matrix/list representation of Course Prerequisites. Detects circular locks and computes optimal MST.
+          </p>
+          <div class="p-2 rounded mb-3 font-monospace small" style="background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.08); color: #38bdf8;">
+            DAG Topological Sort: 6 Semesters verified cycle-free
+          </div>
+          <a href="/curriculum-graph" class="btn btn-sm btn-outline-primary w-100 font-monospace">
+            <i class="bi bi-play-fill me-1"></i> Inspect Curriculum Graph
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- TAB MODULE 6: CURRICULUM DAG & PEER MENTORING MST                     -->
+  <!-- ====================================================================== -->
+  <div id="mod-curriculum" class="mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2 reveal-on-scroll">
+      <div>
+        <h5 class="fw-bold mb-0 text-white"><i class="bi bi-diagram-3-fill text-info me-2"></i>6. Curriculum Prerequisite DAG &amp; Peer Mentoring MST</h5>
+        <span class="small text-muted">Directed acyclic prerequisite validation and minimal spanning tree backbone</span>
+      </div>
+      <a href="/curriculum-graph" class="btn btn-outline-primary btn-sm">
+        <i class="bi bi-box-arrow-up-right me-1"></i> Dedicated Tab &rarr;
+      </a>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-7 reveal-on-scroll delay-1">
+        <div class="game-card h-100">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="fw-bold mb-0 text-white"><i class="bi bi-arrow-right-circle text-primary me-2"></i>Curriculum Prerequisite Chain (Directed DAG)</h6>
+            <span class="badge border border-success text-success bg-success bg-opacity-10 font-monospace">Loop-Free Validated</span>
+          </div>
+          <p class="small text-muted mb-3">
+            Guarantees core foundational prerequisites are completed before Capstone enrollment. Monitored via 3-color DFS cycle detector.
+          </p>
+          <div class="p-3 rounded mb-3" style="background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 text-center">
+              <div class="p-2 rounded" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); min-width: 90px;">
+                <span class="badge bg-secondary mb-1 font-monospace">Sem 1</span>
+                <div class="fw-bold small text-white">FPL (0)</div>
+              </div>
+              <i class="bi bi-arrow-right fs-4 text-primary"></i>
+              <div class="p-2 rounded" style="background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.5); min-width: 90px;">
+                <span class="badge bg-primary mb-1 font-monospace">Sem 3</span>
+                <div class="fw-bold small text-info">DS (1)</div>
+              </div>
+              <i class="bi bi-arrow-right fs-4 text-primary"></i>
+              <div class="p-2 rounded" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); min-width: 90px;">
+                <span class="badge bg-secondary mb-1 font-monospace">Sem 4</span>
+                <div class="fw-bold small text-white">DAA (2)</div>
+              </div>
+              <i class="bi bi-arrow-right fs-4 text-primary"></i>
+              <div class="p-2 rounded" style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.5); min-width: 90px;">
+                <span class="badge bg-success mb-1 font-monospace">Sem 6</span>
+                <div class="fw-bold small text-success">CAPSTONE (5)</div>
+              </div>
+            </div>
+          </div>
+          <div class="p-3 rounded font-monospace small" style="background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); color: #38bdf8;">
+            <i class="bi bi-compass me-1"></i> <strong>Dijkstra's Shortest Remediation Route:</strong>
+            <code class="text-white">FPL(0) &rarr; DS(1) &rarr; DBMS(4) &rarr; CAPSTONE(5)</code> &bull; Total Academic Credits Weight: <strong>11 units</strong>.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5 reveal-on-scroll delay-2">
+        <div class="game-card h-100">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="fw-bold mb-0 text-white"><i class="bi bi-share text-primary me-2"></i>Peer Mentoring MST Backbone</h6>
+            <span class="badge border border-info text-info bg-info bg-opacity-10 font-monospace">Kruskal's &amp; DSU O(E log V)</span>
+          </div>
+          <p class="small text-muted mb-3">
+            Connects student study nodes with minimal coordination overhead.
+          </p>
+          <div class="d-flex flex-column gap-2 small font-monospace">
+            <div class="p-2 rounded d-flex justify-content-between" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+              <span class="text-white">Aarav (Top 1) &harr; Diya (Top 2)</span>
+              <span class="text-info fw-bold">Weight: 2.5</span>
+            </div>
+            <div class="p-2 rounded d-flex justify-content-between" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+              <span class="text-white">Diya &harr; Rohan (Top 3)</span>
+              <span class="text-info fw-bold">Weight: 3.1</span>
+            </div>
+            <div class="p-2 rounded d-flex justify-content-between" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+              <span class="text-white">Rohan &harr; Ananya</span>
+              <span class="text-info fw-bold">Weight: 4.0</span>
+            </div>
+            <div class="p-2 rounded d-flex justify-content-between" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+              <span class="text-white">Ananya &harr; Kabir</span>
+              <span class="text-info fw-bold">Weight: 4.8</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- TAB MODULE 7: 40/40 SYLLABUS MATRIX & DEPQ REMEDIAL RADAR             -->
+  <!-- ====================================================================== -->
+  <div id="mod-syllabus" class="mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2 reveal-on-scroll">
+      <div>
+        <h5 class="fw-bold mb-0 text-white"><i class="bi bi-shield-exclamation text-danger me-2"></i>7. DEPQ At-Risk Interventions Radar</h5>
+        <span class="small text-muted">Instantaneous Double-Ended Priority Queue min-heap threshold query (&lt; 40%)</span>
+      </div>
+      <a href="/syllabus-coverage" class="btn btn-outline-success btn-sm">
+        <i class="bi bi-journal-check me-1"></i> Full Syllabus Matrix (40/40) &rarr;
+      </a>
+    </div>
+
+    <!-- At-Risk Interventions Table -->
+    <div class="card p-0 glass-hover reveal-on-scroll delay-1">
+      <div class="card-header py-3 d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <span class="fw-bold text-white"><i class="bi bi-exclamation-triangle-fill text-danger me-2"></i>Active Remedial Support Queue</span>
+        <span class="badge px-3 py-1 font-monospace" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4);">
+          DEPQ peek_min O(1)
+        </span>
+      </div>
+      <div class="card-body p-0">
+        <div class="cockpit-scroll" style="max-height: 280px;">
+          <table class="table table-hover align-middle mb-0" id="atRiskTable">
+            <thead>
+              <tr>
+                <th>PRN</th>
+                <th>Cadet Name</th>
+                <th>Division</th>
+                <th>Composite Score</th>
+                <th>Attendance %</th>
+                <th>Intervention Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="6" class="text-center py-4 text-muted">Checking at-risk students...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+let allStudentsList = [];
+let allRankedList = [];
+
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    // 1. Fetch Dashboard Summary
+    const resSummary = await apiFetch('/api/dashboard/summary');
+    if (resSummary.status === 'success') {
+      const { total_students, avg_score, avg_attendance, toppers, at_risk, distribution } = resSummary.data;
+
+      document.getElementById('statStudents').textContent = total_students;
+      document.getElementById('statAvgScore').textContent = `${avg_score}%`;
+      document.getElementById('statAttendance').textContent = `${avg_attendance}%`;
+      document.getElementById('statAtRisk').textContent = at_risk.length;
+
+      // Render Holographic Gamecards
+      renderToppersCards(toppers);
+
+      // Render Charts
+      initCharts(distribution);
+
+      // Render At-Risk Table
+      renderAtRiskTable(at_risk);
+    }
+
+    // 2. Fetch Full Students List
+    const resStudents = await apiFetch('/api/students/list');
+    if (resStudents.status === 'success') {
+      allStudentsList = resStudents.data;
+      document.getElementById('dashRecordCount').textContent = allStudentsList.length;
+      renderStudentsDirectory(allStudentsList);
+      renderMarksMatrix(allStudentsList);
+    }
+
+    // 3. Setup Interactive Event Listeners for Filters & Formula
+    setupInteractiveEvents();
+
+  } catch (err) {
+    console.error('Unified cockpit load error:', err);
+  }
+});
+
+function renderToppersCards(toppers) {
+  const gamecardGrid = document.getElementById('toppersGamecardGrid');
+  if (!gamecardGrid) return;
+
+  gamecardGrid.innerHTML = toppers.map((s, idx) => {
+    let tierClass = idx === 0 ? 'game-card-apex' : (idx === 1 ? 'game-card-diamond' : 'game-card-epic');
+    let tierLabel = idx === 0 ? 'APEX RANK #1' : (idx === 1 ? 'DIAMOND RANK #2' : 'MYTHIC RANK #3');
+    let fillClass = idx === 0 ? 'fill-gold' : (idx === 1 ? 'fill-cyan' : '');
+    let delayClass = idx === 0 ? 'delay-1' : (idx === 1 ? 'delay-2' : 'delay-3');
+
+    return `
+      <div class="game-card ${tierClass} reveal-on-scroll ${delayClass}">
+        <div class="d-flex justify-content-between align-items-start mb-3">
+          <div class="d-flex align-items-center gap-2">
+            <div class="game-avatar">${s.name.charAt(0)}</div>
+            <div>
+              <h6 class="fw-bold mb-0 text-white">${s.name}</h6>
+              <div class="font-monospace small" style="color: #94a3b8;">PRN: ${s.prn}</div>
+            </div>
+          </div>
+          <span class="badge ${idx === 0 ? 'badge-gold' : (idx === 1 ? 'badge-silver' : 'badge-bronze')} px-2 py-1">
+            ${tierLabel}
+          </span>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-3 p-2 rounded" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+          <div>
+            <span class="small text-muted d-block font-monospace">OVERALL SCORE</span>
+            <span class="fs-4 fw-extrabold text-white">${s.composite_score}%</span>
+          </div>
+          <div class="text-end">
+            <span class="small text-muted d-block font-monospace">SGPA RATING</span>
+            <span class="badge px-2 py-1 fw-bold fs-6" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);">
+              ${s.sgpa} / 10.0
+            </span>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <div class="d-flex justify-content-between small font-monospace mb-1" style="color: #94a3b8;">
+            <span><i class="bi bi-lightning-charge text-warning me-1"></i>MSE Power</span>
+            <span class="text-white">${s.mse} / 30</span>
+          </div>
+          <div class="stat-meter-track">
+            <div class="stat-meter-fill ${fillClass}" style="width: ${(s.mse / 30) * 100}%"></div>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <div class="d-flex justify-content-between small font-monospace mb-1" style="color: #94a3b8;">
+            <span><i class="bi bi-shield-check text-info me-1"></i>ESE Stamina</span>
+            <span class="text-white">${s.ese} / 50</span>
+          </div>
+          <div class="stat-meter-track">
+            <div class="stat-meter-fill ${fillClass}" style="width: ${(s.ese / 50) * 100}%"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="d-flex justify-content-between small font-monospace mb-1" style="color: #94a3b8;">
+            <span><i class="bi bi-terminal text-success me-1"></i>Continuous Lab Agility</span>
+            <span class="text-white">${s.lab} / 20</span>
+          </div>
+          <div class="stat-meter-track">
+            <div class="stat-meter-fill ${fillClass}" style="width: ${(s.lab / 20) * 100}%"></div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  if (typeof initScrollReveal === 'function') {
+    initScrollReveal(gamecardGrid);
+  }
+}
+
+function renderStudentsDirectory(students) {
+  const tbody = document.querySelector('#dashStudentsTable tbody');
+  if (!tbody) return;
+
+  if (students.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="7" class="text-center py-4 text-muted">No matching cadets found.</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = students.map(s => `
+    <tr>
+      <td><code class="font-monospace text-info">${s.prn}</code></td>
+      <td><span class="font-monospace text-muted">${s.roll_no}</span></td>
+      <td>
+        <div class="d-flex align-items-center">
+          <span class="avatar-circle">${s.name.charAt(0)}</span>
+          <span class="fw-bold text-white">${s.name}</span>
+        </div>
+      </td>
+      <td>
+        <span class="badge bg-secondary font-monospace">Div ${s.division} &bull; ${s.batch}</span>
+      </td>
+      <td><span class="font-monospace small text-muted">${s.email}</span></td>
+      <td>
+        <span class="badge ${s.attendance >= 85 ? 'bg-success text-white' : (s.attendance >= 75 ? 'bg-warning text-dark' : 'bg-danger text-white')} font-monospace">
+          ${s.attendance}%
+        </span>
+      </td>
+      <td class="text-end">
+        <a href="/students" class="btn btn-sm btn-outline-light py-0 px-2 font-monospace">View</a>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function renderMarksMatrix(students) {
+  const tbody = document.querySelector('#dashMarksTable tbody');
+  if (!tbody) return;
+
+  tbody.innerHTML = students.map(s => {
+    const composite = Math.round((s.marks.MSE * 0.3) + (s.marks.ESE * 0.5) + (s.marks.LAB * 0.2));
+    return `
+      <tr>
+        <td><code class="font-monospace text-info">${s.prn}</code></td>
+        <td><span class="fw-bold text-white">${s.name}</span></td>
+        <td><span class="badge bg-secondary font-monospace">Div ${s.division}</span></td>
+        <td><span class="font-monospace text-white">${s.marks.MSE}</span></td>
+        <td><span class="font-monospace text-white">${s.marks.ESE}</span></td>
+        <td><span class="font-monospace text-white">${s.marks.LAB}</span></td>
+        <td><span class="font-monospace text-white">${s.marks.PROJ}</span></td>
+        <td><strong class="font-monospace text-success">${composite}%</strong></td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function renderAtRiskTable(atRisk) {
+  const tbody = document.querySelector('#atRiskTable tbody');
+  if (!tbody) return;
+
+  tbody.innerHTML = atRisk.map(s => `
+    <tr>
+      <td><code class="font-monospace text-info">${s.prn}</code></td>
+      <td>
+        <div class="fw-bold text-white">${s.name}</div>
+        <div class="small text-muted font-monospace">Batch ${s.batch}</div>
+      </td>
+      <td><span class="badge bg-secondary font-monospace">Div ${s.division}</span></td>
+      <td><strong class="text-danger fs-6">${s.composite_score}%</strong></td>
+      <td>
+        <span class="badge ${s.attendance < 75 ? 'bg-danger text-white' : 'bg-warning text-dark'} font-monospace">
+          ${s.attendance}%
+        </span>
+      </td>
+      <td>
+        <button class="btn btn-sm btn-outline-danger py-0 px-2 font-monospace" onclick="showToast('Remedial mentorship session scheduled for ${s.name} (PRN ${s.prn})', 'warning')">
+          <i class="bi bi-bell-fill me-1"></i> Notify Cadet
+        </button>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function initCharts(distribution) {
+  // Bar Chart
+  const barCanvas = document.getElementById('scoreDistChart');
+  if (barCanvas) {
+    new Chart(barCanvas, {
+      type: 'bar',
+      data: {
+        labels: Object.keys(distribution),
+        datasets: [{
+          data: Object.values(distribution),
+          backgroundColor: [
+            'rgba(16, 185, 129, 0.8)',
+            'rgba(59, 130, 246, 0.8)',
+            'rgba(139, 92, 246, 0.8)',
+            'rgba(245, 158, 11, 0.8)',
+            'rgba(239, 68, 68, 0.8)'
+          ],
+          borderColor: [
+            '#10b981', '#3b82f6', '#8b5cf6', '#f59e0b', '#ef4444'
+          ],
+          borderWidth: 1,
+          borderRadius: 12
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: {
+            grid: { color: 'rgba(255, 255, 255, 0.06)' },
+            ticks: { color: '#94a3b8', stepSize: 1 }
+          },
+          x: {
+            grid: { color: 'rgba(255, 255, 255, 0.06)' },
+            ticks: { color: '#cbd5e1' }
+          }
+        }
+      }
+    });
+  }
+
+  // Doughnut Chart
+  const pieCanvas = document.getElementById('divisionPieChart');
+  if (pieCanvas) {
+    new Chart(pieCanvas, {
+      type: 'doughnut',
+      data: {
+        labels: ['Division A', 'Division B'],
+        datasets: [{
+          data: [10, 5],
+          backgroundColor: ['#6366f1', '#a855f7'],
+          borderColor: 'rgba(10, 8, 22, 0.8)',
+          borderWidth: 2,
+          hoverOffset: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { color: '#cbd5e1', font: { family: 'Plus Jakarta Sans' } }
+          }
+        }
+      }
+    });
+  }
+}
+
+function setupInteractiveEvents() {
+  // Search Filter
+  const searchInput = document.getElementById('dashSearchInput');
+  const divFilter = document.getElementById('dashDivisionFilter');
+
+  function applyFilter() {
+    const q = (searchInput?.value || '').toLowerCase();
+    const div = divFilter?.value || 'ALL';
+
+    const filtered = allStudentsList.filter(s => {
+      const matchQ = s.name.toLowerCase().includes(q) || s.prn.includes(q) || s.roll_no.includes(q);
+      const matchDiv = div === 'ALL' || s.division === div;
+      return matchQ && matchDiv;
+    });
+
+    renderStudentsDirectory(filtered);
+    const countEl = document.getElementById('dashRecordCount');
+    if (countEl) countEl.textContent = filtered.length;
+  }
+
+  searchInput?.addEventListener('input', applyFilter);
+  divFilter?.addEventListener('change', applyFilter);
+
+  // Criteria Track Radio
+  document.querySelectorAll('input[name="criteriaTrack"]').forEach(radio => {
+    radio.addEventListener('change', (e) => {
+      const formulaInput = document.getElementById('dashCustomFormula');
+      if (formulaInput) formulaInput.value = e.target.value;
+      recomputeMerit();
+    });
+  });
+
+  document.getElementById('dashApplyFormulaBtn')?.addEventListener('click', recomputeMerit);
+  document.getElementById('dashAlgoSelect')?.addEventListener('change', recomputeMerit);
+  document.getElementById('dashTopKSelect')?.addEventListener('change', recomputeMerit);
+}
+
+async function recomputeMerit() {
+  const formula = document.getElementById('dashCustomFormula')?.value || '(MSE * 0.3) + (ESE * 0.5) + (LAB * 0.2)';
+  const algorithm = document.getElementById('dashAlgoSelect')?.value || 'heapsort';
+  const topK = document.getElementById('dashTopKSelect')?.value || '3';
+
+  const res = await apiFetch('/api/ranking/generate', {
+    method: 'POST',
+    body: JSON.stringify({
+      subject: 'DS',
+      formula: formula,
+      algorithm: algorithm
+    })
+  });
+
+  if (res.status === 'success') {
+    let ranked = res.data.ranked_students;
+    if (topK !== 'ALL') {
+      ranked = ranked.slice(0, parseInt(topK));
+    }
+    renderToppersCards(ranked);
+    showToast(`Leaderboard recalculated using ${algorithm.toUpperCase()} (${ranked.length} candidates displayed)`, 'primary');
+  }
+}
+</script>
+{% endblock %}

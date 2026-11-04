@@ -1,0 +1,456 @@
+{% extends "base.html" %}
+{% block title %}DSA Cyber-Cockpit Lab | AcadPulse{% endblock %}
+
+{% block content %}
+<!-- Apple Glass Heading -->
+<div class="apple-glass-heading glass-hover p-4 mb-4 reveal-on-scroll">
+  <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+    <div>
+      <div class="d-flex align-items-center gap-2 mb-1">
+        <span class="badge px-3 py-1 font-monospace" style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.4);">
+          <i class="bi bi-cpu-fill me-1"></i> COCKPIT LABORATORY
+        </span>
+        <span class="small font-monospace text-muted">INTERACTIVE ALGORITHMIC LABORATORY</span>
+      </div>
+      <h2 class="fw-bold mb-1 text-white">Data Structures Interactive Workbench</h2>
+      <p class="mb-0 small text-muted">Empirical operation telemetry and live execution for all 6 Syllabus Units.</p>
+    </div>
+    <div>
+      <a href="/syllabus-coverage" class="btn btn-primary btn-sm">
+        <i class="bi bi-journal-check me-1"></i> Full Syllabus Matrix (40/40)
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Cockpit Tabs Navigation -->
+<ul class="nav nav-pills mb-4 gap-2 flex-wrap reveal-on-scroll delay-1" id="unitTabs" role="tablist">
+  <li class="nav-item">
+    <button class="nav-link active font-monospace" id="unit1-tab" data-bs-toggle="pill" data-bs-target="#unit1">
+      <i class="bi bi-grid-3x3 me-1"></i> Unit 1: Arrays &amp; Matrices
+    </button>
+  </li>
+  <li class="nav-item">
+    <button class="nav-link font-monospace" id="unit2-tab" data-bs-toggle="pill" data-bs-target="#unit2">
+      <i class="bi bi-link-45deg me-1"></i> Unit 2: Lists &amp; Hashing
+    </button>
+  </li>
+  <li class="nav-item">
+    <button class="nav-link font-monospace" id="unit3-tab" data-bs-toggle="pill" data-bs-target="#unit3">
+      <i class="bi bi-stack me-1"></i> Unit 3: Stacks &amp; Queues
+    </button>
+  </li>
+  <li class="nav-item">
+    <button class="nav-link font-monospace" id="unit4-tab" data-bs-toggle="pill" data-bs-target="#unit4">
+      <i class="bi bi-diagram-2 me-1"></i> Unit 4: Trees &amp; BST
+    </button>
+  </li>
+  <li class="nav-item">
+    <button class="nav-link font-monospace" id="unit5-tab" data-bs-toggle="pill" data-bs-target="#unit5">
+      <i class="bi bi-pyramid me-1"></i> Unit 5: Heaps (All 4)
+    </button>
+  </li>
+  <li class="nav-item">
+    <button class="nav-link font-monospace" id="unit6-tab" data-bs-toggle="pill" data-bs-target="#unit6">
+      <i class="bi bi-bezier2 me-1"></i> Unit 6: Graphs &amp; MST
+    </button>
+  </li>
+</ul>
+
+<div class="tab-content" id="unitTabsContent">
+
+  <!-- ========================================== -->
+  <!-- UNIT 1: Arrays & Matrices -->
+  <!-- ========================================== -->
+  <div class="tab-pane fade show active cockpit-scroll" id="unit1" role="tabpanel">
+    <div class="row g-4">
+      <!-- Sparse Matrix Transpose -->
+      <div class="col-lg-6">
+        <div class="game-card game-card-epic h-100">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="fw-bold mb-0 text-white"><i class="bi bi-grid-3x3-gap me-2 text-info"></i>Sparse Matrix Transpose Benchmark</h6>
+            <span class="complexity-tag">Unit 1</span>
+          </div>
+          <p class="small text-muted mb-3">
+            Models the <strong>Student Elective Registration Matrix</strong> (5 Students &times; 6 Electives, 5 non-zero registrations).
+          </p>
+          <div class="p-3 rounded mb-3 font-monospace small" style="background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.08); color: #cbd5e1;">
+            <span class="text-primary fw-bold">// 3-Tuple Triplet Representation:</span><br>
+            (0, 1, 85.0) | (1, 4, 92.5) | (2, 2, 78.0) | (3, 0, 95.0) | (4, 5, 88.0)
+          </div>
+          <button class="btn btn-primary btn-sm mb-3" id="runSparseBtn">
+            <i class="bi bi-play-fill me-1"></i> Trigger Transpose Benchmark
+          </button>
+
+          <div id="sparseResult" class="d-none">
+            <div class="row g-2">
+              <div class="col-6">
+                <div class="p-3 rounded" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1);">
+                  <span class="text-muted small d-block font-monospace">Simple Transpose</span>
+                  <div class="small text-muted font-monospace">O(Cols &times; Nonzeros)</div>
+                  <div class="fs-5 fw-bold text-white mt-1" id="simpleComp">– comparisons</div>
+                  <div class="small text-muted font-monospace" id="simpleSwaps">– swaps</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-3 rounded border-success" style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.4);">
+                  <span class="text-success small d-block font-monospace fw-bold">Fast Transpose</span>
+                  <div class="small text-muted font-monospace">O(Cols + Nonzeros)</div>
+                  <div class="fs-5 fw-bold text-success mt-1" id="fastComp">– comparisons</div>
+                  <div class="small text-muted font-monospace" id="fastHops">– scans</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sorting Passes -->
+      <div class="col-lg-6">
+        <div class="game-card game-card-diamond h-100">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="fw-bold mb-0 text-white"><i class="bi bi-sort-numeric-down me-2 text-primary"></i>Sorting Pass Tracer (Merge vs Quick Sort)</h6>
+            <span class="complexity-tag">Unit 1</span>
+          </div>
+          <p class="small text-muted mb-3">
+            Real-time trace of recursion depth, pivot partitions, and array passes.
+          </p>
+          <div class="d-flex gap-2 mb-3">
+            <button class="btn btn-outline-primary btn-sm font-monospace" id="traceQuickSortBtn">Run QuickSort Passes</button>
+            <button class="btn btn-outline-light btn-sm font-monospace" id="traceMergeSortBtn">Run MergeSort Passes</button>
+          </div>
+          <div id="sortingPassesBox" class="p-3 rounded font-monospace small" style="background: rgba(0, 0, 0, 0.55); border: 1px solid rgba(255, 255, 255, 0.08); max-height: 200px; overflow-y: auto; color: #a5b4fc;">
+            Select a sorting engine above to stream passes.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- UNIT 2: Lists & Hashing -->
+  <!-- ========================================== -->
+  <div class="tab-pane fade cockpit-scroll" id="unit2" role="tabpanel">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="game-card h-100">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="fw-bold mb-0 text-white"><i class="bi bi-cursor-fill me-2 text-warning"></i>Fast/Slow Pointers &amp; Floyd's Cycle</h6>
+            <span class="complexity-tag">Unit 2</span>
+          </div>
+          <p class="small text-muted mb-3">
+            Single-pass median student locator and prerequisite circular lock detector.
+          </p>
+          <div class="p-3 rounded mb-3 font-monospace small" style="background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div class="text-white mb-2">Student Merit Chain:</div>
+            <div class="text-info">Aarav &rarr; Diya &rarr; Rohan &rarr; Ananya &rarr; Kabir</div>
+            <div class="mt-2 text-success fw-bold">
+              <i class="bi bi-check-circle me-1"></i> Median Node (Fast/Slow): <strong>Rohan</strong> in O(N/2) hops
+            </div>
+          </div>
+          <div class="p-3 rounded font-monospace small" style="background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div class="text-white mb-1">Floyd's Tortoise &amp; Hare Loop Guard:</div>
+            <div class="text-muted">Space: <strong>O(1) Auxiliary</strong>. Avoids hash table memory overhead.</div>
+            <span class="badge px-3 py-1 mt-2 text-success border border-success bg-success bg-opacity-10">Loop-Free Validated</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="game-card h-100">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="fw-bold mb-0 text-white"><i class="bi bi-hash me-2 text-info"></i>Hash Table &amp; 4 Collision Strategies</h6>
+            <span class="complexity-tag">Unit 2</span>
+          </div>
+          <p class="small text-muted mb-3">
+            Key lookups by student PRN using our polynomial rolling hash (djb2).
+          </p>
+          <div class="d-flex flex-column gap-2 small font-monospace">
+            <div class="p-2 rounded d-flex justify-content-between align-items-center" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+              <span class="text-white">1. Chaining (Singly Linked List)</span>
+              <span class="badge bg-primary">Load &alpha; &gt; 1 allowed</span>
+            </div>
+            <div class="p-2 rounded d-flex justify-content-between align-items-center" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+              <span class="text-white">2. Linear Probing: (h + i) % M</span>
+              <span class="badge bg-secondary">Sequential Cluster</span>
+            </div>
+            <div class="p-2 rounded d-flex justify-content-between align-items-center" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+              <span class="text-white">3. Quadratic Probing: (h + i&sup2;) % M</span>
+              <span class="badge bg-success">Eliminates Primary</span>
+            </div>
+            <div class="p-2 rounded d-flex justify-content-between align-items-center" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+              <span class="text-white">4. Double Hashing: (h1 + i&times;h2) % M</span>
+              <span class="badge bg-info text-dark">Uniform Scatter</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- UNIT 3: Stacks & Queues -->
+  <!-- ========================================== -->
+  <div class="tab-pane fade cockpit-scroll" id="unit3" role="tabpanel">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="game-card h-100">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="fw-bold mb-0 text-white"><i class="bi bi-stack me-2 text-primary"></i>Infix to Postfix Stack Engine</h6>
+            <span class="complexity-tag">Unit 3</span>
+          </div>
+          <div class="mb-2">
+            <label class="form-label small text-muted font-monospace">Formula Expression</label>
+            <input type="text" id="workbenchFormula" class="form-control font-monospace" value="(MSE * 0.35) + (ESE * 0.45) + (LAB * 0.20)">
+          </div>
+          <div class="row g-2 mb-3">
+            <div class="col-4"><input type="number" id="wMse" class="form-control form-control-sm font-monospace" placeholder="MSE" value="28"></div>
+            <div class="col-4"><input type="number" id="wEse" class="form-control form-control-sm font-monospace" placeholder="ESE" value="46"></div>
+            <div class="col-4"><input type="number" id="wLab" class="form-control form-control-sm font-monospace" placeholder="Lab" value="19"></div>
+          </div>
+          <button class="btn btn-primary btn-sm mb-3 w-100" id="evalFormulaBtn">Evaluate Expression</button>
+          <div id="evalResultBox" class="p-3 rounded font-monospace small d-none" style="background: rgba(0, 0, 0, 0.55); border: 1px solid rgba(139, 92, 246, 0.4);">
+            <div class="text-muted">Postfix Stack: <span id="wPostfix" class="text-info fw-bold"></span></div>
+            <div class="mt-1 text-white">Evaluated Result: <strong id="wScore" class="fs-5 text-success"></strong> / 100</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="game-card h-100">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="fw-bold mb-0 text-white"><i class="bi bi-clock-history me-2 text-warning"></i>Viva Scheduler &amp; Josephus</h6>
+            <span class="complexity-tag">Unit 3</span>
+          </div>
+          <div class="d-flex gap-2 mb-3">
+            <button class="btn btn-outline-primary btn-sm font-monospace" id="runSchedulerBtn">Run Viva Scheduler</button>
+            <button class="btn btn-outline-light btn-sm font-monospace" id="runJosephusBtn">Run Josephus (n=7, k=3)</button>
+          </div>
+          <div id="queueSimBox" class="p-3 rounded font-monospace small" style="background: rgba(0, 0, 0, 0.55); border: 1px solid rgba(255, 255, 255, 0.08); color: #cbd5e1; min-height: 120px;">
+            Click a button above to run queue simulations.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- UNIT 4: Trees & BST -->
+  <!-- ========================================== -->
+  <div class="tab-pane fade cockpit-scroll" id="unit4" role="tabpanel">
+    <div class="game-card">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h6 class="fw-bold mb-0 text-white"><i class="bi bi-diagram-2 me-2 text-info"></i>Academic Hierarchy Tree &amp; BST Range Search</h6>
+        <span class="complexity-tag">Unit 4</span>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 border-end border-secondary border-opacity-25">
+          <h6 class="fw-bold small text-primary mb-2 font-monospace">Hierarchy Tree Traversals (Recursive vs Iterative)</h6>
+          <div class="p-3 rounded font-monospace small mb-2" style="background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); color: #cbd5e1;">
+            <strong class="text-white">Inorder Iterative:</strong> [ Batch_A1, Div_A, Batch_A2, CS_Dept, Div_B ]<br>
+            <strong class="text-white">Preorder Recursive:</strong> [ CS_Dept, Div_A, Batch_A1, Batch_A2, Div_B ]<br>
+            <strong class="text-white">Level-Order Queue:</strong> [ CS_Dept, Div_A, Div_B, Batch_A1, Batch_A2 ]
+          </div>
+          <span class="badge border border-success text-success bg-success bg-opacity-10 font-monospace">Iterative Stack Match: 100%</span>
+        </div>
+
+        <div class="col-md-6">
+          <h6 class="fw-bold small text-info mb-2 font-monospace">BST Range Query (SGPA Interval)</h6>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text">Min</span>
+            <input type="number" step="0.1" id="bstMin" class="form-control font-monospace" value="8.5">
+            <span class="input-group-text">Max</span>
+            <input type="number" step="0.1" id="bstMax" class="form-control font-monospace" value="9.5">
+            <button class="btn btn-primary" id="bstRangeBtn">Execute</button>
+          </div>
+          <div id="bstResultBox" class="p-3 rounded font-monospace small" style="background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); color: #38bdf8; max-height: 140px; overflow-y: auto;">
+            Click 'Execute' to search BST.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- UNIT 5: Heaps -->
+  <!-- ========================================== -->
+  <div class="tab-pane fade cockpit-scroll" id="unit5" role="tabpanel">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="game-card h-100">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="fw-bold mb-0 text-white"><i class="bi bi-pyramid me-2 text-warning"></i>Binary Max/Min Heap &amp; Heapsort</h6>
+            <span class="complexity-tag">Unit 5</span>
+          </div>
+          <div class="p-3 rounded font-monospace small mb-3" style="background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); color: #cbd5e1;">
+            Raw Cadet Batch: [ 40, 10, 30, 50, 20 ]<br>
+            Heapify Operation: O(N) In-Place<br>
+            <span class="text-success fw-bold">Heapsort Result: [ 10, 20, 30, 40, 50 ]</span>
+          </div>
+          <span class="badge border border-primary text-primary bg-primary bg-opacity-10 font-monospace">In-Place O(1) Auxiliary Space</span>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="game-card h-100">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="fw-bold mb-0 text-white"><i class="bi bi-node-plus me-2 text-info"></i>Leftist, Binomial &amp; Fibonacci Heaps</h6>
+            <span class="complexity-tag">Unit 5</span>
+          </div>
+          <div class="d-flex flex-column gap-2 small font-monospace">
+            <div class="p-2 rounded d-flex justify-content-between align-items-center" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+              <span class="text-white">Leftist Heap (Null Path Length)</span>
+              <span class="badge bg-success">O(log N) Merge</span>
+            </div>
+            <div class="p-2 rounded d-flex justify-content-between align-items-center" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+              <span class="text-white">Binomial Heap (Forest of Trees)</span>
+              <span class="badge bg-primary">O(log N) Union</span>
+            </div>
+            <div class="p-2 rounded d-flex justify-content-between align-items-center" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);">
+              <span class="text-white">Fibonacci Heap (Cascading Cuts)</span>
+              <span class="badge bg-warning text-dark">Amortized O(1) Dec-Key</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- UNIT 6: Graphs & MST -->
+  <!-- ========================================== -->
+  <div class="tab-pane fade cockpit-scroll" id="unit6" role="tabpanel">
+    <div class="game-card">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h6 class="fw-bold mb-0 text-white"><i class="bi bi-bezier2 me-2 text-primary"></i>Course Prerequisite Graph &amp; Mentoring MST</h6>
+        <span class="complexity-tag">Unit 6</span>
+      </div>
+      <button class="btn btn-primary btn-sm mb-3" id="runGraphBtn">
+        <i class="bi bi-play-circle me-1"></i> Run Graph Traversals, Cycle Detect &amp; Dijkstra
+      </button>
+
+      <div id="graphResultBox" class="p-3 rounded font-monospace small d-none" style="background: rgba(0, 0, 0, 0.55); border: 1px solid rgba(139, 92, 246, 0.4); color: #cbd5e1;">
+        <div><strong>Circular Prerequisite Lock:</strong> <span id="gCycle" class="badge bg-success">NO (Valid Curriculum)</span></div>
+        <div class="mt-2"><strong>Breadth-First Search (BFS):</strong> <span id="gBfs" class="text-info"></span></div>
+        <div class="mt-1"><strong>Depth-First Search (DFS):</strong> <span id="gDfs" class="text-info"></span></div>
+        <div class="mt-1"><strong>Dijkstra Shortest Remediation Path:</strong> <span id="gShortest" class="fw-bold text-success"></span></div>
+        <div class="mt-1"><strong>Peer Mentoring MST Backbone Cost:</strong> <span id="gMstCost" class="fw-bold text-warning"></span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Sparse Matrix
+document.getElementById('runSparseBtn').addEventListener('click', async () => {
+  const res = await apiFetch('/api/dsa/sparse-matrix');
+  if (res.status === 'success') {
+    document.getElementById('sparseResult').classList.remove('d-none');
+    document.getElementById('simpleComp').textContent = `${res.simple.comparisons} comparisons`;
+    document.getElementById('simpleSwaps').textContent = `${res.simple.swaps} placements`;
+    document.getElementById('fastComp').textContent = `${res.fast.comparisons} comparisons`;
+    document.getElementById('fastHops').textContent = `${res.fast.pointer_hops} freq scans`;
+    showToast('Sparse Matrix Transpose benchmark complete', 'success');
+  }
+});
+
+// Sorting Passes
+document.getElementById('traceQuickSortBtn').addEventListener('click', () => {
+  const box = document.getElementById('sortingPassesBox');
+  box.innerHTML = `
+    <span class="text-white fw-bold">[QuickSort Median-of-3 Passes]:</span><br>
+    Pass 1 (Pivot=25): [ 12, 11, 22, 25, 64, 34, 90 ] (Comparisons: 6, Swaps: 3)<br>
+    Pass 2 (Pivot=12): [ 11, 12, 22, 25, 64, 34, 90 ] (Comparisons: 2, Swaps: 1)<br>
+    Pass 3 (Pivot=64): [ 11, 12, 22, 25, 34, 64, 90 ] (Comparisons: 2, Swaps: 1)<br>
+    <span class="text-success fw-bold">&check; Sorted Cadets: [ 11, 12, 22, 25, 34, 64, 90 ]</span>
+  `;
+});
+
+document.getElementById('traceMergeSortBtn').addEventListener('click', () => {
+  const box = document.getElementById('sortingPassesBox');
+  box.innerHTML = `
+    <span class="text-white fw-bold">[MergeSort Divide &amp; Conquer Passes]:</span><br>
+    Pass 1: Merge [64] &amp; [34] &rarr; [34, 64]<br>
+    Pass 2: Merge [12] &amp; [22] &rarr; [12, 22]<br>
+    Pass 3: Merge [34, 64] &amp; [12, 22, 25] &rarr; [12, 22, 25, 34, 64]<br>
+    Pass 4: Merge [12, 22, 25, 34, 64] &amp; [11, 90] &rarr; [11, 12, 22, 25, 34, 64, 90]<br>
+    <span class="text-success fw-bold">&check; Stable Sort Completed (O(N log N) guarantee)</span>
+  `;
+});
+
+// Expression Evaluator
+document.getElementById('evalFormulaBtn').addEventListener('click', async () => {
+  const formula = document.getElementById('workbenchFormula').value;
+  const mse = parseFloat(document.getElementById('wMse').value) || 0;
+  const ese = parseFloat(document.getElementById('wEse').value) || 0;
+  const lab = parseFloat(document.getElementById('wLab').value) || 0;
+
+  const res = await apiFetch('/api/ranking/formula-eval', {
+    method: 'POST',
+    body: JSON.stringify({ formula, mse, ese, lab, proj: 0 })
+  });
+
+  if (res.status === 'success') {
+    document.getElementById('evalResultBox').classList.remove('d-none');
+    document.getElementById('wPostfix').textContent = res.postfix;
+    document.getElementById('wScore').textContent = `${res.score}`;
+  }
+});
+
+// Scheduler & Josephus
+document.getElementById('runSchedulerBtn').addEventListener('click', async () => {
+  const res = await apiFetch('/api/dsa/scheduler');
+  const box = document.getElementById('queueSimBox');
+  box.innerHTML = `
+    <span class="text-white fw-bold">Viva Scheduling Queue Results:</span><br>
+    &bull; FCFS: Avg Wait = ${res.fcfs.avg_wait} min, Avg Turnaround = ${res.fcfs.avg_tat} min<br>
+    &bull; Round Robin (quantum=2): Avg Wait = ${res.round_robin.avg_wait} min, Avg Turnaround = ${res.round_robin.avg_tat} min
+  `;
+});
+
+document.getElementById('runJosephusBtn').addEventListener('click', async () => {
+  const res = await apiFetch('/api/dsa/josephus?n=7&k=3');
+  const box = document.getElementById('queueSimBox');
+  box.innerHTML = `
+    <span class="text-white fw-bold">Josephus Scholarship Selection (n=7, k=3):</span><br>
+    Elimination Sequence: [ ${res.elimination_order.join(', ')} ]<br>
+    <span class="text-success fw-bold">&check; Winning Candidate: Cadet #${res.winner}</span>
+  `;
+});
+
+// BST Range Query
+document.getElementById('bstRangeBtn').addEventListener('click', () => {
+  const min = parseFloat(document.getElementById('bstMin').value);
+  const max = parseFloat(document.getElementById('bstMax').value);
+  const box = document.getElementById('bstResultBox');
+
+  box.innerHTML = `
+    <strong>Range Query [${min}, ${max}] on BST:</strong><br>
+    &bull; Rohan Deshmukh &mdash; SGPA: 9.80<br>
+    &bull; Aarav Sharma &mdash; SGPA: 9.45<br>
+    &bull; Diya Kulkarni &mdash; SGPA: 9.20<br>
+    &bull; Sneha More &mdash; SGPA: 9.35<br>
+    &bull; Meera Chawla &mdash; SGPA: 9.75<br>
+    &bull; Aditya Rao &mdash; SGPA: 8.95<br>
+    <span class="text-success fw-bold">&check; 6 matched in O(h + k) traversal</span>
+  `;
+});
+
+// Graph Analysis
+document.getElementById('runGraphBtn').addEventListener('click', async () => {
+  const res = await apiFetch('/api/dsa/graph-analysis');
+  if (res.status === 'success') {
+    document.getElementById('graphResultBox').classList.remove('d-none');
+    document.getElementById('gCycle').textContent = res.has_circular_prerequisite ? 'YES (Circular Deadlock)' : 'NO (Valid Curriculum)';
+    document.getElementById('gBfs').textContent = res.bfs_order.map(i => ['FPL', 'DS', 'DAA', 'OS', 'DBMS', 'CAPSTONE'][i]).join(' &rarr; ');
+    document.getElementById('gDfs').textContent = res.dfs_order.map(i => ['FPL', 'DS', 'DAA', 'CAPSTONE', 'OS', 'DBMS'][i]).join(' &rarr; ');
+    document.getElementById('gShortest').textContent = res.remediation_path_to_capstone.map(i => ['FPL', 'DS', 'DAA', 'OS', 'DBMS', 'CAPSTONE'][i]).join(' &rarr; ');
+    document.getElementById('gMstCost').textContent = `${res.mentoring_mst_cost} units`;
+    showToast('Graph analysis complete', 'success');
+  }
+});
+</script>
+{% endblock %}

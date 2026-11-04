@@ -1,0 +1,12 @@
+.git
+.github
+.vscode
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache
+*.log
+engine/tests/*.exe
+engine/*.exe
+
