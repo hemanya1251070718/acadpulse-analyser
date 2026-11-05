@@ -189,35 +189,36 @@ function initThunderEngine() {
     ctx.clearRect(0, 0, width, height);
 
     if (flashOpacity > 0.01) {
-      ctx.fillStyle = `rgba(139, 92, 246, ${flashOpacity * 0.25})`;
+      ctx.fillStyle = `rgba(139, 92, 246, ${flashOpacity * 0.22})`;
       ctx.fillRect(0, 0, width, height);
-      flashOpacity *= 0.85;
+      flashOpacity *= 0.93;
     }
 
-    if (timestamp - lastSpawn > 450 + Math.random() * 850) {
+    // Slower, majestic lightning strikes (every 1.8s - 3.8s)
+    if (timestamp - lastSpawn > 1800 + Math.random() * 2000) {
       spawnThunderbolt();
       lastSpawn = timestamp;
     }
 
-    // Draw and fade bolts
+    // Draw and gracefully fade bolts (slower fade rate 0.022 instead of 0.055)
     for (let i = bolts.length - 1; i >= 0; i--) {
       const b = bolts[i];
       b.draw(ctx);
-      b.alpha -= 0.055;
+      b.alpha -= 0.022;
       if (b.alpha <= 0) {
         bolts.splice(i, 1);
       }
     }
 
-    // Draw and fade sparks
+    // Draw and fade sparks gently
     for (let i = sparks.length - 1; i >= 0; i--) {
       const s = sparks[i];
-      s.x += s.vx;
-      s.y += s.vy;
-      s.life -= s.decay;
+      s.x += s.vx * 0.7;
+      s.y += s.vy * 0.7;
+      s.life -= s.decay * 0.45;
 
       if (s.life > 0) {
-        ctx.fillStyle = `rgba(56, 189, 248, ${s.life})`;
+        ctx.fillStyle = `rgba(56, 189, 248, ${s.life * 0.9})`;
         ctx.beginPath();
         ctx.arc(s.x, s.y, 2, 0, Math.PI * 2);
         ctx.fill();

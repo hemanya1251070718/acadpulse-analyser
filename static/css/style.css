@@ -849,6 +849,67 @@ footer {
   z-index: 2;
 }
 
+/* Cartoon Animated Stickman Scholars, Bouncing Books & Caps */
+.cartoon-floating-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.cartoon-item {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.65));
+}
+
+.cartoon-stickman {
+  font-size: 3.2rem;
+  animation: stickmanFloat 6s ease-in-out infinite alternate;
+}
+
+.cartoon-book {
+  font-size: 2.6rem;
+  animation: bookBounce 3.8s cubic-bezier(0.28, 0.84, 0.42, 1) infinite;
+}
+
+.cartoon-mortarboard {
+  font-size: 2.8rem;
+  animation: capToss 4.8s ease-in-out infinite;
+}
+
+.cartoon-scroll {
+  font-size: 2.3rem;
+  animation: scrollWiggle 5.2s ease-in-out infinite alternate;
+}
+
+@keyframes stickmanFloat {
+  0% { transform: translateY(0px) rotate(-4deg); }
+  50% { transform: translateY(-24px) rotate(5deg) scale(1.05); }
+  100% { transform: translateY(0px) rotate(-4deg); }
+}
+
+@keyframes bookBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  35% { transform: translateY(-36px) rotate(-14deg) scale(1.1); }
+  65% { transform: translateY(-12px) rotate(8deg); }
+}
+
+@keyframes capToss {
+  0%, 100% { transform: translateY(0) rotate(-10deg); }
+  45% { transform: translateY(-42px) rotate(22deg) scale(1.15); }
+  75% { transform: translateY(-15px) rotate(-4deg); }
+}
+
+@keyframes scrollWiggle {
+  0% { transform: translateY(0) rotate(-8deg); }
+  100% { transform: translateY(-20px) rotate(12deg); }
+}
+
 #thunderCanvas {
   position: absolute;
   top: 0; left: 0;
