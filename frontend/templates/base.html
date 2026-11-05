@@ -3,97 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}AcadPulse | Student Ranking &amp; Performance Analyser{% endblock %}</title>
-  <!-- Google Fonts: Outfit, Plus Jakarta Sans, JetBrains Mono -->
+  <title>{% block title %}AcadPulse | Continuous Merit &amp; Algorithmic Telemetry Protocol{% endblock %}</title>
+  <!-- Non-cliched Typography Pairing: Space Grotesk (Display) + IBM Plex Mono (Code/Telemetry) + Public Sans (Data/Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <!-- Bootstrap 5.3 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <!-- Custom Cyber-Cockpit & Fernwood-Style Apple Glass UI CSS -->
+  <!-- Swiss Brutalist & Braun Telemetry CSS -->
   <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 </head>
 <body class="{% if request.path == '/' %}dashboard-page{% endif %}">
-  <!-- Dot Matrix Vignette Background Overlay -->
-  <div class="dot-matrix-overlay"></div>
+  <!-- Technical Grid Background Lines -->
+  <div class="technical-grid-background"></div>
 
-  <!-- Top Floating Capsule Header -->
-  <header id="siteFloatingHeader" class="site-header-floating">
-    <div class="container-fluid px-3 px-md-5 py-3 d-flex align-items-center justify-content-between">
-      <!-- Brand Logo (Left) -->
-      <a class="brand-fernwood d-flex align-items-center text-decoration-none" href="/">
-        <span class="brand-sprout me-2">⚡</span>
-        <span class="brand-text">AcadPulse</span>
-      </a>
-
-      <!-- Center Pill Navigation Capsule -->
-      <nav class="pill-nav-capsule d-none d-lg-flex align-items-center">
-        <a class="pill-nav-link {% if request.path == '/' %}active{% endif %}" href="/">Home</a>
-        <a class="pill-nav-link {% if request.path == '/students' %}active{% endif %}" href="/students">Students</a>
-        <a class="pill-nav-link {% if request.path == '/assessments' %}active{% endif %}" href="/assessments">Assessments</a>
-        <a class="pill-nav-link {% if request.path == '/merit-list' %}active{% endif %}" href="/merit-list">Merit List</a>
-        <a class="pill-nav-link {% if request.path == '/dsa-workbench' %}active{% endif %}" href="/dsa-workbench">DSA Lab</a>
-        <a class="pill-nav-link {% if request.path == '/curriculum-graph' %}active{% endif %}" href="/curriculum-graph">Graph</a>
-        <a class="pill-nav-link {% if request.path == '/syllabus-coverage' %}active{% endif %}" href="/syllabus-coverage">Syllabus</a>
-      </nav>
-
-      <!-- Right Action Button -->
-      <div class="d-flex align-items-center gap-2">
-        <a href="/merit-list" class="pill-action-btn text-decoration-none d-none d-sm-inline-flex">
-          <span>Launch Engine</span>
+  <!-- Master Swiss Architectural Header Bar -->
+  <header id="siteArchitecturalHeader" class="swiss-header">
+    <div class="swiss-header-top">
+      <div class="container-fluid px-3 px-md-4 d-flex align-items-center justify-content-between">
+        <!-- Brand Terminal Tag -->
+        <a class="brand-monolith d-flex align-items-center text-decoration-none" href="/">
+          <span class="signal-indicator me-2">■</span>
+          <span class="brand-code">ACADPULSE</span>
+          <span class="brand-subtag d-none d-sm-inline ms-2">/ ARCHIVAL_V2.0</span>
         </a>
-        <button class="navbar-toggler d-lg-none border-0 text-white p-2" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
-          <i class="bi bi-list fs-2"></i>
-        </button>
+
+        <!-- System Telemetry Coordinate Center -->
+        <div class="header-telemetry-readout d-none d-lg-flex align-items-center gap-3">
+          <span class="telemetry-pill"><span class="dot-live"></span> SYS.CORE: ONLINE</span>
+          <span class="telemetry-meta">AY 2026-27</span>
+          <span class="telemetry-meta">40/40 PRIMITIVES</span>
+          <span class="telemetry-meta">HEAPSORT: ACTIVE</span>
+        </div>
+
+        <!-- Terminal Quick Action -->
+        <div class="d-flex align-items-center gap-2">
+          <a href="/merit-list" class="btn-mechanical-sm text-decoration-none d-none d-sm-inline-flex">
+            <span>GENERATE MERIT →</span>
+          </a>
+          <button class="navbar-toggler d-lg-none border-0 text-white p-2" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
+            <i class="bi bi-list fs-3"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Index Navigation Track -->
+    <div class="swiss-header-nav d-none d-lg-block">
+      <div class="container-fluid px-3 px-md-4">
+        <nav class="d-flex align-items-center gap-1">
+          <a class="swiss-nav-item {% if request.path == '/' %}active{% endif %}" href="/">[01] MASTER_HUD</a>
+          <a class="swiss-nav-item {% if request.path == '/students' %}active{% endif %}" href="/students">[02] CADET_REGISTRY</a>
+          <a class="swiss-nav-item {% if request.path == '/assessments' %}active{% endif %}" href="/assessments">[03] ASSESSMENTS</a>
+          <a class="swiss-nav-item {% if request.path == '/merit-list' %}active{% endif %}" href="/merit-list">[04] MERIT_STANDINGS</a>
+          <a class="swiss-nav-item {% if request.path == '/dsa-workbench' %}active{% endif %}" href="/dsa-workbench">[05] 40_ALGO_LAB</a>
+          <a class="swiss-nav-item {% if request.path == '/curriculum-graph' %}active{% endif %}" href="/curriculum-graph">[06] CURRICULUM_DAG</a>
+          <a class="swiss-nav-item {% if request.path == '/syllabus-coverage' %}active{% endif %}" href="/syllabus-coverage">[07] SYLLABUS_MATRIX</a>
+        </nav>
       </div>
     </div>
 
     <!-- Mobile Collapsible Menu -->
-    <div class="collapse d-lg-none px-4 pb-3" id="mobileMenu">
-      <div class="mobile-nav-panel p-3">
-        <a class="mobile-nav-link {% if request.path == '/' %}active{% endif %}" href="/">Home / Dashboard</a>
-        <a class="mobile-nav-link {% if request.path == '/students' %}active{% endif %}" href="/students">Students Registry</a>
-        <a class="mobile-nav-link {% if request.path == '/assessments' %}active{% endif %}" href="/assessments">Continuous Assessments</a>
-        <a class="mobile-nav-link {% if request.path == '/merit-list' %}active{% endif %}" href="/merit-list">Dynamic Merit List</a>
-        <a class="mobile-nav-link {% if request.path == '/dsa-workbench' %}active{% endif %}" href="/dsa-workbench">DSA Lab Workbench</a>
-        <a class="mobile-nav-link {% if request.path == '/curriculum-graph' %}active{% endif %}" href="/curriculum-graph">Curriculum Graph</a>
-        <a class="mobile-nav-link {% if request.path == '/syllabus-coverage' %}active{% endif %}" href="/syllabus-coverage">Syllabus (100%)</a>
+    <div class="collapse d-lg-none px-3 py-2 bg-dark border-bottom border-secondary" id="mobileMenu">
+      <div class="mobile-ledger-list">
+        <a class="mobile-ledger-item {% if request.path == '/' %}active{% endif %}" href="/">[01] MASTER_HUD</a>
+        <a class="mobile-ledger-item {% if request.path == '/students' %}active{% endif %}" href="/students">[02] CADET_REGISTRY</a>
+        <a class="mobile-ledger-item {% if request.path == '/assessments' %}active{% endif %}" href="/assessments">[03] ASSESSMENTS</a>
+        <a class="mobile-ledger-item {% if request.path == '/merit-list' %}active{% endif %}" href="/merit-list">[04] MERIT_STANDINGS</a>
+        <a class="mobile-ledger-item {% if request.path == '/dsa-workbench' %}active{% endif %}" href="/dsa-workbench">[05] 40_ALGO_LAB</a>
+        <a class="mobile-ledger-item {% if request.path == '/curriculum-graph' %}active{% endif %}" href="/curriculum-graph">[06] CURRICULUM_DAG</a>
+        <a class="mobile-ledger-item {% if request.path == '/syllabus-coverage' %}active{% endif %}" href="/syllabus-coverage">[07] SYLLABUS_MATRIX</a>
       </div>
     </div>
   </header>
 
-  <!-- Main Container -->
-  <main class="{% if request.path != '/' %}container-fluid px-lg-4 my-4 pt-5{% else %}w-100 p-0 m-0{% endif %} flex-grow-1">
+  <!-- Main Viewport -->
+  <main class="{% if request.path != '/' %}container-fluid px-3 px-md-4 my-4 pt-4{% else %}w-100 p-0 m-0{% endif %} flex-grow-1">
     {% block content %}{% endblock %}
   </main>
 
   <!-- Toast Notification Container -->
   <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
-    <div id="liveToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div id="liveToast" class="toast align-items-center border-0 shadow-lg" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="d-flex">
-        <div class="toast-body" id="toastMessage">Action completed successfully.</div>
+        <div class="toast-body font-monospace small" id="toastMessage">COMMAND_EXEC_OK</div>
         <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="fernwood-footer">
-    <div class="container-fluid px-lg-5">
-      <div class="row align-items-center py-4">
-        <div class="col-md-6 text-center text-md-start">
-          <div class="d-flex align-items-center justify-content-center justify-content-md-start mb-1">
-            <span class="fs-4 me-2">⚡</span>
-            <strong class="text-white fs-5 font-outfit">AcadPulse</strong>
+  <!-- Industrial Colophon Footer -->
+  <footer class="swiss-footer">
+    <div class="container-fluid px-3 px-md-4 py-4">
+      <div class="row align-items-center g-3">
+        <div class="col-md-7 text-center text-md-start">
+          <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-2 mb-1">
+            <span class="signal-indicator">■</span>
+            <span class="brand-code text-white">ACADPULSE</span>
+            <span class="text-muted font-monospace small">/ SPECIFICATION: 1970s_BRAUN_TELEMETRY</span>
           </div>
-          <p class="small text-muted mb-0">High-Performance Student Ranking &amp; Academic Performance Analyser</p>
+          <div class="text-secondary font-monospace" style="font-size: 0.72rem; letter-spacing: 0.05em;">
+            INSTITUTIONAL CONTINUOUS EVALUATION PROTOCOL · ZERO-STL ALGORITHMIC ENGINE · DETERMINISTIC HEAPSORT
+          </div>
         </div>
-        <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
-          <span class="badge rounded-pill bg-white bg-opacity-10 text-white-50 px-3 py-2 me-1">Zero-STL Core</span>
-          <span class="badge rounded-pill bg-white bg-opacity-10 text-white-50 px-3 py-2 me-1">Apple Glass UI</span>
-          <span class="badge rounded-pill px-3 py-2 text-white" style="background: linear-gradient(135deg, #7c3aed, #6366f1);"><i class="bi bi-shield-check me-1"></i>40/40 Algorithms</span>
+        <div class="col-md-5 text-center text-md-end font-monospace" style="font-size: 0.72rem;">
+          <span class="text-secondary me-3">LATENCY: &lt;1.2MS</span>
+          <span class="text-secondary me-3">PRECISION: IEEE-754</span>
+          <span class="text-signal-orange">SIGNAL: 100% NOMINAL</span>
         </div>
       </div>
     </div>
@@ -103,7 +121,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Chart.js 4.4 -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
-  <!-- Shared JS Helpers, Specular Tracking & Lightning -->
+  <!-- Minimalist Script Engine -->
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   {% block scripts %}{% endblock %}
 </body>

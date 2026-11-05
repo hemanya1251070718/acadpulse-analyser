@@ -135,3 +135,4 @@ acadpulse-analyser/
 - `GET /api/health` — JSON: Healthcheck (`status: healthy`, `version: 2.0`)
 - `GET /static/css/style.css` — CSS: 200 OK text/css
 - `GET /static/js/main.js` — JS: 200 OK text/javascript
+
