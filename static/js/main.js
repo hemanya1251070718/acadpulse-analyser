@@ -330,10 +330,56 @@ function initDashboardNavbarReveal() {
   checkNavbar();
 }
 
+// --------------------------------------------------------------------------
+// Fernwood Hero Showcase Interactive Animations (Gauge & Progress Bars)
+// --------------------------------------------------------------------------
+
+function initFernwoodHeroAnimations() {
+  // Animate speedometer gauge arc
+  const gaugePath = document.querySelector('.gauge-meter-path');
+  if (gaugePath) {
+    gaugePath.style.strokeDasharray = '235.6';
+    gaugePath.style.strokeDashoffset = '235.6';
+    setTimeout(() => {
+      gaugePath.style.transition = 'stroke-dashoffset 1.8s cubic-bezier(0.16, 1, 0.3, 1)';
+      gaugePath.style.strokeDashoffset = '18.8'; // 92% of arc
+    }, 400);
+  }
+
+  // Animate horizontal progress bars in left card
+  const bars = document.querySelectorAll('.card-left-tilt .bar-fill');
+  bars.forEach((bar, i) => {
+    const targetW = bar.style.width;
+    bar.style.width = '0%';
+    setTimeout(() => {
+      bar.style.transition = 'width 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+      bar.style.width = targetW;
+    }, 300 + i * 120);
+  });
+}
+
+function initFloatingHeaderScroll() {
+  const header = document.getElementById('siteFloatingHeader');
+  if (!header) return;
+
+  function onScroll() {
+    if (window.scrollY > 40) {
+      header.classList.add('header-scrolled');
+    } else {
+      header.classList.remove('header-scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+
 // Initialize on DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
   initThunderEngine();
   initDashboardNavbarReveal();
+  initFloatingHeaderScroll();
+  initFernwoodHeroAnimations();
   initScrollReveal();
 
   // Re-observe elements on tab clicks

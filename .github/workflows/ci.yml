@@ -35,3 +35,4 @@ jobs:
         run: |
           g++ -std=c++17 -O2 -I engine/include engine/tests/test_all_dsa.cpp -o test_all_dsa
           ./test_all_dsa
+

@@ -3,65 +3,143 @@
 
 {% block content %}
 <!-- ==========================================================================
-     FRONT HERO COVER SCREEN (BIG ACADPULSE + LIVE THOR THUNDERBOLTS + CARTOONS)
+     FRONT HERO COVER SCREEN (FERNWOOD-STYLE AESTHETIC + 3D SHOWCASE CARDS)
      ========================================================================== -->
-<section id="heroScreen" class="hero-cover-screen">
-  <!-- Live Procedural Lightning Canvas -->
+<section id="heroScreen" class="fernwood-hero-section">
+  <!-- Live Ambient Lightning & Nebula Canvas -->
   <canvas id="thunderCanvas"></canvas>
 
-  <!-- Cartoon Animated Layer (Stickman Students, Bouncing Books, Graduation Caps) -->
-  <div class="cartoon-floating-layer">
-    <!-- Stickman Scholars -->
-    <div class="cartoon-item cartoon-stickman" style="top: 14%; left: 8%;">🧑‍🎓</div>
-    <div class="cartoon-item cartoon-stickman" style="top: 22%; right: 9%; animation-delay: -3s;">🧑‍🎓</div>
-    <div class="cartoon-item cartoon-stickman" style="bottom: 22%; left: 14%; animation-delay: -1.5s;">🧑‍🎓</div>
+  <!-- Dot Matrix Vignette Pattern Elements -->
+  <div class="hero-dot-matrix-left"></div>
+  <div class="hero-dot-matrix-right"></div>
 
-    <!-- Bouncing Books -->
-    <div class="cartoon-item cartoon-book" style="top: 18%; left: 24%; animation-delay: -0.6s;">📚</div>
-    <div class="cartoon-item cartoon-book" style="bottom: 26%; right: 18%; animation-delay: -1.8s;">📖</div>
-    <div class="cartoon-item cartoon-book" style="top: 48%; right: 7%; animation-delay: -2.4s;">📚</div>
-
-    <!-- Floating Graduation Caps & Scrolls -->
-    <div class="cartoon-item cartoon-mortarboard" style="top: 10%; right: 26%; animation-delay: -1s;">🎓</div>
-    <div class="cartoon-item cartoon-mortarboard" style="bottom: 20%; right: 32%; animation-delay: -2.8s;">🎓</div>
-    <div class="cartoon-item cartoon-scroll" style="bottom: 18%; left: 28%; animation-delay: -3.2s;">📜</div>
-
-    <!-- Floating Badges & Code Symbols -->
-    <div class="cartoon-item cartoon-badge-pill" style="top: 32%; left: 6%; animation-delay: -2s;">
-      <i class="bi bi-code-slash text-info me-1"></i> { Algorithms }
-    </div>
-    <div class="cartoon-item cartoon-badge-pill" style="top: 34%; right: 6%; animation-delay: -4s;">
-      <i class="bi bi-award-fill text-warning me-1"></i> S-Tier Merit
-    </div>
-    <div class="cartoon-item cartoon-badge-pill" style="bottom: 30%; left: 6%; animation-delay: -1.2s;">
-      <i class="bi bi-graph-up text-success me-1"></i> O(log N) Heaps
-    </div>
+  <!-- Floating Tilted Badge (NEW DROP style) -->
+  <div class="floating-drop-badge">
+    <span>TOP</span>
+    <span>MERIT</span>
   </div>
 
-  <!-- Hero Center Stage -->
-  <div class="hero-center-stage">
-    <!-- Big Thor Thunder Emblem -->
-    <div class="hero-thunder-emblem">
-      <span class="hero-symbol-bolt">⚡</span>
+  <!-- Hero Main Stage Content -->
+  <div class="hero-stage-container">
+    <!-- Top Sub-Nav Breadcrumb Indicators -->
+    <div class="hero-subnav-links">
+      <a href="#students-section" class="hero-sublink">→ Live Rankings</a>
+      <a href="#dsa-section" class="hero-sublink">→ DSA Benchmarks</a>
+      <a href="#syllabus-section" class="hero-sublink">→ 100% Syllabus</a>
     </div>
 
-    <!-- Giant Title -->
-    <h1 class="hero-title-giant">AcadPulse</h1>
+    <!-- Giant Headline with Floating Sparkle Icon -->
+    <div class="hero-headline-wrap">
+      <div class="floating-sparkle-pill">
+        <span>✦</span>
+      </div>
+      <h1 class="hero-headline-fernwood">
+        Rank every student,<br>
+        one assessment at a time.
+      </h1>
+    </div>
 
-    <!-- Subtitle -->
-    <p class="hero-tagline-glass">
-      High-performance institutional academic analytics, continuous multi-assessment tracking, dynamic merit rankings, and comprehensive algorithmic data structures.
+    <!-- Subtitle Text -->
+    <p class="hero-subtitle-fernwood">
+      Continuous marks tracking, dynamic merit rankings, and zero-compromise algorithmic precision.<br class="d-none d-md-inline">
+      On your dashboard every continuous assessment.
     </p>
 
-    <!-- Call to Action -->
-    <div class="d-flex justify-content-center gap-3 flex-wrap">
-      <a href="#cockpitStart" class="hero-cta-btn">
-        <span>Enter Unified Cockpit</span>
-        <i class="bi bi-arrow-down-circle-fill ms-2 fs-5"></i>
+    <!-- Call to Action Buttons -->
+    <div class="hero-cta-group">
+      <a href="#cockpitStart" class="btn-fernwood-primary text-decoration-none">
+        Start Ranking
       </a>
-      <a href="/merit-list" class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold">
-        <i class="bi bi-trophy-fill text-warning me-2"></i> Merit Leaderboard
+      <a href="/curriculum-graph" class="btn-fernwood-secondary text-decoration-none">
+        How it works
       </a>
+    </div>
+
+    <!-- THE THREE 3D FLOATING SHOWCASE CARDS (Exact match to reference image!) -->
+    <div class="hero-tilted-showcase-cards">
+      
+      <!-- Card 1 (Left, tilted -3.5deg): Subject Health / Progress Bars -->
+      <div class="fernwood-card card-left-tilt">
+        <div class="card-top-header d-flex align-items-center">
+          <span class="icon-badge-violet me-2"><i class="bi bi-bar-chart-fill"></i></span>
+          <span class="card-title-text">Subject Health</span>
+        </div>
+        <div class="card-bars-list mt-3">
+          <div class="bar-row">
+            <span class="bar-label">Data Structures</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 92%;"></div></div>
+            <span class="bar-score">92</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Discrete Math</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 88%;"></div></div>
+            <span class="bar-score">88</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Computer Arch</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 97%;"></div></div>
+            <span class="bar-score">97</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Algorithms</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 74%;"></div></div>
+            <span class="bar-score">74</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Lab Practical</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 61%;"></div></div>
+            <span class="bar-score">61</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 (Center, featured elevated glowing purple card): Top Performer / Semi-circular Gauge -->
+      <div class="fernwood-card card-center-feature">
+        <div class="center-card-header text-center">
+          <span class="center-subtitle">Top Performer of the Semester</span>
+        </div>
+        <div class="gauge-center-wrap">
+          <!-- Semi-circular Speedometer SVG Gauge -->
+          <svg class="gauge-svg" viewBox="0 0 200 120">
+            <!-- Background Arc Track -->
+            <path d="M 25 105 A 75 75 0 0 1 175 105" fill="none" stroke="rgba(255, 255, 255, 0.22)" stroke-width="14" stroke-linecap="round"/>
+            <!-- Animated Progress Arc -->
+            <path class="gauge-meter-path" d="M 25 105 A 75 75 0 0 1 175 105" fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round" stroke-dasharray="235.6" stroke-dashoffset="23.5"/>
+          </svg>
+          <div class="gauge-score-value">92</div>
+        </div>
+        <div class="center-card-caption text-center">
+          Aarav Sharma, Thriving
+        </div>
+      </div>
+
+      <!-- Card 3 (Right, tilted +3.5deg): Merit Velocity / Sparkline -->
+      <div class="fernwood-card card-right-tilt">
+        <div class="card-top-header d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <span class="icon-badge-violet me-2"><i class="bi bi-droplet-fill"></i></span>
+            <span class="card-title-text">Merit Velocity</span>
+          </div>
+          <span class="pill-streak-badge">12 weeks</span>
+        </div>
+        <div class="sparkline-wrap mt-3">
+          <!-- Smooth SVG Line Chart -->
+          <svg class="sparkline-svg" viewBox="0 0 260 110">
+            <!-- Subtle Gridlines -->
+            <line x1="0" y1="25" x2="260" y2="25" stroke="#f1f5f9" stroke-width="1" />
+            <line x1="0" y1="55" x2="260" y2="55" stroke="#f1f5f9" stroke-width="1" />
+            <line x1="0" y1="85" x2="260" y2="85" stroke="#f1f5f9" stroke-width="1" />
+            
+            <!-- Sparkline Path Area Fill -->
+            <path d="M 10 90 Q 40 85, 60 70 T 110 75 T 150 50 T 190 40 T 230 35 T 250 25 L 250 105 L 10 105 Z" fill="rgba(124, 58, 237, 0.08)" />
+            <!-- Sparkline Line -->
+            <path d="M 10 90 Q 40 85, 60 70 T 110 75 T 150 50 T 190 40 T 230 35 T 250 25" fill="none" stroke="#7c3aed" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+            <!-- Endpoint Pulse Dot -->
+            <circle cx="250" cy="25" r="4.5" fill="#7c3aed" />
+          </svg>
+        </div>
+      </div>
+
     </div>
   </div>
 
