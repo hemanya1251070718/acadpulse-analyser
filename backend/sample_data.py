@@ -3,213 +3,2178 @@ import os
 
 STUDENTS_DATA = [
     {
-        "prn": "22310001",
+        "prn": "1251070718",
         "roll_no": "101",
-        "name": "Aarav Sharma",
+        "name": "Hemanya Gillurkar",
         "division": "A",
         "batch": "A1",
-        "email": "aarav.sharma23@acadpulse.edu",
-        "attendance": 96.0,
+        "email": "hemanya.1251070718@acadpulse.edu",
+        "attendance": 98.5,
         "marks": {
-            "DS": {"mse": 29.0, "ese": 48.5, "lab": 19.5, "proj": 20.0},
-            "COA": {"mse": 28.0, "ese": 47.0, "lab": 19.0, "proj": 19.0},
-            "DM": {"mse": 30.0, "ese": 49.0, "lab": 20.0, "proj": 19.5}
+            "DS": {
+                "mse": 30.0,
+                "ese": 49.5,
+                "lab": 20.0,
+                "proj": 20.0
+            },
+            "COA": {
+                "mse": 29.5,
+                "ese": 49.0,
+                "lab": 20.0,
+                "proj": 20.0
+            },
+            "DM": {
+                "mse": 30.0,
+                "ese": 49.5,
+                "lab": 20.0,
+                "proj": 20.0
+            }
         }
     },
     {
-        "prn": "22310002",
+        "prn": "1251070369",
         "roll_no": "102",
-        "name": "Diya Kulkarni",
-        "division": "A",
-        "batch": "A1",
-        "email": "diya.kulkarni23@acadpulse.edu",
-        "attendance": 94.5,
-        "marks": {
-            "DS": {"mse": 27.5, "ese": 46.0, "lab": 19.0, "proj": 19.0},
-            "COA": {"mse": 29.0, "ese": 48.0, "lab": 19.5, "proj": 19.5},
-            "DM": {"mse": 28.5, "ese": 47.5, "lab": 19.0, "proj": 19.0}
-        }
-    },
-    {
-        "prn": "22310003",
-        "roll_no": "103",
-        "name": "Rohan Deshmukh",
-        "division": "A",
-        "batch": "A1",
-        "email": "rohan.deshmukh23@acadpulse.edu",
-        "attendance": 98.0,
-        "marks": {
-            "DS": {"mse": 30.0, "ese": 49.5, "lab": 20.0, "proj": 20.0},
-            "COA": {"mse": 29.5, "ese": 49.0, "lab": 20.0, "proj": 20.0},
-            "DM": {"mse": 29.0, "ese": 48.0, "lab": 19.5, "proj": 19.5}
-        }
-    },
-    {
-        "prn": "22310004",
-        "roll_no": "104",
-        "name": "Ananya Joshi",
+        "name": "Hitaishi Bodele",
         "division": "A",
         "batch": "A2",
-        "email": "ananya.joshi23@acadpulse.edu",
-        "attendance": 92.0,
-        "marks": {
-            "DS": {"mse": 26.0, "ese": 43.5, "lab": 18.0, "proj": 18.5},
-            "COA": {"mse": 27.0, "ese": 44.0, "lab": 18.5, "proj": 18.0},
-            "DM": {"mse": 28.0, "ese": 45.0, "lab": 18.0, "proj": 18.5}
-        }
-    },
-    {
-        "prn": "22310005",
-        "roll_no": "105",
-        "name": "Kabir Patil",
-        "division": "A",
-        "batch": "A2",
-        "email": "kabir.patil23@acadpulse.edu",
-        "attendance": 81.0,
-        "marks": {
-            "DS": {"mse": 18.5, "ese": 29.0, "lab": 14.0, "proj": 15.0},
-            "COA": {"mse": 19.0, "ese": 31.0, "lab": 15.0, "proj": 14.5},
-            "DM": {"mse": 20.0, "ese": 32.5, "lab": 14.5, "proj": 15.0}
-        }
-    },
-    {
-        "prn": "22310006",
-        "roll_no": "106",
-        "name": "Ishaan Gupta",
-        "division": "A",
-        "batch": "A2",
-        "email": "ishaan.gupta23@acadpulse.edu",
-        "attendance": 88.0,
-        "marks": {
-            "DS": {"mse": 24.0, "ese": 41.0, "lab": 17.0, "proj": 17.5},
-            "COA": {"mse": 25.5, "ese": 42.0, "lab": 18.0, "proj": 17.0},
-            "DM": {"mse": 26.0, "ese": 43.0, "lab": 17.5, "proj": 18.0}
-        }
-    },
-    {
-        "prn": "22310007",
-        "roll_no": "107",
-        "name": "Pooja Sawant",
-        "division": "A",
-        "batch": "A3",
-        "email": "pooja.sawant23@acadpulse.edu",
-        "attendance": 76.5,
-        "marks": {
-            "DS": {"mse": 14.0, "ese": 24.5, "lab": 12.0, "proj": 13.0},
-            "COA": {"mse": 15.0, "ese": 26.0, "lab": 13.0, "proj": 12.5},
-            "DM": {"mse": 16.5, "ese": 27.0, "lab": 12.5, "proj": 13.0}
-        }
-    },
-    {
-        "prn": "22310008",
-        "roll_no": "108",
-        "name": "Tanmay Shinde",
-        "division": "A",
-        "batch": "A3",
-        "email": "tanmay.shinde23@acadpulse.edu",
-        "attendance": 68.0,
-        "marks": {
-            "DS": {"mse": 11.0, "ese": 19.0, "lab": 10.0, "proj": 11.5},
-            "COA": {"mse": 12.5, "ese": 20.0, "lab": 11.0, "proj": 11.0},
-            "DM": {"mse": 13.0, "ese": 21.0, "lab": 10.5, "proj": 11.0}
-        }
-    },
-    {
-        "prn": "22310009",
-        "roll_no": "109",
-        "name": "Sneha More",
-        "division": "A",
-        "batch": "A3",
-        "email": "sneha.more23@acadpulse.edu",
-        "attendance": 95.0,
-        "marks": {
-            "DS": {"mse": 28.5, "ese": 47.0, "lab": 19.5, "proj": 19.0},
-            "COA": {"mse": 28.0, "ese": 46.5, "lab": 19.0, "proj": 19.5},
-            "DM": {"mse": 29.5, "ese": 48.0, "lab": 19.5, "proj": 19.0}
-        }
-    },
-    {
-        "prn": "22310010",
-        "roll_no": "110",
-        "name": "Atharva Kadam",
-        "division": "A",
-        "batch": "A3",
-        "email": "atharva.kadam23@acadpulse.edu",
-        "attendance": 89.0,
-        "marks": {
-            "DS": {"mse": 25.0, "ese": 42.0, "lab": 17.5, "proj": 18.0},
-            "COA": {"mse": 26.0, "ese": 43.5, "lab": 18.0, "proj": 17.5},
-            "DM": {"mse": 25.5, "ese": 44.0, "lab": 18.0, "proj": 18.0}
-        }
-    },
-    {
-        "prn": "22310011",
-        "roll_no": "201",
-        "name": "Meera Chawla",
-        "division": "B",
-        "batch": "B1",
-        "email": "meera.chawla23@acadpulse.edu",
+        "email": "hitaishi.1251070369@acadpulse.edu",
         "attendance": 97.0,
         "marks": {
-            "DS": {"mse": 29.5, "ese": 49.0, "lab": 20.0, "proj": 19.5},
-            "COA": {"mse": 29.0, "ese": 48.5, "lab": 19.5, "proj": 19.5},
-            "DM": {"mse": 29.5, "ese": 49.0, "lab": 20.0, "proj": 20.0}
+            "DS": {
+                "mse": 29.0,
+                "ese": 48.0,
+                "lab": 19.5,
+                "proj": 19.5
+            },
+            "COA": {
+                "mse": 28.5,
+                "ese": 47.5,
+                "lab": 19.0,
+                "proj": 19.5
+            },
+            "DM": {
+                "mse": 29.0,
+                "ese": 48.5,
+                "lab": 19.5,
+                "proj": 19.0
+            }
         }
     },
     {
-        "prn": "22310012",
+        "prn": "1251070246",
+        "roll_no": "103",
+        "name": "Himanshu Satupte",
+        "division": "A",
+        "batch": "A3",
+        "email": "himanshu.1251070246@acadpulse.edu",
+        "attendance": 95.5,
+        "marks": {
+            "DS": {
+                "mse": 28.5,
+                "ese": 47.0,
+                "lab": 19.0,
+                "proj": 19.5
+            },
+            "COA": {
+                "mse": 28.0,
+                "ese": 46.5,
+                "lab": 19.0,
+                "proj": 19.0
+            },
+            "DM": {
+                "mse": 28.5,
+                "ese": 47.0,
+                "lab": 19.0,
+                "proj": 19.5
+            }
+        }
+    },
+    {
+        "prn": "1251070893",
+        "roll_no": "104",
+        "name": "Harsh Agarwal",
+        "division": "A",
+        "batch": "A1",
+        "email": "agarwal.1251070893@acadpulse.edu",
+        "attendance": 94.0,
+        "marks": {
+            "DS": {
+                "mse": 28.0,
+                "ese": 46.0,
+                "lab": 19.0,
+                "proj": 19.0
+            },
+            "COA": {
+                "mse": 27.5,
+                "ese": 45.5,
+                "lab": 18.5,
+                "proj": 18.5
+            },
+            "DM": {
+                "mse": 28.0,
+                "ese": 46.0,
+                "lab": 19.0,
+                "proj": 19.0
+            }
+        }
+    },
+    {
+        "prn": "1251070898",
+        "roll_no": "105",
+        "name": "Kachave Aditya",
+        "division": "A",
+        "batch": "A2",
+        "email": "aditya.1251070898@acadpulse.edu",
+        "attendance": 96.0,
+        "marks": {
+            "DS": {
+                "mse": 28.0,
+                "ese": 46.7,
+                "lab": 20.0,
+                "proj": 19.8
+            },
+            "COA": {
+                "mse": 27.4,
+                "ese": 45.3,
+                "lab": 20.0,
+                "proj": 19.8
+            },
+            "DM": {
+                "mse": 28.3,
+                "ese": 46.2,
+                "lab": 20.0,
+                "proj": 19.8
+            }
+        }
+    },
+    {
+        "prn": "1251070870",
+        "roll_no": "106",
+        "name": "Jiya Bhandari",
+        "division": "A",
+        "batch": "A3",
+        "email": "jiya.1251070870@acadpulse.edu",
+        "attendance": 93.1,
+        "marks": {
+            "DS": {
+                "mse": 29.0,
+                "ese": 46.5,
+                "lab": 19.7,
+                "proj": 20.0
+            },
+            "COA": {
+                "mse": 28.4,
+                "ese": 45.1,
+                "lab": 19.7,
+                "proj": 20.0
+            },
+            "DM": {
+                "mse": 29.3,
+                "ese": 46.0,
+                "lab": 19.7,
+                "proj": 20.0
+            }
+        }
+    },
+    {
+        "prn": "1251071008",
+        "roll_no": "107",
+        "name": "Shivani Hiremath",
+        "division": "A",
+        "batch": "A1",
+        "email": "shivani.1251071008@acadpulse.edu",
+        "attendance": 94.9,
+        "marks": {
+            "DS": {
+                "mse": 28.8,
+                "ese": 46.3,
+                "lab": 19.2,
+                "proj": 19.2
+            },
+            "COA": {
+                "mse": 28.2,
+                "ese": 44.9,
+                "lab": 19.2,
+                "proj": 19.2
+            },
+            "DM": {
+                "mse": 29.1,
+                "ese": 45.8,
+                "lab": 19.2,
+                "proj": 19.2
+            }
+        }
+    },
+    {
+        "prn": "1251070230",
+        "roll_no": "108",
+        "name": "Mayur Hiralal Kaithwas",
+        "division": "A",
+        "batch": "A2",
+        "email": "mayur.1251070230@acadpulse.edu",
+        "attendance": 96.0,
+        "marks": {
+            "DS": {
+                "mse": 28.1,
+                "ese": 46.1,
+                "lab": 20.0,
+                "proj": 19.6
+            },
+            "COA": {
+                "mse": 27.5,
+                "ese": 44.7,
+                "lab": 20.0,
+                "proj": 19.6
+            },
+            "DM": {
+                "mse": 28.4,
+                "ese": 45.6,
+                "lab": 20.0,
+                "proj": 19.6
+            }
+        }
+    },
+    {
+        "prn": "1251070125",
+        "roll_no": "109",
+        "name": "Achala Vaibhav Hon",
+        "division": "A",
+        "batch": "A3",
+        "email": "achala.1251070125@acadpulse.edu",
+        "attendance": 93.6,
+        "marks": {
+            "DS": {
+                "mse": 27.5,
+                "ese": 45.9,
+                "lab": 19.6,
+                "proj": 20.0
+            },
+            "COA": {
+                "mse": 26.9,
+                "ese": 44.5,
+                "lab": 19.6,
+                "proj": 20.0
+            },
+            "DM": {
+                "mse": 27.8,
+                "ese": 45.4,
+                "lab": 19.6,
+                "proj": 20.0
+            }
+        }
+    },
+    {
+        "prn": "1251070193",
+        "roll_no": "110",
+        "name": "Rani Popat Jagtap",
+        "division": "A",
+        "batch": "A1",
+        "email": "rani.1251070193@acadpulse.edu",
+        "attendance": 95.4,
+        "marks": {
+            "DS": {
+                "mse": 28.9,
+                "ese": 45.7,
+                "lab": 19.0,
+                "proj": 19.0
+            },
+            "COA": {
+                "mse": 28.3,
+                "ese": 44.3,
+                "lab": 19.0,
+                "proj": 19.0
+            },
+            "DM": {
+                "mse": 29.2,
+                "ese": 45.2,
+                "lab": 19.0,
+                "proj": 19.0
+            }
+        }
+    },
+    {
+        "prn": "1251070314",
+        "roll_no": "111",
+        "name": "Kanchan Navnath Jogdand",
+        "division": "A",
+        "batch": "A2",
+        "email": "kanchan.1251070314@acadpulse.edu",
+        "attendance": 92.2,
+        "marks": {
+            "DS": {
+                "mse": 28.3,
+                "ese": 45.5,
+                "lab": 20.0,
+                "proj": 19.5
+            },
+            "COA": {
+                "mse": 27.7,
+                "ese": 44.1,
+                "lab": 20.0,
+                "proj": 19.5
+            },
+            "DM": {
+                "mse": 28.6,
+                "ese": 45.0,
+                "lab": 20.0,
+                "proj": 19.5
+            }
+        }
+    },
+    {
+        "prn": "1251070191",
+        "roll_no": "112",
+        "name": "Hrushikesh Sanjay Patil",
+        "division": "A",
+        "batch": "A3",
+        "email": "hrushikesh.1251070191@acadpulse.edu",
+        "attendance": 94.0,
+        "marks": {
+            "DS": {
+                "mse": 27.6,
+                "ese": 45.3,
+                "lab": 19.4,
+                "proj": 19.9
+            },
+            "COA": {
+                "mse": 27.0,
+                "ese": 43.9,
+                "lab": 19.4,
+                "proj": 19.9
+            },
+            "DM": {
+                "mse": 27.9,
+                "ese": 44.8,
+                "lab": 19.4,
+                "proj": 19.9
+            }
+        }
+    },
+    {
+        "prn": "1251071062",
+        "roll_no": "113",
+        "name": "Ujjwal Sanjay Jain",
+        "division": "A",
+        "batch": "A1",
+        "email": "ujjwal.1251071062@acadpulse.edu",
+        "attendance": 95.9,
+        "marks": {
+            "DS": {
+                "mse": 27.0,
+                "ese": 45.1,
+                "lab": 18.8,
+                "proj": 18.8
+            },
+            "COA": {
+                "mse": 26.5,
+                "ese": 43.7,
+                "lab": 18.8,
+                "proj": 18.8
+            },
+            "DM": {
+                "mse": 27.3,
+                "ese": 44.6,
+                "lab": 18.8,
+                "proj": 18.8
+            }
+        }
+    },
+    {
+        "prn": "1251070573",
+        "roll_no": "114",
+        "name": "Rohit Jadhav",
+        "division": "A",
+        "batch": "A2",
+        "email": "rohit.1251070573@acadpulse.edu",
+        "attendance": 92.7,
+        "marks": {
+            "DS": {
+                "mse": 28.4,
+                "ese": 44.9,
+                "lab": 19.8,
+                "proj": 19.3
+            },
+            "COA": {
+                "mse": 27.8,
+                "ese": 43.6,
+                "lab": 19.8,
+                "proj": 19.3
+            },
+            "DM": {
+                "mse": 28.7,
+                "ese": 44.5,
+                "lab": 19.8,
+                "proj": 19.3
+            }
+        }
+    },
+    {
+        "prn": "1251070348",
+        "roll_no": "115",
+        "name": "Jyotiraditya Mahendra Pawar",
+        "division": "A",
+        "batch": "A3",
+        "email": "jyotiraditya.1251070348@acadpulse.edu",
+        "attendance": 94.5,
+        "marks": {
+            "DS": {
+                "mse": 27.8,
+                "ese": 44.7,
+                "lab": 19.2,
+                "proj": 19.7
+            },
+            "COA": {
+                "mse": 27.2,
+                "ese": 43.4,
+                "lab": 19.2,
+                "proj": 19.7
+            },
+            "DM": {
+                "mse": 28.1,
+                "ese": 44.3,
+                "lab": 19.2,
+                "proj": 19.7
+            }
+        }
+    },
+    {
+        "prn": "1251071059",
+        "roll_no": "116",
+        "name": "Soham Jadhav",
+        "division": "A",
+        "batch": "A1",
+        "email": "soham.1251071059@acadpulse.edu",
+        "attendance": 91.3,
+        "marks": {
+            "DS": {
+                "mse": 27.1,
+                "ese": 44.5,
+                "lab": 18.7,
+                "proj": 18.7
+            },
+            "COA": {
+                "mse": 26.6,
+                "ese": 43.2,
+                "lab": 18.7,
+                "proj": 18.7
+            },
+            "DM": {
+                "mse": 27.4,
+                "ese": 44.1,
+                "lab": 18.7,
+                "proj": 18.7
+            }
+        }
+    },
+    {
+        "prn": "1251070203",
+        "roll_no": "117",
+        "name": "Kadam Pragati Balaji",
+        "division": "A",
+        "batch": "A2",
+        "email": "pragati.1251070203@acadpulse.edu",
+        "attendance": 93.2,
+        "marks": {
+            "DS": {
+                "mse": 26.5,
+                "ese": 44.3,
+                "lab": 19.6,
+                "proj": 19.1
+            },
+            "COA": {
+                "mse": 26.0,
+                "ese": 43.0,
+                "lab": 19.6,
+                "proj": 19.1
+            },
+            "DM": {
+                "mse": 26.8,
+                "ese": 43.9,
+                "lab": 19.6,
+                "proj": 19.1
+            }
+        }
+    },
+    {
+        "prn": "1251070575",
+        "roll_no": "118",
+        "name": "Kale Aditya Nitin",
+        "division": "A",
+        "batch": "A3",
+        "email": "aditya.1251070575@acadpulse.edu",
+        "attendance": 95.0,
+        "marks": {
+            "DS": {
+                "mse": 27.9,
+                "ese": 44.1,
+                "lab": 19.1,
+                "proj": 19.6
+            },
+            "COA": {
+                "mse": 27.3,
+                "ese": 42.8,
+                "lab": 19.1,
+                "proj": 19.6
+            },
+            "DM": {
+                "mse": 28.2,
+                "ese": 43.7,
+                "lab": 19.1,
+                "proj": 19.6
+            }
+        }
+    },
+    {
+        "prn": "1251070277",
+        "roll_no": "119",
+        "name": "Ishan Shailendra Sahu",
+        "division": "A",
+        "batch": "A1",
+        "email": "ishan.1251070277@acadpulse.edu",
+        "attendance": 91.8,
+        "marks": {
+            "DS": {
+                "mse": 27.3,
+                "ese": 43.9,
+                "lab": 18.5,
+                "proj": 18.5
+            },
+            "COA": {
+                "mse": 26.8,
+                "ese": 42.6,
+                "lab": 18.5,
+                "proj": 18.5
+            },
+            "DM": {
+                "mse": 27.6,
+                "ese": 43.5,
+                "lab": 18.5,
+                "proj": 18.5
+            }
+        }
+    },
+    {
+        "prn": "1251070165",
+        "roll_no": "120",
+        "name": "Shreehari Sudarshan Joshi",
+        "division": "A",
+        "batch": "A2",
+        "email": "shreehari.1251070165@acadpulse.edu",
+        "attendance": 93.6,
+        "marks": {
+            "DS": {
+                "mse": 26.7,
+                "ese": 43.7,
+                "lab": 19.5,
+                "proj": 19.0
+            },
+            "COA": {
+                "mse": 26.2,
+                "ese": 42.4,
+                "lab": 19.5,
+                "proj": 19.0
+            },
+            "DM": {
+                "mse": 27.0,
+                "ese": 43.3,
+                "lab": 19.5,
+                "proj": 19.0
+            }
+        }
+    },
+    {
+        "prn": "1251070784",
+        "roll_no": "121",
+        "name": "Jaimin Vipul Chudasama",
+        "division": "A",
+        "batch": "A3",
+        "email": "jaimin.1251070784@acadpulse.edu",
+        "attendance": 90.4,
+        "marks": {
+            "DS": {
+                "mse": 26.0,
+                "ese": 43.5,
+                "lab": 18.9,
+                "proj": 19.4
+            },
+            "COA": {
+                "mse": 25.5,
+                "ese": 42.2,
+                "lab": 18.9,
+                "proj": 19.4
+            },
+            "DM": {
+                "mse": 26.3,
+                "ese": 43.1,
+                "lab": 18.9,
+                "proj": 19.4
+            }
+        }
+    },
+    {
+        "prn": "1251070867",
+        "roll_no": "122",
+        "name": "Ayush Jha",
+        "division": "A",
+        "batch": "A1",
+        "email": "ayush.1251070867@acadpulse.edu",
+        "attendance": 92.3,
+        "marks": {
+            "DS": {
+                "mse": 27.4,
+                "ese": 43.2,
+                "lab": 18.4,
+                "proj": 18.4
+            },
+            "COA": {
+                "mse": 26.9,
+                "ese": 41.9,
+                "lab": 18.4,
+                "proj": 18.4
+            },
+            "DM": {
+                "mse": 27.7,
+                "ese": 42.8,
+                "lab": 18.4,
+                "proj": 18.4
+            }
+        }
+    },
+    {
+        "prn": "1251070416",
+        "roll_no": "123",
+        "name": "Kale Suraj Ganesh",
+        "division": "A",
+        "batch": "A2",
+        "email": "suraj.1251070416@acadpulse.edu",
+        "attendance": 94.1,
+        "marks": {
+            "DS": {
+                "mse": 26.8,
+                "ese": 43.0,
+                "lab": 19.3,
+                "proj": 18.8
+            },
+            "COA": {
+                "mse": 26.3,
+                "ese": 41.7,
+                "lab": 19.3,
+                "proj": 18.8
+            },
+            "DM": {
+                "mse": 27.1,
+                "ese": 42.6,
+                "lab": 19.3,
+                "proj": 18.8
+            }
+        }
+    },
+    {
+        "prn": "1251070826",
+        "roll_no": "124",
+        "name": "Soham Jadhav",
+        "division": "A",
+        "batch": "A3",
+        "email": "soham.1251070826@acadpulse.edu",
+        "attendance": 90.9,
+        "marks": {
+            "DS": {
+                "mse": 26.2,
+                "ese": 42.8,
+                "lab": 18.8,
+                "proj": 19.3
+            },
+            "COA": {
+                "mse": 25.7,
+                "ese": 41.5,
+                "lab": 18.8,
+                "proj": 19.3
+            },
+            "DM": {
+                "mse": 26.5,
+                "ese": 42.4,
+                "lab": 18.8,
+                "proj": 19.3
+            }
+        }
+    },
+    {
+        "prn": "1251070666",
+        "roll_no": "125",
+        "name": "Isha Anil Kulkarni",
+        "division": "A",
+        "batch": "A1",
+        "email": "isha.1251070666@acadpulse.edu",
+        "attendance": 92.7,
+        "marks": {
+            "DS": {
+                "mse": 25.5,
+                "ese": 42.6,
+                "lab": 18.2,
+                "proj": 18.2
+            },
+            "COA": {
+                "mse": 25.0,
+                "ese": 41.3,
+                "lab": 18.2,
+                "proj": 18.2
+            },
+            "DM": {
+                "mse": 25.8,
+                "ese": 42.2,
+                "lab": 18.2,
+                "proj": 18.2
+            }
+        }
+    },
+    {
+        "prn": "1251070323",
+        "roll_no": "126",
+        "name": "Iliyas Ismail Bhesti",
+        "division": "A",
+        "batch": "A2",
+        "email": "iliyas.1251070323@acadpulse.edu",
+        "attendance": 89.6,
+        "marks": {
+            "DS": {
+                "mse": 26.9,
+                "ese": 42.4,
+                "lab": 19.1,
+                "proj": 18.6
+            },
+            "COA": {
+                "mse": 26.4,
+                "ese": 41.1,
+                "lab": 19.1,
+                "proj": 18.6
+            },
+            "DM": {
+                "mse": 27.2,
+                "ese": 42.0,
+                "lab": 19.1,
+                "proj": 18.6
+            }
+        }
+    },
+    {
+        "prn": "1251071032",
+        "roll_no": "127",
+        "name": "Shivam Mahesh Jagtap",
+        "division": "A",
+        "batch": "A3",
+        "email": "shivam.1251071032@acadpulse.edu",
+        "attendance": 91.4,
+        "marks": {
+            "DS": {
+                "mse": 26.3,
+                "ese": 42.2,
+                "lab": 18.6,
+                "proj": 19.1
+            },
+            "COA": {
+                "mse": 25.8,
+                "ese": 40.9,
+                "lab": 18.6,
+                "proj": 19.1
+            },
+            "DM": {
+                "mse": 26.6,
+                "ese": 41.8,
+                "lab": 18.6,
+                "proj": 19.1
+            }
+        }
+    },
+    {
+        "prn": "1251070692",
+        "roll_no": "128",
+        "name": "Swara Hase",
+        "division": "A",
+        "batch": "A1",
+        "email": "swara.1251070692@acadpulse.edu",
+        "attendance": 93.2,
+        "marks": {
+            "DS": {
+                "mse": 25.7,
+                "ese": 42.0,
+                "lab": 18.0,
+                "proj": 18.0
+            },
+            "COA": {
+                "mse": 25.2,
+                "ese": 40.7,
+                "lab": 18.0,
+                "proj": 18.0
+            },
+            "DM": {
+                "mse": 26.0,
+                "ese": 41.6,
+                "lab": 18.0,
+                "proj": 18.0
+            }
+        }
+    },
+    {
+        "prn": "1251070815",
+        "roll_no": "129",
+        "name": "Shravani Ganesh Kakad",
+        "division": "A",
+        "batch": "A2",
+        "email": "shravani.1251070815@acadpulse.edu",
+        "attendance": 90.0,
+        "marks": {
+            "DS": {
+                "mse": 25.0,
+                "ese": 41.8,
+                "lab": 19.0,
+                "proj": 18.5
+            },
+            "COA": {
+                "mse": 24.5,
+                "ese": 40.5,
+                "lab": 19.0,
+                "proj": 18.5
+            },
+            "DM": {
+                "mse": 25.2,
+                "ese": 41.4,
+                "lab": 19.0,
+                "proj": 18.5
+            }
+        }
+    },
+    {
+        "prn": "1251070885",
+        "roll_no": "130",
+        "name": "Ishita Srivastava",
+        "division": "A",
+        "batch": "A3",
+        "email": "ishita.1251070885@acadpulse.edu",
+        "attendance": 91.8,
+        "marks": {
+            "DS": {
+                "mse": 26.4,
+                "ese": 41.6,
+                "lab": 18.4,
+                "proj": 18.9
+            },
+            "COA": {
+                "mse": 25.9,
+                "ese": 40.4,
+                "lab": 18.4,
+                "proj": 18.9
+            },
+            "DM": {
+                "mse": 26.7,
+                "ese": 41.2,
+                "lab": 18.4,
+                "proj": 18.9
+            }
+        }
+    },
+    {
+        "prn": "1251070855",
+        "roll_no": "131",
+        "name": "Harsh",
+        "division": "A",
+        "batch": "A1",
+        "email": "harsh.1251070855@acadpulse.edu",
+        "attendance": 88.7,
+        "marks": {
+            "DS": {
+                "mse": 25.8,
+                "ese": 41.4,
+                "lab": 17.9,
+                "proj": 17.9
+            },
+            "COA": {
+                "mse": 25.3,
+                "ese": 40.2,
+                "lab": 17.9,
+                "proj": 17.9
+            },
+            "DM": {
+                "mse": 26.1,
+                "ese": 41.0,
+                "lab": 17.9,
+                "proj": 17.9
+            }
+        }
+    },
+    {
+        "prn": "1251070424",
+        "roll_no": "132",
+        "name": "Sarthak Rajendra Jamdade",
+        "division": "A",
+        "batch": "A2",
+        "email": "sarthak.1251070424@acadpulse.edu",
+        "attendance": 90.5,
+        "marks": {
+            "DS": {
+                "mse": 25.2,
+                "ese": 41.2,
+                "lab": 18.8,
+                "proj": 18.3
+            },
+            "COA": {
+                "mse": 24.7,
+                "ese": 40.0,
+                "lab": 18.8,
+                "proj": 18.3
+            },
+            "DM": {
+                "mse": 25.5,
+                "ese": 40.8,
+                "lab": 18.8,
+                "proj": 18.3
+            }
+        }
+    },
+    {
+        "prn": "1251070226",
+        "roll_no": "133",
+        "name": "Kadam Samruddhi Balwant",
+        "division": "A",
+        "batch": "A3",
+        "email": "samruddhi.1251070226@acadpulse.edu",
+        "attendance": 92.3,
+        "marks": {
+            "DS": {
+                "mse": 24.5,
+                "ese": 41.0,
+                "lab": 18.3,
+                "proj": 18.8
+            },
+            "COA": {
+                "mse": 24.0,
+                "ese": 39.8,
+                "lab": 18.3,
+                "proj": 18.8
+            },
+            "DM": {
+                "mse": 24.7,
+                "ese": 40.6,
+                "lab": 18.3,
+                "proj": 18.8
+            }
+        }
+    },
+    {
+        "prn": "1251070992",
+        "roll_no": "134",
+        "name": "Shivjeet Jagdale",
+        "division": "A",
+        "batch": "A1",
+        "email": "shivjeet.1251070992@acadpulse.edu",
+        "attendance": 89.1,
+        "marks": {
+            "DS": {
+                "mse": 25.9,
+                "ese": 40.8,
+                "lab": 17.7,
+                "proj": 17.7
+            },
+            "COA": {
+                "mse": 25.4,
+                "ese": 39.6,
+                "lab": 17.7,
+                "proj": 17.7
+            },
+            "DM": {
+                "mse": 26.2,
+                "ese": 40.4,
+                "lab": 17.7,
+                "proj": 17.7
+            }
+        }
+    },
+    {
+        "prn": "1251070342",
+        "roll_no": "135",
+        "name": "Shravani Sakharam Kale",
+        "division": "A",
+        "batch": "A2",
+        "email": "shravani.1251070342@acadpulse.edu",
+        "attendance": 91.0,
+        "marks": {
+            "DS": {
+                "mse": 25.3,
+                "ese": 40.6,
+                "lab": 18.7,
+                "proj": 18.2
+            },
+            "COA": {
+                "mse": 24.8,
+                "ese": 39.4,
+                "lab": 18.7,
+                "proj": 18.2
+            },
+            "DM": {
+                "mse": 25.6,
+                "ese": 40.2,
+                "lab": 18.7,
+                "proj": 18.2
+            }
+        }
+    },
+    {
+        "prn": "1251070678",
+        "roll_no": "136",
+        "name": "Vedant Vinod Jaiswal",
+        "division": "A",
+        "batch": "A3",
+        "email": "vedant.1251070678@acadpulse.edu",
+        "attendance": 87.8,
+        "marks": {
+            "DS": {
+                "mse": 24.7,
+                "ese": 40.4,
+                "lab": 18.1,
+                "proj": 18.6
+            },
+            "COA": {
+                "mse": 24.2,
+                "ese": 39.2,
+                "lab": 18.1,
+                "proj": 18.6
+            },
+            "DM": {
+                "mse": 24.9,
+                "ese": 40.0,
+                "lab": 18.1,
+                "proj": 18.6
+            }
+        }
+    },
+    {
+        "prn": "1251070856",
+        "roll_no": "137",
+        "name": "Ishwari Umesh Honrao",
+        "division": "A",
+        "batch": "A1",
+        "email": "ishwari.1251070856@acadpulse.edu",
+        "attendance": 89.6,
+        "marks": {
+            "DS": {
+                "mse": 24.1,
+                "ese": 40.2,
+                "lab": 17.5,
+                "proj": 17.5
+            },
+            "COA": {
+                "mse": 23.6,
+                "ese": 39.0,
+                "lab": 17.5,
+                "proj": 17.5
+            },
+            "DM": {
+                "mse": 24.3,
+                "ese": 39.8,
+                "lab": 17.5,
+                "proj": 17.5
+            }
+        }
+    },
+    {
+        "prn": "1251071055",
+        "roll_no": "138",
+        "name": "Izyan Karim Lalani",
+        "division": "A",
+        "batch": "A2",
+        "email": "izyan.1251071055@acadpulse.edu",
+        "attendance": 91.4,
+        "marks": {
+            "DS": {
+                "mse": 25.4,
+                "ese": 40.0,
+                "lab": 18.5,
+                "proj": 18.0
+            },
+            "COA": {
+                "mse": 24.9,
+                "ese": 38.8,
+                "lab": 18.5,
+                "proj": 18.0
+            },
+            "DM": {
+                "mse": 25.7,
+                "ese": 39.6,
+                "lab": 18.5,
+                "proj": 18.0
+            }
+        }
+    },
+    {
+        "prn": "1251070431",
+        "roll_no": "201",
+        "name": "Jadhav Vivek Govind",
+        "division": "B",
+        "batch": "B1",
+        "email": "vivek.1251070431@acadpulse.edu",
+        "attendance": 88.2,
+        "marks": {
+            "DS": {
+                "mse": 24.8,
+                "ese": 39.8,
+                "lab": 17.9,
+                "proj": 18.4
+            },
+            "COA": {
+                "mse": 24.3,
+                "ese": 38.6,
+                "lab": 17.9,
+                "proj": 18.4
+            },
+            "DM": {
+                "mse": 25.0,
+                "ese": 39.4,
+                "lab": 17.9,
+                "proj": 18.4
+            }
+        }
+    },
+    {
+        "prn": "1251071039",
         "roll_no": "202",
-        "name": "Aditya Rao",
+        "name": "Shubham Kale",
         "division": "B",
-        "batch": "B1",
-        "email": "aditya.rao23@acadpulse.edu",
-        "attendance": 91.5,
+        "batch": "B2",
+        "email": "shubham.1251071039@acadpulse.edu",
+        "attendance": 90.1,
         "marks": {
-            "DS": {"mse": 27.0, "ese": 45.0, "lab": 18.5, "proj": 19.0},
-            "COA": {"mse": 26.5, "ese": 44.0, "lab": 18.0, "proj": 18.5},
-            "DM": {"mse": 27.5, "ese": 46.0, "lab": 18.5, "proj": 19.0}
+            "DS": {
+                "mse": 24.2,
+                "ese": 39.6,
+                "lab": 17.4,
+                "proj": 17.4
+            },
+            "COA": {
+                "mse": 23.7,
+                "ese": 38.4,
+                "lab": 17.4,
+                "proj": 17.4
+            },
+            "DM": {
+                "mse": 24.4,
+                "ese": 39.2,
+                "lab": 17.4,
+                "proj": 17.4
+            }
         }
     },
     {
-        "prn": "22310013",
+        "prn": "1251070185",
         "roll_no": "203",
-        "name": "Neha Bhosale",
+        "name": "Kadam Sharad Shankar",
+        "division": "B",
+        "batch": "B3",
+        "email": "sharad.1251070185@acadpulse.edu",
+        "attendance": 86.9,
+        "marks": {
+            "DS": {
+                "mse": 23.6,
+                "ese": 39.4,
+                "lab": 18.3,
+                "proj": 17.8
+            },
+            "COA": {
+                "mse": 23.1,
+                "ese": 38.2,
+                "lab": 18.3,
+                "proj": 17.8
+            },
+            "DM": {
+                "mse": 23.8,
+                "ese": 39.0,
+                "lab": 18.3,
+                "proj": 17.8
+            }
+        }
+    },
+    {
+        "prn": "1251070187",
+        "roll_no": "204",
+        "name": "Jyuthika Babaso Herwade",
         "division": "B",
         "batch": "B1",
-        "email": "neha.bhosale23@acadpulse.edu",
-        "attendance": 84.0,
+        "email": "jyuthika.1251070187@acadpulse.edu",
+        "attendance": 88.7,
         "marks": {
-            "DS": {"mse": 22.0, "ese": 37.0, "lab": 16.0, "proj": 16.5},
-            "COA": {"mse": 23.0, "ese": 38.5, "lab": 16.5, "proj": 16.0},
-            "DM": {"mse": 24.0, "ese": 39.0, "lab": 17.0, "proj": 16.5}
+            "DS": {
+                "mse": 24.9,
+                "ese": 39.2,
+                "lab": 17.8,
+                "proj": 18.3
+            },
+            "COA": {
+                "mse": 24.4,
+                "ese": 38.0,
+                "lab": 17.8,
+                "proj": 18.3
+            },
+            "DM": {
+                "mse": 25.1,
+                "ese": 38.8,
+                "lab": 17.8,
+                "proj": 18.3
+            }
         }
     },
     {
-        "prn": "22310014",
-        "roll_no": "204",
-        "name": "Varun Nair",
-        "division": "B",
-        "batch": "B2",
-        "email": "varun.nair23@acadpulse.edu",
-        "attendance": 72.0,
-        "marks": {
-            "DS": {"mse": 13.0, "ese": 22.0, "lab": 11.5, "proj": 12.0},
-            "COA": {"mse": 14.0, "ese": 24.0, "lab": 12.0, "proj": 12.5},
-            "DM": {"mse": 15.0, "ese": 25.0, "lab": 12.5, "proj": 12.0}
-        }
-    },
-    {
-        "prn": "22310015",
+        "prn": "1251071029",
         "roll_no": "205",
-        "name": "Gauri Mahajan",
+        "name": "Janhavi Pradip Kadukar",
         "division": "B",
         "batch": "B2",
-        "email": "gauri.mahajan23@acadpulse.edu",
-        "attendance": 93.0,
+        "email": "janhavi.1251071029@acadpulse.edu",
+        "attendance": 90.5,
         "marks": {
-            "DS": {"mse": 28.0, "ese": 46.5, "lab": 19.0, "proj": 19.0},
-            "COA": {"mse": 27.5, "ese": 45.5, "lab": 18.5, "proj": 19.0},
-            "DM": {"mse": 28.5, "ese": 47.0, "lab": 19.0, "proj": 19.5}
+            "DS": {
+                "mse": 24.3,
+                "ese": 39.0,
+                "lab": 17.2,
+                "proj": 17.2
+            },
+            "COA": {
+                "mse": 23.8,
+                "ese": 37.8,
+                "lab": 17.2,
+                "proj": 17.2
+            },
+            "DM": {
+                "mse": 24.5,
+                "ese": 38.6,
+                "lab": 17.2,
+                "proj": 17.2
+            }
+        }
+    },
+    {
+        "prn": "1251070804",
+        "roll_no": "206",
+        "name": "Hasti Shashikant Patil",
+        "division": "B",
+        "batch": "B3",
+        "email": "hasti.1251070804@acadpulse.edu",
+        "attendance": 87.4,
+        "marks": {
+            "DS": {
+                "mse": 23.7,
+                "ese": 38.8,
+                "lab": 18.2,
+                "proj": 17.7
+            },
+            "COA": {
+                "mse": 23.2,
+                "ese": 37.6,
+                "lab": 18.2,
+                "proj": 17.7
+            },
+            "DM": {
+                "mse": 23.9,
+                "ese": 38.4,
+                "lab": 18.2,
+                "proj": 17.7
+            }
+        }
+    },
+    {
+        "prn": "1251071041",
+        "roll_no": "207",
+        "name": "Harshad Mahadik",
+        "division": "B",
+        "batch": "B1",
+        "email": "harshad.1251071041@acadpulse.edu",
+        "attendance": 89.2,
+        "marks": {
+            "DS": {
+                "mse": 23.1,
+                "ese": 38.6,
+                "lab": 17.6,
+                "proj": 18.1
+            },
+            "COA": {
+                "mse": 22.6,
+                "ese": 37.4,
+                "lab": 17.6,
+                "proj": 18.1
+            },
+            "DM": {
+                "mse": 23.3,
+                "ese": 38.2,
+                "lab": 17.6,
+                "proj": 18.1
+            }
+        }
+    },
+    {
+        "prn": "1251070757",
+        "roll_no": "208",
+        "name": "Aditi Sandip Kadilag",
+        "division": "B",
+        "batch": "B2",
+        "email": "aditi.1251070757@acadpulse.edu",
+        "attendance": 86.0,
+        "marks": {
+            "DS": {
+                "mse": 24.4,
+                "ese": 38.4,
+                "lab": 17.1,
+                "proj": 17.1
+            },
+            "COA": {
+                "mse": 23.9,
+                "ese": 37.2,
+                "lab": 17.1,
+                "proj": 17.1
+            },
+            "DM": {
+                "mse": 24.6,
+                "ese": 38.0,
+                "lab": 17.1,
+                "proj": 17.1
+            }
+        }
+    },
+    {
+        "prn": "1251070311",
+        "roll_no": "209",
+        "name": "Apeksha Ramesh Kale",
+        "division": "B",
+        "batch": "B3",
+        "email": "apeksha.1251070311@acadpulse.edu",
+        "attendance": 87.8,
+        "marks": {
+            "DS": {
+                "mse": 23.8,
+                "ese": 38.2,
+                "lab": 18.0,
+                "proj": 17.5
+            },
+            "COA": {
+                "mse": 23.3,
+                "ese": 37.1,
+                "lab": 18.0,
+                "proj": 17.5
+            },
+            "DM": {
+                "mse": 24.0,
+                "ese": 37.8,
+                "lab": 18.0,
+                "proj": 17.5
+            }
+        }
+    },
+    {
+        "prn": "1251070453",
+        "roll_no": "210",
+        "name": "Ishita Jitendra Deshmukh",
+        "division": "B",
+        "batch": "B1",
+        "email": "ishita.1251070453@acadpulse.edu",
+        "attendance": 89.6,
+        "marks": {
+            "DS": {
+                "mse": 23.2,
+                "ese": 38.0,
+                "lab": 17.4,
+                "proj": 17.9
+            },
+            "COA": {
+                "mse": 22.7,
+                "ese": 36.9,
+                "lab": 17.4,
+                "proj": 17.9
+            },
+            "DM": {
+                "mse": 23.4,
+                "ese": 37.6,
+                "lab": 17.4,
+                "proj": 17.9
+            }
+        }
+    },
+    {
+        "prn": "1251070240",
+        "roll_no": "211",
+        "name": "Rudra",
+        "division": "B",
+        "batch": "B2",
+        "email": "rudra.1251070240@acadpulse.edu",
+        "attendance": 86.5,
+        "marks": {
+            "DS": {
+                "mse": 22.6,
+                "ese": 37.8,
+                "lab": 16.9,
+                "proj": 16.9
+            },
+            "COA": {
+                "mse": 22.1,
+                "ese": 36.7,
+                "lab": 16.9,
+                "proj": 16.9
+            },
+            "DM": {
+                "mse": 22.8,
+                "ese": 37.4,
+                "lab": 16.9,
+                "proj": 16.9
+            }
+        }
+    },
+    {
+        "prn": "1251071053",
+        "roll_no": "212",
+        "name": "Harshal Tapade",
+        "division": "B",
+        "batch": "B3",
+        "email": "harshal.1251071053@acadpulse.edu",
+        "attendance": 88.3,
+        "marks": {
+            "DS": {
+                "mse": 24.0,
+                "ese": 37.6,
+                "lab": 17.8,
+                "proj": 17.3
+            },
+            "COA": {
+                "mse": 23.5,
+                "ese": 36.5,
+                "lab": 17.8,
+                "proj": 17.3
+            },
+            "DM": {
+                "mse": 24.2,
+                "ese": 37.2,
+                "lab": 17.8,
+                "proj": 17.3
+            }
+        }
+    },
+    {
+        "prn": "1252070648",
+        "roll_no": "213",
+        "name": "Jayesh Amit Vishwakarma",
+        "division": "B",
+        "batch": "B1",
+        "email": "jayesh.1252070648@acadpulse.edu",
+        "attendance": 85.1,
+        "marks": {
+            "DS": {
+                "mse": 23.3,
+                "ese": 37.4,
+                "lab": 17.3,
+                "proj": 17.8
+            },
+            "COA": {
+                "mse": 22.8,
+                "ese": 36.3,
+                "lab": 17.3,
+                "proj": 17.8
+            },
+            "DM": {
+                "mse": 23.5,
+                "ese": 37.0,
+                "lab": 17.3,
+                "proj": 17.8
+            }
+        }
+    },
+    {
+        "prn": "1251070541",
+        "roll_no": "214",
+        "name": "Ayush Umesh Jambagi",
+        "division": "B",
+        "batch": "B2",
+        "email": "ayush.1251070541@acadpulse.edu",
+        "attendance": 86.9,
+        "marks": {
+            "DS": {
+                "mse": 22.7,
+                "ese": 37.2,
+                "lab": 16.7,
+                "proj": 16.7
+            },
+            "COA": {
+                "mse": 22.2,
+                "ese": 36.1,
+                "lab": 16.7,
+                "proj": 16.7
+            },
+            "DM": {
+                "mse": 22.9,
+                "ese": 36.8,
+                "lab": 16.7,
+                "proj": 16.7
+            }
+        }
+    },
+    {
+        "prn": "1251070315",
+        "roll_no": "215",
+        "name": "Pruthviraj Kakarwal",
+        "division": "B",
+        "batch": "B3",
+        "email": "pruthviraj.1251070315@acadpulse.edu",
+        "attendance": 88.8,
+        "marks": {
+            "DS": {
+                "mse": 22.1,
+                "ese": 37.0,
+                "lab": 17.7,
+                "proj": 17.2
+            },
+            "COA": {
+                "mse": 21.7,
+                "ese": 35.9,
+                "lab": 17.7,
+                "proj": 17.2
+            },
+            "DM": {
+                "mse": 22.3,
+                "ese": 36.6,
+                "lab": 17.7,
+                "proj": 17.2
+            }
+        }
+    },
+    {
+        "prn": "1251070307",
+        "roll_no": "216",
+        "name": "Rishabh Kanhaiya Joshi",
+        "division": "B",
+        "batch": "B1",
+        "email": "rishabh.1251070307@acadpulse.edu",
+        "attendance": 85.6,
+        "marks": {
+            "DS": {
+                "mse": 23.5,
+                "ese": 36.8,
+                "lab": 17.1,
+                "proj": 17.6
+            },
+            "COA": {
+                "mse": 23.0,
+                "ese": 35.7,
+                "lab": 17.1,
+                "proj": 17.6
+            },
+            "DM": {
+                "mse": 23.7,
+                "ese": 36.4,
+                "lab": 17.1,
+                "proj": 17.6
+            }
+        }
+    },
+    {
+        "prn": "1251070887",
+        "roll_no": "217",
+        "name": "Jakate Arnav Gopal",
+        "division": "B",
+        "batch": "B2",
+        "email": "arnav.1251070887@acadpulse.edu",
+        "attendance": 87.4,
+        "marks": {
+            "DS": {
+                "mse": 22.8,
+                "ese": 36.6,
+                "lab": 16.6,
+                "proj": 16.6
+            },
+            "COA": {
+                "mse": 22.3,
+                "ese": 35.5,
+                "lab": 16.6,
+                "proj": 16.6
+            },
+            "DM": {
+                "mse": 23.0,
+                "ese": 36.2,
+                "lab": 16.6,
+                "proj": 16.6
+            }
+        }
+    },
+    {
+        "prn": "1251070122",
+        "roll_no": "218",
+        "name": "Harshada Hanumant Jadhav",
+        "division": "B",
+        "batch": "B3",
+        "email": "harshada.1251070122@acadpulse.edu",
+        "attendance": 84.2,
+        "marks": {
+            "DS": {
+                "mse": 22.2,
+                "ese": 36.4,
+                "lab": 17.5,
+                "proj": 17.0
+            },
+            "COA": {
+                "mse": 21.8,
+                "ese": 35.3,
+                "lab": 17.5,
+                "proj": 17.0
+            },
+            "DM": {
+                "mse": 22.4,
+                "ese": 36.0,
+                "lab": 17.5,
+                "proj": 17.0
+            }
+        }
+    },
+    {
+        "prn": "1251070407",
+        "roll_no": "219",
+        "name": "Jadhav Shrikant Vilas",
+        "division": "B",
+        "batch": "B1",
+        "email": "shrikant.1251070407@acadpulse.edu",
+        "attendance": 86.0,
+        "marks": {
+            "DS": {
+                "mse": 21.6,
+                "ese": 36.2,
+                "lab": 17.0,
+                "proj": 17.5
+            },
+            "COA": {
+                "mse": 21.2,
+                "ese": 35.1,
+                "lab": 17.0,
+                "proj": 17.5
+            },
+            "DM": {
+                "mse": 21.8,
+                "ese": 35.8,
+                "lab": 17.0,
+                "proj": 17.5
+            }
+        }
+    },
+    {
+        "prn": "1251070998",
+        "roll_no": "220",
+        "name": "Darsh Jaiswal",
+        "division": "B",
+        "batch": "B2",
+        "email": "darsh.1251070998@acadpulse.edu",
+        "attendance": 87.9,
+        "marks": {
+            "DS": {
+                "mse": 23.0,
+                "ese": 36.0,
+                "lab": 16.4,
+                "proj": 16.4
+            },
+            "COA": {
+                "mse": 22.5,
+                "ese": 34.9,
+                "lab": 16.4,
+                "proj": 16.4
+            },
+            "DM": {
+                "mse": 23.2,
+                "ese": 35.6,
+                "lab": 16.4,
+                "proj": 16.4
+            }
+        }
+    },
+    {
+        "prn": "1251070100",
+        "roll_no": "221",
+        "name": "Pranali Pramod Ingle",
+        "division": "B",
+        "batch": "B3",
+        "email": "pranali.1251070100@acadpulse.edu",
+        "attendance": 84.7,
+        "marks": {
+            "DS": {
+                "mse": 22.3,
+                "ese": 35.8,
+                "lab": 17.3,
+                "proj": 16.8
+            },
+            "COA": {
+                "mse": 21.9,
+                "ese": 34.7,
+                "lab": 17.3,
+                "proj": 16.8
+            },
+            "DM": {
+                "mse": 22.5,
+                "ese": 35.4,
+                "lab": 17.3,
+                "proj": 16.8
+            }
+        }
+    },
+    {
+        "prn": "1251070497",
+        "roll_no": "222",
+        "name": "Jadhav Atharv Santaji",
+        "division": "B",
+        "batch": "B1",
+        "email": "atharv.1251070497@acadpulse.edu",
+        "attendance": 86.5,
+        "marks": {
+            "DS": {
+                "mse": 21.7,
+                "ese": 35.6,
+                "lab": 16.8,
+                "proj": 17.3
+            },
+            "COA": {
+                "mse": 21.3,
+                "ese": 34.5,
+                "lab": 16.8,
+                "proj": 17.3
+            },
+            "DM": {
+                "mse": 21.9,
+                "ese": 35.2,
+                "lab": 16.8,
+                "proj": 17.3
+            }
+        }
+    },
+    {
+        "prn": "1251070112",
+        "roll_no": "223",
+        "name": "Zoya Sameer Inamdar",
+        "division": "B",
+        "batch": "B2",
+        "email": "zoya.1251070112@acadpulse.edu",
+        "attendance": 83.3,
+        "marks": {
+            "DS": {
+                "mse": 21.1,
+                "ese": 35.4,
+                "lab": 16.2,
+                "proj": 16.2
+            },
+            "COA": {
+                "mse": 20.7,
+                "ese": 34.3,
+                "lab": 16.2,
+                "proj": 16.2
+            },
+            "DM": {
+                "mse": 21.3,
+                "ese": 35.0,
+                "lab": 16.2,
+                "proj": 16.2
+            }
+        }
+    },
+    {
+        "prn": "1251070747",
+        "roll_no": "224",
+        "name": "Isha Shashikant Madrewar",
+        "division": "B",
+        "batch": "B3",
+        "email": "isha.1251070747@acadpulse.edu",
+        "attendance": 85.2,
+        "marks": {
+            "DS": {
+                "mse": 22.5,
+                "ese": 35.1,
+                "lab": 17.2,
+                "proj": 16.7
+            },
+            "COA": {
+                "mse": 22.1,
+                "ese": 34.0,
+                "lab": 17.2,
+                "proj": 16.7
+            },
+            "DM": {
+                "mse": 22.7,
+                "ese": 34.7,
+                "lab": 17.2,
+                "proj": 16.7
+            }
+        }
+    },
+    {
+        "prn": "1251070150",
+        "roll_no": "225",
+        "name": "Harshwardhan Mukund Pawar",
+        "division": "B",
+        "batch": "B1",
+        "email": "harshwardhan.1251070150@acadpulse.edu",
+        "attendance": 87.0,
+        "marks": {
+            "DS": {
+                "mse": 21.8,
+                "ese": 34.9,
+                "lab": 16.6,
+                "proj": 17.1
+            },
+            "COA": {
+                "mse": 21.4,
+                "ese": 33.9,
+                "lab": 16.6,
+                "proj": 17.1
+            },
+            "DM": {
+                "mse": 22.0,
+                "ese": 34.6,
+                "lab": 16.6,
+                "proj": 17.1
+            }
+        }
+    },
+    {
+        "prn": "1251070662",
+        "roll_no": "226",
+        "name": "Hatwar Nayan Ramprakash",
+        "division": "B",
+        "batch": "B2",
+        "email": "nayan.1251070662@acadpulse.edu",
+        "attendance": 83.8,
+        "marks": {
+            "DS": {
+                "mse": 21.2,
+                "ese": 34.7,
+                "lab": 16.1,
+                "proj": 16.1
+            },
+            "COA": {
+                "mse": 20.8,
+                "ese": 33.7,
+                "lab": 16.1,
+                "proj": 16.1
+            },
+            "DM": {
+                "mse": 21.4,
+                "ese": 34.4,
+                "lab": 16.1,
+                "proj": 16.1
+            }
+        }
+    },
+    {
+        "prn": "1251070493",
+        "roll_no": "227",
+        "name": "Swapnil Jajgekar",
+        "division": "B",
+        "batch": "B3",
+        "email": "swapnil.1251070493@acadpulse.edu",
+        "attendance": 85.6,
+        "marks": {
+            "DS": {
+                "mse": 20.6,
+                "ese": 34.5,
+                "lab": 17.0,
+                "proj": 16.5
+            },
+            "COA": {
+                "mse": 20.2,
+                "ese": 33.5,
+                "lab": 17.0,
+                "proj": 16.5
+            },
+            "DM": {
+                "mse": 20.8,
+                "ese": 34.2,
+                "lab": 17.0,
+                "proj": 16.5
+            }
+        }
+    },
+    {
+        "prn": "1251070047",
+        "roll_no": "228",
+        "name": "Shivam Premsing Jamadar",
+        "division": "B",
+        "batch": "B1",
+        "email": "shivam.1251070047@acadpulse.edu",
+        "attendance": 82.4,
+        "marks": {
+            "DS": {
+                "mse": 22.0,
+                "ese": 34.3,
+                "lab": 16.5,
+                "proj": 17.0
+            },
+            "COA": {
+                "mse": 21.6,
+                "ese": 33.3,
+                "lab": 16.5,
+                "proj": 17.0
+            },
+            "DM": {
+                "mse": 22.2,
+                "ese": 34.0,
+                "lab": 16.5,
+                "proj": 17.0
+            }
+        }
+    },
+    {
+        "prn": "1251070494",
+        "roll_no": "229",
+        "name": "Shravani Dnyanoba Kale",
+        "division": "B",
+        "batch": "B2",
+        "email": "shravani.1251070494@acadpulse.edu",
+        "attendance": 84.3,
+        "marks": {
+            "DS": {
+                "mse": 21.4,
+                "ese": 34.1,
+                "lab": 15.9,
+                "proj": 15.9
+            },
+            "COA": {
+                "mse": 21.0,
+                "ese": 33.1,
+                "lab": 15.9,
+                "proj": 15.9
+            },
+            "DM": {
+                "mse": 21.6,
+                "ese": 33.8,
+                "lab": 15.9,
+                "proj": 15.9
+            }
+        }
+    },
+    {
+        "prn": "1251070282",
+        "roll_no": "230",
+        "name": "Ayush Shailesh Jadhav",
+        "division": "B",
+        "batch": "B3",
+        "email": "ayush.1251070282@acadpulse.edu",
+        "attendance": 86.1,
+        "marks": {
+            "DS": {
+                "mse": 20.7,
+                "ese": 33.9,
+                "lab": 16.9,
+                "proj": 16.4
+            },
+            "COA": {
+                "mse": 20.3,
+                "ese": 32.9,
+                "lab": 16.9,
+                "proj": 16.4
+            },
+            "DM": {
+                "mse": 20.9,
+                "ese": 33.6,
+                "lab": 16.9,
+                "proj": 16.4
+            }
+        }
+    },
+    {
+        "prn": "1251070152",
+        "roll_no": "231",
+        "name": "Tanmay Dattatray Kachare",
+        "division": "B",
+        "batch": "B1",
+        "email": "tanmay.1251070152@acadpulse.edu",
+        "attendance": 82.9,
+        "marks": {
+            "DS": {
+                "mse": 20.1,
+                "ese": 33.7,
+                "lab": 16.3,
+                "proj": 16.8
+            },
+            "COA": {
+                "mse": 19.7,
+                "ese": 32.7,
+                "lab": 16.3,
+                "proj": 16.8
+            },
+            "DM": {
+                "mse": 20.3,
+                "ese": 33.4,
+                "lab": 16.3,
+                "proj": 16.8
+            }
+        }
+    },
+    {
+        "prn": "1251070014",
+        "roll_no": "232",
+        "name": "Rohan Deshmukh",
+        "division": "B",
+        "batch": "B2",
+        "email": "rohan.deshmukh@acadpulse.edu",
+        "attendance": 84.7,
+        "marks": {
+            "DS": {
+                "mse": 21.5,
+                "ese": 33.5,
+                "lab": 15.8,
+                "proj": 15.8
+            },
+            "COA": {
+                "mse": 21.1,
+                "ese": 32.5,
+                "lab": 15.8,
+                "proj": 15.8
+            },
+            "DM": {
+                "mse": 21.7,
+                "ese": 33.2,
+                "lab": 15.8,
+                "proj": 15.8
+            }
+        }
+    },
+    {
+        "prn": "1251070021",
+        "roll_no": "233",
+        "name": "Pooja Kulkarni",
+        "division": "B",
+        "batch": "B3",
+        "email": "pooja.kulkarni@acadpulse.edu",
+        "attendance": 81.6,
+        "marks": {
+            "DS": {
+                "mse": 20.9,
+                "ese": 33.3,
+                "lab": 16.7,
+                "proj": 16.2
+            },
+            "COA": {
+                "mse": 20.5,
+                "ese": 32.3,
+                "lab": 16.7,
+                "proj": 16.2
+            },
+            "DM": {
+                "mse": 21.1,
+                "ese": 33.0,
+                "lab": 16.7,
+                "proj": 16.2
+            }
+        }
+    },
+    {
+        "prn": "1251070035",
+        "roll_no": "234",
+        "name": "Tanvi Shinde",
+        "division": "B",
+        "batch": "B1",
+        "email": "tanvi.shinde@acadpulse.edu",
+        "attendance": 83.4,
+        "marks": {
+            "DS": {
+                "mse": 20.2,
+                "ese": 33.1,
+                "lab": 16.1,
+                "proj": 16.6
+            },
+            "COA": {
+                "mse": 19.8,
+                "ese": 32.1,
+                "lab": 16.1,
+                "proj": 16.6
+            },
+            "DM": {
+                "mse": 20.4,
+                "ese": 32.8,
+                "lab": 16.1,
+                "proj": 16.6
+            }
+        }
+    },
+    {
+        "prn": "1251070042",
+        "roll_no": "235",
+        "name": "Amit Patil",
+        "division": "B",
+        "batch": "B2",
+        "email": "amit.patil@acadpulse.edu",
+        "attendance": 64.0,
+        "marks": {
+            "DS": {
+                "mse": 11.5,
+                "ese": 19.0,
+                "lab": 10.0,
+                "proj": 11.0
+            },
+            "COA": {
+                "mse": 12.0,
+                "ese": 20.5,
+                "lab": 11.0,
+                "proj": 11.5
+            },
+            "DM": {
+                "mse": 13.0,
+                "ese": 21.0,
+                "lab": 11.5,
+                "proj": 12.0
+            }
+        }
+    },
+    {
+        "prn": "1251070058",
+        "roll_no": "236",
+        "name": "Neha Joshi",
+        "division": "B",
+        "batch": "B3",
+        "email": "neha.joshi@acadpulse.edu",
+        "attendance": 67.5,
+        "marks": {
+            "DS": {
+                "mse": 13.5,
+                "ese": 21.0,
+                "lab": 11.0,
+                "proj": 11.0
+            },
+            "COA": {
+                "mse": 12.0,
+                "ese": 20.5,
+                "lab": 11.0,
+                "proj": 11.5
+            },
+            "DM": {
+                "mse": 13.0,
+                "ese": 21.0,
+                "lab": 11.5,
+                "proj": 12.0
+            }
+        }
+    },
+    {
+        "prn": "1251070063",
+        "roll_no": "237",
+        "name": "Varun Kadam",
+        "division": "B",
+        "batch": "B1",
+        "email": "varun.kadam@acadpulse.edu",
+        "attendance": 71.0,
+        "marks": {
+            "DS": {
+                "mse": 11.5,
+                "ese": 23.0,
+                "lab": 10.0,
+                "proj": 11.0
+            },
+            "COA": {
+                "mse": 12.0,
+                "ese": 20.5,
+                "lab": 11.0,
+                "proj": 11.5
+            },
+            "DM": {
+                "mse": 13.0,
+                "ese": 21.0,
+                "lab": 11.5,
+                "proj": 12.0
+            }
         }
     }
 ]
@@ -222,4 +2187,3 @@ def init_sample_data(file_path):
 
 if __name__ == "__main__":
     init_sample_data(os.path.join(os.path.dirname(__file__), "..", "data", "students.json"))
-
