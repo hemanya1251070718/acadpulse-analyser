@@ -5,143 +5,214 @@
 <!-- ==========================================================================
      FRONT HERO COVER SCREEN (FERNWOOD-STYLE AESTHETIC + 3D SHOWCASE CARDS)
      ========================================================================== -->
-<!-- ==========================================================================
-     FRONT HERO BROADSIDE (SWISS TYPOGRAPHIC ASYMMETRY & BRAUN TELEMETRY)
-     ========================================================================== -->
-<section id="heroScreen" class="swiss-hero-broadside">
-  <div class="container-fluid px-3 px-md-4">
-    <div class="row align-items-stretch g-0 border border-hairline">
+<section id="heroScreen" class="fernwood-hero-section">
+  <!-- Live Ambient Lightning & Nebula Canvas -->
+  <canvas id="thunderCanvas"></canvas>
+
+  <!-- Cartoon Animated Layer (Stickman Scholars, Bouncing Books, Graduation Caps) -->
+  <div class="cartoon-floating-layer">
+    <!-- Stickman Scholars -->
+    <div class="cartoon-item cartoon-stickman" style="top: 14%; left: 6%;">🧑‍🎓</div>
+    <div class="cartoon-item cartoon-stickman" style="top: 24%; right: 7%; animation-delay: -3s;">🧑‍🎓</div>
+    <div class="cartoon-item cartoon-stickman" style="bottom: 24%; left: 8%; animation-delay: -1.5s;">🧑‍🎓</div>
+
+    <!-- Bouncing Books -->
+    <div class="cartoon-item cartoon-book" style="top: 18%; left: 22%; animation-delay: -0.6s;">📚</div>
+    <div class="cartoon-item cartoon-book" style="bottom: 28%; right: 10%; animation-delay: -1.8s;">📖</div>
+    <div class="cartoon-item cartoon-book" style="top: 48%; right: 4%; animation-delay: -2.4s;">📚</div>
+
+    <!-- Floating Graduation Caps & Scrolls -->
+    <div class="cartoon-item cartoon-mortarboard" style="top: 10%; right: 24%; animation-delay: -1s;">🎓</div>
+    <div class="cartoon-item cartoon-mortarboard" style="bottom: 18%; right: 26%; animation-delay: -2.8s;">🎓</div>
+    <div class="cartoon-item cartoon-scroll" style="bottom: 20%; left: 24%; animation-delay: -3.2s;">📜</div>
+  </div>
+
+  <!-- Dot Matrix Vignette Pattern Elements -->
+  <div class="hero-dot-matrix-left"></div>
+  <div class="hero-dot-matrix-right"></div>
+
+  <!-- Floating Tilted Badge (NEW DROP style) -->
+  <div class="floating-drop-badge">
+    <span>TOP</span>
+    <span>MERIT</span>
+  </div>
+
+  <!-- Hero Main Stage Content -->
+  <div class="hero-stage-container">
+    <!-- Top Sub-Nav Breadcrumb Indicators -->
+    <div class="hero-subnav-links">
+      <a href="#students-section" class="hero-sublink">→ Live Rankings</a>
+      <a href="#dsa-section" class="hero-sublink">→ DSA Benchmarks</a>
+      <a href="#syllabus-section" class="hero-sublink">→ 100% Syllabus</a>
+    </div>
+
+    <!-- Giant Headline with Floating Sparkle Icon -->
+    <div class="hero-headline-wrap">
+      <div class="floating-sparkle-pill">
+        <span>✦</span>
+      </div>
+      <h1 class="hero-headline-fernwood">
+        Rank every student,<br>
+        one assessment at a time.
+      </h1>
+    </div>
+
+    <!-- Subtitle Text -->
+    <p class="hero-subtitle-fernwood">
+      Continuous marks tracking, dynamic merit rankings, and zero-compromise algorithmic precision.<br class="d-none d-md-inline">
+      On your dashboard every continuous assessment.
+    </p>
+
+    <!-- Call to Action Buttons -->
+    <div class="hero-cta-group">
+      <a href="#cockpitStart" class="btn-fernwood-primary text-decoration-none">
+        Start Ranking
+      </a>
+      <a href="/curriculum-graph" class="btn-fernwood-secondary text-decoration-none">
+        How it works
+      </a>
+    </div>
+
+    <!-- THE THREE 3D FLOATING SHOWCASE CARDS (Exact match to reference image!) -->
+    <div class="hero-tilted-showcase-cards">
       
-      <!-- Left Editorial Column (60%) -->
-      <div class="col-lg-7 p-4 p-md-5 border-end-hairline d-flex flex-column justify-content-between swiss-editorial-col">
-        <div>
-          <div class="d-flex align-items-center gap-2 mb-3">
-            <span class="telemetry-badge-sharp">PROTOCOL // 0x40_DSA</span>
-            <span class="text-secondary font-monospace" style="font-size: 0.72rem;">[CONTINUOUS_EVALUATION_CYCLE]</span>
-          </div>
-          
-          <h1 class="swiss-display-title">
-            CONTINUOUS<br>
-            MERIT PROTOCOL.
-          </h1>
-          <div class="swiss-display-sub mb-4">
-            ALGORITHMIC ACADEMIC EVALUATION &amp; RANKING AT SCALE.
-          </div>
-
-          <p class="swiss-narrative-copy mb-4">
-            High-throughput continuous examination aggregation, dynamic Shunting-Yard arithmetic weighting, and zero-overhead Heapsort ranking. Replaces generic SaaS approximations with rigorous algorithmic determinism.
-          </p>
-
-          <div class="d-flex align-items-center gap-3 flex-wrap mb-4">
-            <a href="#cockpitStart" class="btn-swiss-primary">
-              <span>INSPECT MASTER HUD ↓</span>
-            </a>
-            <a href="/merit-list" class="btn-swiss-ghost">
-              <span>EXECUTE HEAPSORT →</span>
-            </a>
-          </div>
+      <!-- Card 1 (Left, tilted -3.5deg): Subject Health / Progress Bars -->
+      <div class="fernwood-card card-left-tilt">
+        <div class="card-top-header d-flex align-items-center">
+          <span class="icon-badge-violet me-2"><i class="bi bi-bar-chart-fill"></i></span>
+          <span class="card-title-text">Subject Health</span>
         </div>
-
-        <!-- Architectural Bottom Ticker -->
-        <div class="pt-4 border-top border-hairline d-flex align-items-center justify-content-between flex-wrap gap-2 text-secondary font-monospace" style="font-size: 0.74rem;">
-          <span>TOTAL CADETS: 15/15</span>
-          <span>TIME COMPLEXITY: O(N LOG N)</span>
-          <span>DEPQ LOOKUP: O(1)</span>
-          <span>COVERAGE: 100% (40/40)</span>
+        <div class="card-bars-list mt-3">
+          <div class="bar-row">
+            <span class="bar-label">Data Structures</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 92%;"></div></div>
+            <span class="bar-score">92</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Discrete Math</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 88%;"></div></div>
+            <span class="bar-score">88</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Computer Arch</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 97%;"></div></div>
+            <span class="bar-score">97</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Algorithms</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 74%;"></div></div>
+            <span class="bar-score">74</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Lab Practical</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 61%;"></div></div>
+            <span class="bar-score">61</span>
+          </div>
         </div>
       </div>
 
-      <!-- Right Braun Telemetry Console Column (40%) -->
-      <div class="col-lg-5 p-4 p-md-5 swiss-telemetry-col d-flex flex-column justify-content-between">
-        <div>
-          <div class="d-flex align-items-center justify-content-between mb-4 border-bottom border-hairline pb-2">
-            <span class="font-monospace text-secondary small">DIETER RAMS // TELEMETRY MONITOR 01</span>
-            <span class="text-signal-orange font-monospace small">SIGNAL: ACTIVE</span>
-          </div>
-
-          <!-- Big Brutal Number Readout -->
-          <div class="mb-4">
-            <div class="telemetry-label-mono">CLASS COMPOSITE MEAN</div>
-            <div class="telemetry-giant-number" id="heroAvgDisplay">86.4<span class="text-signal-orange">%</span></div>
-            <div class="telemetry-progress-line mt-2">
-              <div class="telemetry-progress-fill" style="width: 86.4%;"></div>
-            </div>
-          </div>
-
-          <!-- Telemetry Spec Rows -->
-          <div class="telemetry-spec-table mb-4">
-            <div class="spec-row">
-              <span class="spec-key">VALEDICTORIAN RANK #1</span>
-              <span class="spec-val text-white fw-bold">AARAV SHARMA (98.5%)</span>
-            </div>
-            <div class="spec-row">
-              <span class="spec-key">DEPQ AT-RISK MONITOR</span>
-              <span class="spec-val text-warning fw-bold">1 CADET IDENTIFIED</span>
-            </div>
-            <div class="spec-row">
-              <span class="spec-key">FORMULA IN PROCESS</span>
-              <span class="spec-val text-signal-orange font-monospace">(MSE*0.3)+(ESE*0.5)+(LAB*0.2)</span>
-            </div>
-            <div class="spec-row">
-              <span class="spec-key">REGISTERED PIPELINE</span>
-              <span class="spec-val text-secondary font-monospace">HEAPSORT · DEPQ · DIJKSTRA</span>
-            </div>
-          </div>
+      <!-- Card 2 (Center, featured elevated glowing purple card): Top Performer / Semi-circular Gauge -->
+      <div class="fernwood-card card-center-feature">
+        <div class="center-card-header text-center">
+          <span class="center-subtitle">Top Performer of the Semester</span>
         </div>
+        <div class="gauge-center-wrap">
+          <!-- Semi-circular Speedometer SVG Gauge -->
+          <svg class="gauge-svg" viewBox="0 0 200 120">
+            <!-- Background Arc Track -->
+            <path d="M 25 105 A 75 75 0 0 1 175 105" fill="none" stroke="rgba(255, 255, 255, 0.22)" stroke-width="14" stroke-linecap="round"/>
+            <!-- Animated Progress Arc -->
+            <path class="gauge-meter-path" d="M 25 105 A 75 75 0 0 1 175 105" fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round" stroke-dasharray="235.6" stroke-dashoffset="23.5"/>
+          </svg>
+          <div class="gauge-score-value">92</div>
+        </div>
+        <div class="center-card-caption text-center">
+          Aarav Sharma, Thriving
+        </div>
+      </div>
 
-        <div class="p-3 bg-tone-shift border border-hairline">
-          <div class="d-flex align-items-center justify-content-between font-monospace" style="font-size: 0.72rem;">
-            <span class="text-secondary">SYSTEM DIAGNOSTIC:</span>
-            <span class="text-signal-green">ALL SYSTEMS NOMINAL</span>
+      <!-- Card 3 (Right, tilted +3.5deg): Merit Velocity / Sparkline -->
+      <div class="fernwood-card card-right-tilt">
+        <div class="card-top-header d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <span class="icon-badge-violet me-2"><i class="bi bi-droplet-fill"></i></span>
+            <span class="card-title-text">Merit Velocity</span>
           </div>
+          <span class="pill-streak-badge">12 weeks</span>
+        </div>
+        <div class="sparkline-wrap mt-3">
+          <!-- Smooth SVG Line Chart -->
+          <svg class="sparkline-svg" viewBox="0 0 260 110">
+            <!-- Subtle Gridlines -->
+            <line x1="0" y1="25" x2="260" y2="25" stroke="#f1f5f9" stroke-width="1" />
+            <line x1="0" y1="55" x2="260" y2="55" stroke="#f1f5f9" stroke-width="1" />
+            <line x1="0" y1="85" x2="260" y2="85" stroke="#f1f5f9" stroke-width="1" />
+            
+            <!-- Sparkline Path Area Fill -->
+            <path d="M 10 90 Q 40 85, 60 70 T 110 75 T 150 50 T 190 40 T 230 35 T 250 25 L 250 105 L 10 105 Z" fill="rgba(124, 58, 237, 0.08)" />
+            <!-- Sparkline Line -->
+            <path d="M 10 90 Q 40 85, 60 70 T 110 75 T 150 50 T 190 40 T 230 35 T 250 25" fill="none" stroke="#7c3aed" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+            <!-- Endpoint Pulse Dot -->
+            <circle cx="250" cy="25" r="4.5" fill="#7c3aed" />
+          </svg>
         </div>
       </div>
 
     </div>
   </div>
+
+  <!-- Scroll Down Cue -->
+  <a href="#cockpitStart" class="hero-scroll-cue">
+    <span>Scroll to Explore</span>
+    <i class="bi bi-chevron-down fs-5"></i>
+  </a>
 </section>
 
 <!-- ==========================================================================
      UNIFIED DASHBOARD CONTAINER (ALL PROJECT MODULES IN ORDER DOWN-BY-DOWN)
      ========================================================================== -->
-<div id="cockpitStart" class="container-fluid px-3 px-md-4 py-4">
+<div id="cockpitStart" class="container-fluid px-lg-4 py-5">
 
-  <!-- Master Swiss Ledger Bar -->
-  <div class="swiss-ledger-header p-3 p-md-4 mb-4">
+  <!-- Apple Glass Heading with Liquid Hover Glint -->
+  <div class="apple-glass-heading glass-hover p-4 mb-4 reveal-on-scroll">
     <div class="row align-items-center">
       <div class="col-lg-8">
-        <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
-          <span class="telemetry-badge-sharp">MODULE_HUD // ALL_CHANNELS</span>
-          <span class="font-monospace text-signal-green small">[PIPELINE: ACTIVE]</span>
+        <div class="d-flex align-items-center mb-2 flex-wrap gap-2">
+          <span class="badge px-3 py-1 font-monospace" style="background: rgba(139, 92, 246, 0.25); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.5); box-shadow: 0 0 16px rgba(139, 92, 246, 0.35);">
+            <i class="bi bi-radar me-1 text-warning"></i> UNIFIED COCKPIT HUD
+          </span>
+          <span class="badge px-2 py-1 font-monospace" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);">
+            <i class="bi bi-shield-check me-1"></i> HIGH-PERFORMANCE ENGINE ONLINE
+          </span>
         </div>
-        <h2 class="swiss-section-title mb-1">
-          Master Academic Analytics &amp; Continuous Ledger
+        <h2 class="fw-bold mb-1 text-white" style="letter-spacing: -0.02em;">
+          Academic Performance &amp; Student Ranking Cockpit
         </h2>
-        <p class="text-secondary font-mono-sub mb-0 small">
-          Inspect institutional cohort KPIs, execute heapsort merit re-indexing, update marks, and simulate 40/40 data structures.
+        <p class="mb-0 small" style="color: #cbd5e1; max-width: 760px;">
+          Scroll down smoothly to inspect telemetry KPIs, merit leaderboards, student directories, assessment gradebooks, interactive algorithms, and curriculum graphs.
         </p>
       </div>
       <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
-        <a href="/merit-list" class="btn-swiss-primary me-2">
-          <span>LEADERBOARD TAB →</span>
+        <a href="/merit-list" class="btn btn-primary fw-bold me-2 shadow-sm">
+          <i class="bi bi-trophy-fill me-1 text-warning"></i> Open Leaderboard Tab
         </a>
-        <a href="/dsa-workbench" class="btn-swiss-ghost">
-          <span>ALGO LAB TAB →</span>
+        <a href="/dsa-workbench" class="btn btn-outline-light fw-bold shadow-sm">
+          <i class="bi bi-cpu me-1"></i> Open Lab Tab
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Swiss Quick Index Dock -->
-  <div class="d-flex justify-content-center mb-4">
-    <div class="swiss-index-dock">
-      <a href="#mod-telemetry" class="swiss-dock-link active">[01] TELEMETRY</a>
-      <a href="#mod-leaderboard" class="swiss-dock-link">[02] LEADERBOARD</a>
-      <a href="#mod-students" class="swiss-dock-link">[03] CADETS</a>
-      <a href="#mod-assessments" class="swiss-dock-link">[04] ASSESSMENTS</a>
-      <a href="#mod-workbench" class="swiss-dock-link">[05] ALGORITHMS</a>
-      <a href="#mod-curriculum" class="swiss-dock-link">[06] CURRICULUM</a>
-      <a href="#mod-syllabus" class="swiss-dock-link">[07] SYLLABUS</a>
+  <!-- Cockpit Horizon Quick Nav Dock -->
+  <div class="d-flex justify-content-center mb-4 reveal-on-scroll delay-1">
+    <div class="cockpit-dock">
+      <a href="#mod-telemetry" class="cockpit-dock-btn active"><i class="bi bi-speedometer2 text-info me-1"></i> [01] Telemetry</a>
+      <a href="#mod-leaderboard" class="cockpit-dock-btn"><i class="bi bi-trophy text-warning me-1"></i> [02] Leaderboard</a>
+      <a href="#mod-students" class="cockpit-dock-btn"><i class="bi bi-people text-primary me-1"></i> [03] Cadets</a>
+      <a href="#mod-assessments" class="cockpit-dock-btn"><i class="bi bi-pencil-square text-success me-1"></i> [04] Assessments</a>
+      <a href="#mod-workbench" class="cockpit-dock-btn"><i class="bi bi-cpu text-info me-1"></i> [05] Algorithms</a>
+      <a href="#mod-curriculum" class="cockpit-dock-btn"><i class="bi bi-diagram-3 text-warning me-1"></i> [06] Curriculum</a>
+      <a href="#mod-syllabus" class="cockpit-dock-btn"><i class="bi bi-check2-circle text-success me-1"></i> [07] Syllabus</a>
     </div>
   </div>
 
@@ -149,35 +220,43 @@
   <!-- TAB MODULE 1: TELEMETRY HUD & SCORE SPECTRUM                          -->
   <!-- ====================================================================== -->
   <div id="mod-telemetry" class="mb-5">
-    <div class="d-flex justify-content-between align-items-center mb-3">
+    <div class="d-flex justify-content-between align-items-center mb-3 reveal-on-scroll">
       <div>
-        <h5 class="swiss-block-title mb-0">[01 // TELEMETRY HUD &amp; INSTITUTIONAL ANALYTICS]</h5>
-        <span class="font-monospace text-secondary small">Continuous evaluation aggregates and distribution telemetry</span>
+        <h5 class="fw-bold mb-0 text-white"><i class="bi bi-speedometer2 text-info me-2"></i>1. Telemetry HUD &amp; Institutional Analytics</h5>
+        <span class="small text-muted">Continuous evaluation aggregates and distribution telemetry</span>
       </div>
-      <span class="font-monospace text-secondary small">[CHANNEL 1 / 7]</span>
+      <span class="badge bg-secondary font-monospace">MODULE 1 / 7</span>
     </div>
 
-    <!-- 4-Channel Monolithic Telemetry Strip -->
-    <div class="row g-0 border border-hairline mb-4 bg-tone-base">
-      <div class="col-6 col-md-3 p-3 p-md-4 border-end-hairline">
-        <div class="telemetry-label-mono">01 // ENROLLED CADETS</div>
-        <div class="telemetry-giant-number" id="statStudents">–</div>
-        <div class="font-monospace text-secondary" style="font-size: 0.72rem;">DYNAMIC VECTOR BUFFER</div>
+    <!-- Telemetry Cards -->
+    <div class="row g-3 mb-4">
+      <div class="col-md-3 reveal-on-scroll delay-1">
+        <div class="stat-card p-3 glass-hover">
+          <div class="stat-label mb-1">Total Enrolled Cadets</div>
+          <div class="stat-value" id="statStudents">–</div>
+          <div class="small mt-2" style="color: #94a3b8;"><i class="bi bi-diagram-2 text-info me-1"></i> Dynamic Vector Buffer</div>
+        </div>
       </div>
-      <div class="col-6 col-md-3 p-3 p-md-4 border-end-hairline">
-        <div class="telemetry-label-mono">02 // COMPOSITE MEAN</div>
-        <div class="telemetry-giant-number text-signal-orange" id="statAvgScore">–</div>
-        <div class="font-monospace text-secondary" style="font-size: 0.72rem;">WEIGHTED FORMULA COMPOSITE</div>
+      <div class="col-md-3 reveal-on-scroll delay-2">
+        <div class="stat-card border-success p-3 glass-hover">
+          <div class="stat-label mb-1">Class Average Power</div>
+          <div class="stat-value" style="color: #34d399;" id="statAvgScore">–</div>
+          <div class="small mt-2" style="color: #94a3b8;"><i class="bi bi-graph-up text-success me-1"></i> Weighted Composite Marks</div>
+        </div>
       </div>
-      <div class="col-6 col-md-3 p-3 p-md-4 border-end-hairline border-top-mobile">
-        <div class="telemetry-label-mono">03 // ATTENDANCE RATE</div>
-        <div class="telemetry-giant-number text-white" id="statAttendance">–</div>
-        <div class="font-monospace text-secondary" style="font-size: 0.72rem;">SESSION AGGREGATE MEAN</div>
+      <div class="col-md-3 reveal-on-scroll delay-3">
+        <div class="stat-card border-warning p-3 glass-hover">
+          <div class="stat-label mb-1">Attendance Telemetry</div>
+          <div class="stat-value" style="color: #fbbf24;" id="statAttendance">–</div>
+          <div class="small mt-2" style="color: #94a3b8;"><i class="bi bi-clock-history text-warning me-1"></i> Session Aggregate Average</div>
+        </div>
       </div>
-      <div class="col-6 col-md-3 p-3 p-md-4 border-top-mobile">
-        <div class="telemetry-label-mono">04 // DEPQ AT-RISK</div>
-        <div class="telemetry-giant-number text-warning" id="statAtRisk">–</div>
-        <div class="font-monospace text-secondary" style="font-size: 0.72rem;">O(1) MIN-HEAP INTERVENTION</div>
+      <div class="col-md-3 reveal-on-scroll delay-4">
+        <div class="stat-card border-danger p-3 glass-hover">
+          <div class="stat-label mb-1">DEPQ At-Risk Interventions</div>
+          <div class="stat-value" style="color: #f87171;" id="statAtRisk">–</div>
+          <div class="small mt-2" style="color: #94a3b8;"><i class="bi bi-shield-slash text-danger me-1"></i> O(1) Min-Heap Alert</div>
+        </div>
       </div>
     </div>
 
@@ -738,9 +817,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       document.getElementById('statAvgScore').textContent = `${avg_score}%`;
       document.getElementById('statAttendance').textContent = `${avg_attendance}%`;
       document.getElementById('statAtRisk').textContent = at_risk.length;
-
-      const heroAvg = document.getElementById('heroAvgDisplay');
-      if (heroAvg) heroAvg.innerHTML = `${avg_score}<span class="text-signal-orange">%</span>`;
 
       // Render Holographic Gamecards
       renderToppersCards(toppers);
