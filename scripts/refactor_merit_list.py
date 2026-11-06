@@ -40,3 +40,4 @@ html = html.replace(old_nested, new_flattened)
 with open('frontend/templates/merit_list.html', 'w', encoding='utf-8') as f:
     f.write(html)
 print('Updated frontend/templates/merit_list.html cleanly.')
+

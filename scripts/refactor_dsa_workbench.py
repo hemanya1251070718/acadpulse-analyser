@@ -80,3 +80,4 @@ html = html.replace(old_heaps_nested, new_heaps_flattened)
 with open('frontend/templates/dsa_workbench.html', 'w', encoding='utf-8') as f:
     f.write(html)
 print('Updated frontend/templates/dsa_workbench.html cleanly.')
+

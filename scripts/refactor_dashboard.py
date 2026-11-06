@@ -330,3 +330,4 @@ html = html.replace(old_topper_markup, new_topper_markup)
 with open('frontend/templates/dashboard.html', 'w', encoding='utf-8') as f:
     f.write(html)
 print('Updated frontend/templates/dashboard.html cleanly.')
+

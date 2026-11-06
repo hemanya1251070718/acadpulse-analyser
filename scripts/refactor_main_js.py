@@ -181,3 +181,4 @@ with open("static/js/main.js", "w", encoding="utf-8") as f:
     f.write(main_js_content)
 
 print("Successfully wrote frontend/static/js/main.js and static/js/main.js!")
+

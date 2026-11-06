@@ -691,136 +691,101 @@ footer {
 }
 
 /* ==========================================================================
-   CLEAN HERO & PRECISION METRIC DECK
-   (NO LOOPING LIGHTNING, NO EMOJIS, NO TILTED 3D DISTORTION)
+   FERNWOOD HERO SECTION
    ========================================================================== */
 
-.dot-matrix-overlay {
-  position: fixed;
-  inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 24px 24px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.brand-fernwood {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #fff !important;
-}
-
-.brand-text {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.25rem;
-  letter-spacing: -0.02em;
-  color: #fff;
-}
-
-/* Floating Site Header */
-.site-header-floating {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1050;
-  background: rgba(8, 12, 16, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--hairline-border);
-  transition: all 0.25s ease;
-}
-
-.pill-nav-capsule {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--hairline-border);
-  border-radius: var(--radius-inner);
-  padding: 4px 6px;
-  gap: 4px;
-}
-
-.pill-nav-link {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.86rem;
-  font-weight: 500;
-  padding: 5px 14px;
-  border-radius: var(--radius-sm);
-  text-decoration: none;
-  transition: all 0.18s ease;
-}
-
-.pill-nav-link:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.pill-nav-link.active {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.14);
-}
-
-.pill-action-btn {
-  color: #fff;
-  font-size: 0.86rem;
-  font-weight: 600;
-  padding: 7px 18px;
-  border-radius: var(--radius-inner);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.06);
-  transition: all 0.2s ease;
-}
-
-.pill-action-btn:hover {
-  background: rgba(255, 255, 255, 0.14);
-  color: #fff;
-}
-
-.mobile-nav-panel {
-  background: rgba(10, 16, 22, 0.96);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-card);
-}
-
-.mobile-nav-link {
-  display: block;
-  padding: 0.6rem 0.8rem;
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  font-weight: 500;
-  border-radius: var(--radius-inner);
-  transition: all 0.18s ease;
-}
-
-.mobile-nav-link:hover, .mobile-nav-link.active {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* Clean Hero Section: No Hazy Radial Neon Blobs */
 .fernwood-hero-section {
-  min-height: 92vh;
+  min-height: 100vh;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 6.5rem;
-  padding-bottom: 4rem;
-  background: linear-gradient(180deg, #070b0e 0%, #0b1117 60%, #070a0d 100%);
+  padding-top: 7rem;
+  padding-bottom: 4.5rem;
+  background:
+    radial-gradient(ellipse 65% 50% at 50% 50%, rgba(139, 92, 246, 0.38) 0%, rgba(99, 102, 241, 0.16) 42%, transparent 72%),
+    radial-gradient(circle at 15% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
+    linear-gradient(180deg, #091714 0%, #0c1817 32%, #080f12 70%, #05080a 100%);
   z-index: 2;
+}
+
+/* Cartoon Animated Stickman Scholars, Bouncing Books & Caps */
+.cartoon-floating-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.cartoon-item {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.65));
+}
+
+.cartoon-stickman {
+  font-size: 3.2rem;
+  animation: stickmanFloat 6s ease-in-out infinite alternate;
+}
+
+.cartoon-book {
+  font-size: 2.6rem;
+  animation: bookBounce 3.8s cubic-bezier(0.28, 0.84, 0.42, 1) infinite;
+}
+
+.cartoon-mortarboard {
+  font-size: 2.8rem;
+  animation: capToss 4.8s ease-in-out infinite;
+}
+
+.cartoon-scroll {
+  font-size: 2.3rem;
+  animation: scrollWiggle 5.2s ease-in-out infinite alternate;
+}
+
+@keyframes stickmanFloat {
+  0% { transform: translateY(0px) rotate(-4deg); }
+  50% { transform: translateY(-24px) rotate(5deg) scale(1.05); }
+  100% { transform: translateY(0px) rotate(-4deg); }
+}
+
+@keyframes bookBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  35% { transform: translateY(-36px) rotate(-14deg) scale(1.1); }
+  65% { transform: translateY(-12px) rotate(8deg); }
+}
+
+@keyframes capToss {
+  0%, 100% { transform: translateY(0) rotate(-10deg); }
+  45% { transform: translateY(-42px) rotate(22deg) scale(1.15); }
+  75% { transform: translateY(-15px) rotate(-4deg); }
+}
+
+@keyframes scrollWiggle {
+  0% { transform: translateY(0) rotate(-8deg); }
+  100% { transform: translateY(-20px) rotate(12deg); }
+}
+
+#thunderCanvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .hero-stage-container {
   position: relative;
   z-index: 3;
   text-align: center;
-  max-width: 1100px;
+  max-width: 1140px;
   width: 100%;
   padding: 0 1.5rem;
 }
@@ -830,20 +795,22 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 1.8rem;
-  margin-bottom: 1.8rem;
+  margin-bottom: 2rem;
   flex-wrap: wrap;
 }
 
 .hero-sublink {
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.88rem;
   font-weight: 500;
   text-decoration: none;
-  transition: color 0.18s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
+  letter-spacing: 0.02em;
 }
 
 .hero-sublink:hover {
   color: #fff;
+  transform: translateX(2px);
 }
 
 .hero-headline-wrap {
@@ -852,21 +819,44 @@ footer {
   margin: 0 auto;
 }
 
+.floating-sparkle-pill {
+  position: absolute;
+  top: 15%;
+  left: -42px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #8b5cf6;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.9), 0 0 50px rgba(139, 92, 246, 0.5);
+  animation: sparklePulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes sparklePulse {
+  0% { transform: scale(0.9) rotate(0deg); box-shadow: 0 0 20px rgba(139, 92, 246, 0.7); }
+  100% { transform: scale(1.1) rotate(15deg); box-shadow: 0 0 35px rgba(139, 92, 246, 1); }
+}
+
 .hero-headline-fernwood {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+  font-size: clamp(2.6rem, 5.8vw, 4.8rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.1;
+  line-height: 1.08;
   color: #f8fafc;
-  margin-bottom: 1.1rem;
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.25rem;
 }
 
 .hero-subtitle-fernwood {
-  font-size: clamp(0.98rem, 1.5vw, 1.12rem);
-  color: var(--text-muted);
-  max-width: 660px;
-  margin: 0 auto 2rem;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  color: #cbd5e1;
+  max-width: 680px;
+  margin: 0 auto 2.2rem;
   line-height: 1.6;
 }
 
@@ -874,107 +864,178 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.85rem;
+  gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: 3rem;
+  margin-bottom: 3.2rem;
 }
 
 .btn-fernwood-primary {
-  background: #ffffff;
-  color: #090e13;
+  background: #8b5cf6;
+  color: #fff;
   font-weight: 600;
-  font-size: 0.94rem;
-  padding: 10px 26px;
-  border-radius: var(--radius-inner);
-  transition: all 0.2s ease;
+  font-size: 0.98rem;
+  padding: 12px 30px;
+  border-radius: 9999px;
+  box-shadow: 0 8px 28px rgba(139, 92, 246, 0.5);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-block;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-fernwood-primary:hover {
-  background: #e2e8f0;
-  color: #090e13;
-  transform: translateY(-1px);
+  background: #7c3aed;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 38px rgba(139, 92, 246, 0.7);
 }
 
 .btn-fernwood-secondary {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.12);
   color: #fff;
   font-weight: 600;
-  font-size: 0.94rem;
-  padding: 10px 26px;
-  border-radius: var(--radius-inner);
-  border: 1px solid var(--hairline-border);
-  transition: all 0.2s ease;
+  font-size: 0.98rem;
+  padding: 12px 30px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(14px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-block;
-  text-decoration: none;
 }
 
 .btn-fernwood-secondary:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.22);
   color: #fff;
-}
-
-/* ==========================================================================
-   FLATTENED HERO METRIC DECK (FLAT, FLUSH, MATCHING GEOMETRY)
-   Eliminates tilted 3D distortion and card-in-card nesting
-   ========================================================================== */
-
-.hero-metric-deck {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  max-width: 1040px;
-  width: 100%;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.metric-deck-card {
-  background: var(--bg-card);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-card);
-  padding: 1.35rem 1.45rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
-
-.metric-deck-card:hover {
-  border-color: var(--glass-border-hover);
   transform: translateY(-2px);
 }
 
-.metric-deck-card-featured {
-  background: rgba(20, 28, 38, 0.95);
-  border-color: rgba(255, 255, 255, 0.16);
-  text-align: center;
+.floating-drop-badge {
+  position: absolute;
+  top: 14%;
+  right: 14%;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #8b5cf6;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  line-height: 1.15;
+  text-transform: uppercase;
+  transform: rotate(-14deg);
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.75), 0 10px 25px rgba(0, 0, 0, 0.4);
+  z-index: 4;
+  animation: badgeFloat 4.5s ease-in-out infinite alternate;
 }
 
-.card-top-header {
+@keyframes badgeFloat {
+  0% { transform: rotate(-14deg) translateY(0); }
+  100% { transform: rotate(-8deg) translateY(-10px); }
+}
+
+/* ==========================================================================
+   3D FLOATING SHOWCASE CARDS (SIGNATURE HERO PIECE)
+   ========================================================================== */
+
+.hero-tilted-showcase-cards {
   display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1.5rem;
+  max-width: 1040px;
+  width: 100%;
+  margin: 0 auto;
+  perspective: 1200px;
+}
+
+.fernwood-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-left-tilt {
+  background: rgba(255, 255, 255, 0.94);
+  color: #0f172a;
+  border-radius: 24px;
+  padding: 22px 24px;
+  width: 320px;
+  text-align: left;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 1px rgba(0, 0, 0, 0.15);
+  transform: rotate(-3.5deg) translateY(12px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.card-left-tilt:hover {
+  transform: rotate(0deg) translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.55);
+}
+
+.card-center-feature {
+  background: linear-gradient(145deg, #7c3aed 0%, #6366f1 100%);
+  color: #ffffff;
+  border-radius: 26px;
+  padding: 26px 28px;
+  width: 340px;
+  text-align: center;
+  box-shadow: 0 25px 65px rgba(124, 58, 237, 0.58), 0 0 35px rgba(99, 102, 241, 0.35);
+  transform: translateY(-8px) scale(1.04);
+  z-index: 5;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.card-center-feature:hover {
+  transform: translateY(-16px) scale(1.07);
+  box-shadow: 0 30px 80px rgba(124, 58, 237, 0.75);
+}
+
+.card-right-tilt {
+  background: rgba(255, 255, 255, 0.94);
+  color: #0f172a;
+  border-radius: 24px;
+  padding: 22px 24px;
+  width: 320px;
+  text-align: left;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 1px rgba(0, 0, 0, 0.15);
+  transform: rotate(3.5deg) translateY(12px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.card-right-tilt:hover {
+  transform: rotate(0deg) translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.55);
+}
+
+/* Internal Card Elements */
+.icon-badge-violet {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #8b5cf6;
+  color: #fff;
+  display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  justify-content: center;
+  font-size: 0.85rem;
 }
 
 .card-title-text {
   font-weight: 700;
-  font-size: 0.92rem;
-  color: #f8fafc;
+  font-size: 0.95rem;
+  color: #0f172a;
   letter-spacing: -0.01em;
 }
 
 .pill-streak-badge {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.06);
-  padding: 2px 8px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--hairline-border);
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 3px 10px;
+  border-radius: 9999px;
 }
 
 .card-bars-list {
@@ -985,60 +1046,55 @@ footer {
 
 .bar-row {
   display: grid;
-  grid-template-columns: 105px 1fr 28px;
+  grid-template-columns: 110px 1fr 30px;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.5rem;
 }
 
 .bar-label {
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: #475569;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .bar-track {
-  height: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-track);
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 9999px;
   overflow: hidden;
 }
 
 .bar-fill {
   height: 100%;
-  background: #3b82f6;
-  border-radius: var(--radius-track);
+  background: #7c3aed;
+  border-radius: 9999px;
   transition: width 1s ease-in-out;
 }
 
 .bar-score {
   font-size: 0.78rem;
   font-weight: 700;
-  color: #cbd5e1;
+  color: #1e293b;
   text-align: right;
   font-family: var(--font-mono);
 }
 
 /* Center Card Gauge */
-.center-card-header {
-  text-align: center;
-}
-
 .center-subtitle {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.02em;
 }
 
 .gauge-center-wrap {
   position: relative;
-  width: 170px;
-  height: 100px;
-  margin: 0.8rem auto 0.4rem;
+  width: 180px;
+  height: 110px;
+  margin: 1rem auto 0.5rem;
 }
 
 .gauge-svg {
@@ -1049,27 +1105,28 @@ footer {
 
 .gauge-score-value {
   position: absolute;
-  bottom: 6px;
+  bottom: 8px;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 3.4rem;
+  font-weight: 800;
   color: #ffffff;
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
 }
 
 .center-card-caption {
-  font-size: 0.84rem;
+  font-size: 0.86rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 0.25rem;
 }
 
 /* Right Card Sparkline */
 .sparkline-wrap {
   width: 100%;
-  height: 105px;
+  height: 110px;
 }
 
 .sparkline-svg {
@@ -1077,33 +1134,38 @@ footer {
   height: 100%;
 }
 
-/* Purposeful, Non-Looping Scroll Indicator */
 .hero-scroll-cue {
   position: absolute;
-  bottom: 1.25rem;
+  bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
-  color: var(--text-dim);
-  font-size: 0.78rem;
+  color: #94a3b8;
+  font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.35rem;
+  animation: scrollBob 2.2s ease-in-out infinite;
   text-decoration: none;
-  transition: color 0.2s ease;
 }
 
 .hero-scroll-cue:hover {
   color: #fff;
 }
 
+@keyframes scrollBob {
+  0%, 100% { transform: translate(-50%, 0); opacity: 0.7; }
+  50% { transform: translate(-50%, 8px); opacity: 1; }
+}
+
 .fernwood-footer {
-  background: rgba(6, 9, 12, 0.95);
-  border-top: 1px solid var(--hairline-border);
+  background: rgba(4, 8, 10, 0.92);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   color: var(--text-muted);
 }
 
@@ -1113,38 +1175,63 @@ footer {
 
 /* Mobile responsive adjustments */
 @media (max-width: 992px) {
-  .hero-metric-deck {
-    grid-template-columns: 1fr;
-    max-width: 440px;
+  .hero-tilted-showcase-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .card-left-tilt, .card-right-tilt, .card-center-feature {
+    transform: none !important;
+    width: 100%;
+    max-width: 360px;
+  }
+  .floating-drop-badge {
+    top: 5%;
+    right: 5%;
+    width: 58px;
+    height: 58px;
+    font-size: 0.62rem;
+  }
+  .floating-sparkle-pill {
+    left: -10px;
   }
 }
 
-/* Precision Telemetry Indicators */
+
+/* ==========================================================================
+   HYBRID ADDITIONS: BRAUN TELEMETRY INDICATORS & TACTILE PRESS
+   ========================================================================== */
+
 .dot-live {
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: var(--signal-green);
   display: inline-block;
-  margin-right: 4px;
+  box-shadow: 0 0 8px var(--signal-green);
+  animation: liveBlink 2s ease-in-out infinite;
+}
+
+@keyframes liveBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
 }
 
 .telemetry-badge-sharp {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 600;
-  padding: 2px 7px;
-  background: rgba(255, 77, 0, 0.1);
+  padding: 3px 8px;
+  background: rgba(255, 77, 0, 0.12);
   color: var(--signal-orange);
-  border: 1px solid rgba(255, 77, 0, 0.3);
-  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 77, 0, 0.35);
   letter-spacing: 0.04em;
 }
 
 /* Mechanical Tactile Feedback on Active Click */
-.btn-fernwood-primary:active,
-.btn-primary:active,
-.pill-action-btn:active,
+.btn-fernwood-primary:active, 
+.btn-primary:active, 
+.pill-action-btn:active, 
 .cockpit-dock-btn:active {
-  transform: translate(1px, 1px) scale(0.99) !important;
+  transform: translate(1px, 1px) scale(0.98) !important;
 }
