@@ -92,3 +92,4 @@ with open("static/css/style.css", "w", encoding="utf-8") as f:
     f.write(combined_style)
 
 print("Successfully updated frontend/static/css/style.css and static/css/style.css!")
+
