@@ -159,3 +159,4 @@ if marker in content:
     print("Successfully restored Liquid Glass Top Bar in style.css!")
 else:
     print("Marker not found!")
+
