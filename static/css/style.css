@@ -49,10 +49,10 @@
   /* Geometric Corner Radius Consistency:
      Formula: inner_radius = outer_radius - padding
      Outer card: 14px | Inner interactive controls: 8px | Small pills: 6px | Tracks: 4px */
-  --radius-card: 14px;
-  --radius-inner: 8px;
-  --radius-sm: 6px;
-  --radius-track: 4px;
+  --radius-card: 28px;
+  --radius-inner: 18px;
+  --radius-sm: 14px;
+  --radius-track: 9999px;
 }
 
 /* Global Reset */
@@ -1402,4 +1402,79 @@ footer {
 .pill-action-btn:active, 
 .cockpit-dock-btn:active {
   transform: translate(1px, 1px) scale(0.98) !important;
+}
+
+
+/* ==========================================================================
+   ULTRA-ROUNDED MAX CURVATURE AESTHETIC (ALL BORDERS ROUNDED AT MAX)
+   ========================================================================== */
+
+.card,
+.cockpit-card,
+.stat-card,
+.game-card,
+.apple-glass,
+.apple-glass-heading,
+.modal-content,
+.fernwood-card,
+.card-left-tilt,
+.card-center-feature,
+.card-right-tilt {
+  border-radius: 28px !important;
+}
+
+.card-header {
+  border-top-left-radius: 28px !important;
+  border-top-right-radius: 28px !important;
+}
+
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-outline-primary,
+.btn-outline-light,
+.btn-outline-danger,
+.btn-sm,
+.pill-action-btn,
+.btn-fernwood-primary,
+.btn-fernwood-secondary {
+  border-radius: 9999px !important;
+}
+
+.form-control,
+.form-select,
+.input-group-text {
+  border-radius: 9999px !important;
+  padding-left: 1.15rem !important;
+  padding-right: 1.15rem !important;
+}
+
+.badge,
+.complexity-tag,
+.telemetry-badge-sharp,
+.pill-streak-badge,
+.score-pill-neutral {
+  border-radius: 9999px !important;
+  padding: 4px 12px !important;
+}
+
+.bar-track,
+.bar-fill,
+.stat-meter-track,
+.stat-meter-fill {
+  border-radius: 9999px !important;
+}
+
+.nav-pills .nav-link,
+.nav-link,
+.cockpit-dock,
+.cockpit-dock-btn,
+.pill-nav-capsule,
+.pill-nav-link {
+  border-radius: 9999px !important;
+}
+
+.table-responsive,
+.cockpit-scroll {
+  border-radius: 24px;
 }
